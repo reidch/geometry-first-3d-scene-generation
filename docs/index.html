@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="A Fully Automated Geometry-First Framework for Controllable Indoor 3D Scene Generation" />
+  <meta name="theme-color" content="#f7f7fb" />
+  <title>Geometry-First 3D Scene Generation</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap shell">
+      <a class="brand" href="#top">Geometry-First 3D</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#results">Results</a>
+        <a href="#ablations">Ablations</a>
+        <a href="#system">System</a>
+        <a href="#citation">Citation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow">MSc Dissertation · 2026</p>
+        <h1>A Fully Automated Geometry-First Framework for Controllable Indoor 3D Scene Generation</h1>
+        <p class="hero-subtitle">
+          A geometry-grounded scene-construction system that keeps explicit layout, hierarchy,
+          cameras and metric depth active throughout asset generation, multi-view synthesis and
+          3D Gaussian Splatting reconstruction.
+        </p>
+        <p class="authors"><strong>Rundong Chen</strong> · Supervisor: Binh-Son Hua</p>
+        <div class="button-row" aria-label="Project links">
+          <a id="paper-link" class="button primary" href="#" target="_blank" rel="noreferrer">Paper</a>
+          <a id="code-link" class="button" href="#" target="_blank" rel="noreferrer">Code</a>
+          <a id="video-link" class="button" href="#" target="_blank" rel="noreferrer">Video</a>
+        </div>
+      </div>
+
+      <div class="hero-media media-frame">
+        <video id="hero-video" playsinline muted loop controls preload="metadata" poster="assets/hero-poster.svg" hidden></video>
+        <img id="hero-image" src="assets/hero-poster.svg" alt="Project hero placeholder" />
+        <div class="media-note">Replace with your 16:9 walkthrough video or teaser image</div>
+      </div>
+    </section>
+
+    <section id="overview" class="section shell">
+      <div class="section-heading">
+        <p class="eyebrow">Overview</p>
+        <h2>Geometry first, generation where it is useful</h2>
+        <p>
+          The framework starts from a declarative indoor-scene description. Known spatial facts are
+          preserved as a persistent contract, while pretrained generative components contribute visual
+          detail and appearance without taking control of the requested layout.
+        </p>
+      </div>
+
+      <div class="highlight-grid">
+        <article class="highlight-card">
+          <span class="card-index">01</span>
+          <h3>Fully automated</h3>
+          <p>Asset generation, reintegration, room appearance, camera planning, multi-view generation, validation, repair and reconstruction run without per-scene manual editing.</p>
+        </article>
+        <article class="highlight-card">
+          <span class="card-index">02</span>
+          <h3>Geometry-grounded</h3>
+          <p>Scaffolds, room geometry, calibrated cameras, metric depth and stable ownership remain authoritative across the pipeline.</p>
+        </article>
+        <article class="highlight-card">
+          <span class="card-index">03</span>
+          <h3>Controllable</h3>
+          <p>Spatial layout and visual appearance are separated, allowing the same layout to be restyled or a different layout to pass through the same generic stages.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="shell">
+        <div class="section-heading compact">
+          <p class="eyebrow">Representative scenes</p>
+          <h2>One layout, two styles — plus a different room</h2>
+          <p>The Rococo and modern suites share the same spatial arrangement; the anime-inspired room uses a different layout and object inventory.</p>
+        </div>
+
+        <div class="scene-grid">
+          <figure class="scene-card">
+            <img id="scene-rococo" src="assets/scene-rococo.svg" alt="Rococo scene placeholder" />
+            <figcaption><strong>Rococo suite</strong><span>Layout A · Style A</span></figcaption>
+          </figure>
+          <figure class="scene-card">
+            <img id="scene-modern" src="assets/scene-modern.svg" alt="Modern scene placeholder" />
+            <figcaption><strong>Modern suite</strong><span>Layout A · Style B</span></figcaption>
+          </figure>
+          <figure class="scene-card">
+            <img id="scene-anime" src="assets/scene-anime.svg" alt="Anime-inspired room placeholder" />
+            <figcaption><strong>Anime-inspired room</strong><span>Layout B · Style C</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="pipeline" class="section shell">
+      <div class="section-heading">
+        <p class="eyebrow">Method</p>
+        <h2>End-to-end scene-construction pipeline</h2>
+        <p>The same explicit geometry is progressively enriched, observed, transferred across views and finally reconstructed as a persistent 3D representation.</p>
+      </div>
+
+      <div class="pipeline-layout">
+        <div class="media-frame pipeline-media">
+          <img id="pipeline-image" src="assets/pipeline.svg" alt="Pipeline figure placeholder" />
+        </div>
+        <div class="pipeline-steps">
+          <div class="step"><span>1</span><div><strong>Declarative scene + scaffold</strong><p>Hierarchy, transforms, generation modes and approximate geometry define the spatial contract.</p></div></div>
+          <div class="step"><span>2</span><div><strong>Generated assets + room surfaces</strong><p>Generated detail is aligned back to the declared structure rather than replacing it.</p></div></div>
+          <div class="step"><span>3</span><div><strong>Coverage-complete camera graph</strong><p>Physical feasibility, room-shell coverage and shared visible surface area determine the observation set.</p></div></div>
+          <div class="step"><span>4</span><div><strong>Target-space reprojection + fusion</strong><p>Trusted neighbouring appearance is geometrically transformed into the current camera before generation.</p></div></div>
+          <div class="step"><span>5</span><div><strong>Validation, repair + 3DGS</strong><p>Unreliable views are prevented from propagating, early views can be revisited, and the final calibrated RGB-D set trains depth-supervised 3DGS.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="section section-muted">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow">Results</p>
+          <h2>Persistent novel-view rendering</h2>
+          <p>The videos below show final 3DGS walkthroughs of the three generated scenes and demonstrate that the representation remains coherent under novel viewpoints.</p>
+        </div>
+
+        <div class="video-grid">
+          <article class="video-card">
+            <div class="media-frame video-slot">
+              <video id="video-rococo" playsinline muted loop controls preload="metadata" poster="assets/video-rococo.svg" hidden></video>
+              <img id="video-rococo-fallback" src="assets/video-rococo.svg" alt="Rococo trajectory placeholder" />
+            </div>
+            <div class="video-card-copy"><h3>Rococo suite</h3><p>Ornate decoration, gilded moulding and pastel upholstery under the same base layout used for the modern variant.</p></div>
+          </article>
+          <article class="video-card">
+            <div class="media-frame video-slot">
+              <video id="video-modern" playsinline muted loop controls preload="metadata" poster="assets/video-modern.svg" hidden></video>
+              <img id="video-modern-fallback" src="assets/video-modern.svg" alt="Modern trajectory placeholder" />
+            </div>
+            <div class="video-card-copy"><h3>Modern suite</h3><p>A restyled version of the same layout using restrained materials, simplified furniture and neutral surfaces.</p></div>
+          </article>
+          <article class="video-card">
+            <div class="media-frame video-slot">
+              <video id="video-anime" playsinline muted loop controls preload="metadata" poster="assets/video-anime.svg" hidden></video>
+              <img id="video-anime-fallback" src="assets/video-anime.svg" alt="Anime trajectory placeholder" />
+            </div>
+            <div class="video-card-copy"><h3>Anime-inspired room</h3><p>A different room layout and object inventory processed through the same generic scene-construction stages.</p></div>
+          </article>
+        </div>
+
+        <div class="metric-grid" aria-label="Core quantitative results">
+          <div class="metric"><span class="metric-value">33.55 ± 2.01</span><span class="metric-label">Training PSNR · dB</span></div>
+          <div class="metric"><span class="metric-value">0.9634 ± 0.0080</span><span class="metric-label">Training SSIM</span></div>
+          <div class="metric"><span class="metric-value">7.48 cm</span><span class="metric-label">Novel-view depth MAE</span></div>
+          <div class="metric"><span class="metric-value">2.10 cm</span><span class="metric-label">Cross-view reprojection MAE</span></div>
+        </div>
+        <p class="metric-footnote">72 training views · 108 frozen novel views · 72 adjacent-view pairs.</p>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-heading compact">
+        <p class="eyebrow">Controllability</p>
+        <h2>Same spatial layout, different appearance</h2>
+        <p>These views compare the same scene layout under two visual styles. The recognisable bed, bench, wardrobe and room boundaries show that appearance can change substantially while the requested spatial structure remains stable.</p>
+      </div>
+      <div class="compare-grid">
+        <figure class="compare-card"><img id="matched-rococo" src="assets/matched-rococo.svg" alt="Matched Rococo view placeholder" /><figcaption>Rococo</figcaption></figure>
+        <figure class="compare-card"><img id="matched-modern" src="assets/matched-modern.svg" alt="Matched modern view placeholder" /><figcaption>Modern</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="ablations" class="section section-muted">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow">Ablations</p>
+          <h2>Why the coordination mechanisms matter</h2>
+          <p>Each study removes one coordination mechanism from the full pipeline and shows the resulting failure mode both visually and quantitatively.</p>
+        </div>
+
+        <div class="ablation-stack">
+          <article class="ablation-card">
+            <div class="ablation-copy">
+              <p class="eyebrow">Ablation 01</p>
+              <h3>Remove cross-view propagation</h3>
+              <div class="delta-row"><span><strong>33.61 → 27.80</strong> PSNR</span><span><strong>0.0378 → 0.1144</strong> LPIPS</span></div>
+              <p>Independent per-view generation makes the training observations harder to explain with one persistent 3D representation and produces visible smearing, duplication and translucent artefacts after reconstruction.</p>
+            </div>
+            <img id="ablation-multiview" src="assets/ablation-multiview.svg" alt="Multi-view ablation placeholder" />
+          </article>
+
+          <article class="ablation-card reverse">
+            <div class="ablation-copy">
+              <p class="eyebrow">Ablation 02</p>
+              <h3>Use a raw neighbour without reprojection</h3>
+              <div class="delta-row"><span><strong>100% → 55.6%</strong> strict acceptance</span><span><strong>21 → 124</strong> validated attempts</span></div>
+              <p>An unaligned reference can leak its own viewpoint, composition and visibility pattern into the target. Explicit target-space reprojection removes a correspondence problem the geometry has already solved.</p>
+            </div>
+            <img id="ablation-reprojection" src="assets/ablation-reprojection.svg" alt="Reprojection ablation placeholder" />
+          </article>
+
+          <article class="ablation-card">
+            <div class="ablation-copy">
+              <p class="eyebrow">Ablation 03</p>
+              <h3>Remove the post-hoc repair sweep</h3>
+              <p>Early views can be geometrically valid yet commit to a weaker appearance choice because few trusted neighbours are available. A single bounded revisit lets those views use the stronger scene-level consensus available later.</p>
+            </div>
+            <img id="ablation-repair" src="assets/ablation-repair.svg" alt="Repair ablation placeholder" />
+          </article>
+
+          <article class="ablation-card reverse">
+            <div class="ablation-copy">
+              <p class="eyebrow">Ablation 04</p>
+              <h3>Replace direct collision exit with fixed 5 cm steps</h3>
+              <div class="delta-row"><span><strong>51.4% → 0.0%</strong> room-surface visibility in the strongest failure case</span></div>
+              <p>The direct OBB exit calculation gives deterministic geometric progress in tight configurations, whereas bounded local stepping can leave a selected camera almost completely occluded.</p>
+            </div>
+            <img id="ablation-camera" src="assets/ablation-camera.svg" alt="Camera collision ablation placeholder" />
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="section-heading compact">
+        <p class="eyebrow">Context</p>
+        <h2>Comparison with published reference ranges</h2>
+        <p>These values are shown as contextual reference only because the compared systems were evaluated on different scenes and camera trajectories.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Method</th><th>CLIP-IQA+ ↑</th><th>CLIP Aesthetic ↑</th><th>Reproj-AbsRel ↓</th></tr></thead>
+          <tbody>
+            <tr><td>WorldMesh</td><td>0.5114</td><td>5.5799</td><td>0.0761*</td></tr>
+            <tr class="ours"><td>Proposed pipeline</td><td>0.5271 ± 0.0774</td><td>5.646 ± 0.920</td><td>0.00648 ± 0.00425</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="metric-footnote">* WorldMesh Reproj-AbsRel shown here corresponds to its stronger reported configuration. Different scenes and camera-pair protocols prevent a controlled ranking.</p>
+    </section>
+
+    <section id="system" class="section section-muted">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow">System</p>
+          <h2>Designed as a reusable research pipeline</h2>
+        </div>
+        <div class="system-grid">
+          <div class="system-card"><h3>Declarative control</h3><p>Scene-specific behaviour comes from structured scene data rather than object-category branches.</p></div>
+          <div class="system-card"><h3>Persistent geometry</h3><p>The same scaffold, hierarchy, owner identity, calibrated cameras and metric depth remain available downstream.</p></div>
+          <div class="system-card"><h3>Bounded failure handling</h3><p>Retries, fallbacks and trust state keep one failed generation from stalling or contaminating the whole scene.</p></div>
+          <div class="system-card"><h3>Recoverable execution</h3><p>Stage artifacts, scoped caching and resumable outputs reduce the cost of long-running experiments.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="citation" class="section shell citation-section">
+      <div class="section-heading compact">
+        <p class="eyebrow">Citation</p>
+        <h2>Reference this project</h2>
+      </div>
+      <div class="citation-box">
+        <pre id="bibtex">@mastersthesis{chen2026geometryfirst,
+  title  = {A Fully Automated Geometry-First Framework for Controllable Indoor 3D Scene Generation},
+  author = {Chen, Rundong},
+  school = {Trinity College Dublin},
+  year   = {2026}
+}</pre>
+        <button id="copy-bibtex" class="copy-button" type="button">Copy BibTeX</button>
+      </div>
+      <p class="acknowledgement">MSc Dissertation · Computer Science (Augmented and Virtual Reality) · 2026</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-inner"><span>Geometry-First 3D Scene Generation</span><span>Built as a static GitHub Pages site.</span></div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
