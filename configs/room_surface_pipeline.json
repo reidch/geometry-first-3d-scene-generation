@@ -1,0 +1,34 @@
+{
+  "schema_version": 7,
+  "routing": "generation.mode == surface_texture",
+  "require_explicit_surface_sequence": false,
+  "diffusion_backend": "flux1_depth_control_inpaint_nf4_16gb",
+  "fail_if_diffusion_unavailable": true,
+  "seed": 8100,
+  "generation_strength": 0.9,
+  "guidance_scale": 10.0,
+  "num_inference_steps": 38,
+  "negative_prompt": "text, watermark, isolated unrelated object, room photograph, perspective interior view, close-up swatch, broken continuity, flat featureless fill, single tiny centered emblem, poster-like composition, empty field, crude color blocking",
+  "reference_strip_fraction": 0.12,
+  "texture_write": {
+    "supersample_radius": 0.35,
+    "conservative_barycentric_epsilon": 0.0025,
+    "screen_uv_gap_fill_iterations": 2,
+    "policy_note": "Stage06 and Stage08 both use src.appearance.atlas_fusion.fuse_view. Blender UV PNG and Triangle-ID PNG are the authoritative correspondence; pixels are grouped by triangle and written into the current runtime active-UV triangles. A non-empty real atlas update is required; atlas fill percentage is diagnostic only."
+  },
+  "real_runtime_required": true,
+  "surface_quality_validation": {
+    "max_attempts": 3,
+    "minimum_detail_score": 0.36,
+    "seed_stride": 131,
+    "retry_strength_increment": 0.03,
+    "retry_step_increment": 4,
+    "selection_policy": "Stop immediately on the first candidate whose detail score reaches the threshold. If none of at most three attempts reaches it, publish the highest-scoring candidate; detail score never blocks Stage06."
+  },
+  "surface_framing_validation": {
+    "minimum_target_bbox_width_fraction": 0.8,
+    "minimum_target_bbox_height_fraction": 0.8,
+    "policy_note": "Blender determines exact physical aspect ratio and room-facing UV correspondence. The model receives a rectified full-surface canvas; framing is validated only to ensure the UV correspondence capture identifies the intended face."
+  },
+  "surface_generation_space_default": "rectified_surface"
+}

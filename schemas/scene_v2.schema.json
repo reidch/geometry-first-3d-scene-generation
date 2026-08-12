@@ -1,0 +1,627 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/physics-grounded-world/scene-v2.schema.json",
+  "title": "Physics-Grounded World Scene v2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "scene"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "2.0"
+    },
+    "scene": {
+      "$ref": "#/$defs/scene"
+    }
+  },
+  "$defs": {
+    "vec3": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "number"
+      }
+    },
+    "transform": {
+      "type": "object",
+      "properties": {
+        "position": {
+          "$ref": "#/$defs/vec3"
+        },
+        "rotation_deg": {
+          "$ref": "#/$defs/vec3"
+        },
+        "scale": {
+          "$ref": "#/$defs/vec3"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "position",
+        "rotation_deg",
+        "scale"
+      ]
+    },
+    "part": {
+      "type": "object",
+      "required": [
+        "id",
+        "primitive",
+        "transform"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "primitive": {
+          "enum": [
+            "box",
+            "sphere",
+            "cylinder",
+            "cone",
+            "capsule"
+          ]
+        },
+        "transform": {
+          "$ref": "#/$defs/transform"
+        },
+        "appearance": {
+          "type": "object"
+        },
+        "physics": {
+          "type": "object"
+        },
+        "uv": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "object": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "semantic",
+        "transform",
+        "generation",
+        "physics",
+        "spatial_category"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "semantic": {
+          "type": "string",
+          "minLength": 1
+        },
+        "transform": {
+          "$ref": "#/$defs/transform"
+        },
+        "generation": {
+          "type": "object",
+          "required": [
+            "mode"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "asset_3d",
+                "surface_texture",
+                "scaffold_only",
+                "external_asset",
+                "group"
+              ]
+            },
+            "prompt": {
+              "type": "string"
+            },
+            "negative_prompt": {
+              "type": "string"
+            },
+            "backend": {
+              "type": "string"
+            },
+            "external_asset_path": {
+              "type": "string"
+            },
+            "registration": {
+              "type": "object"
+            },
+            "surface": {
+              "type": "object",
+              "properties": {
+                "projection": {
+                  "enum": [
+                    "top",
+                    "bottom",
+                    "front",
+                    "back",
+                    "side",
+                    "opposite_side"
+                  ]
+                },
+                "view_from_local": {
+                  "$ref": "#/$defs/vec3"
+                },
+                "view_from_world": {
+                  "$ref": "#/$defs/vec3"
+                },
+                "continuity_group": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "style_group": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "generation_order": {
+                  "type": "number"
+                },
+                "order": {
+                  "type": "number"
+                },
+                "reference_policy": {
+                  "enum": [
+                    "independent",
+                    "previous_in_continuity_group"
+                  ]
+                },
+                "reference_edge": {
+                  "enum": [
+                    "left",
+                    "right",
+                    "top",
+                    "bottom"
+                  ]
+                },
+                "previous_reference_edge": {
+                  "enum": [
+                    "left",
+                    "right",
+                    "top",
+                    "bottom"
+                  ]
+                },
+                "reference_strip_fraction": {
+                  "type": "number",
+                  "exclusiveMinimum": 0.0,
+                  "maximum": 0.3333333333
+                },
+                "close_cycle": {
+                  "type": "boolean"
+                },
+                "cycle_reference_object_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "cycle_reference_edge": {
+                  "enum": [
+                    "left",
+                    "right",
+                    "top",
+                    "bottom"
+                  ]
+                },
+                "cycle_target_edge": {
+                  "enum": [
+                    "left",
+                    "right",
+                    "top",
+                    "bottom"
+                  ]
+                },
+                "cycle_reference_strip_fraction": {
+                  "type": "number",
+                  "exclusiveMinimum": 0.0,
+                  "maximum": 0.3333333333
+                },
+                "resolution": {
+                  "type": "integer",
+                  "minimum": 256
+                },
+                "minimum_short_edge_resolution": {
+                  "type": "integer",
+                  "minimum": 256
+                },
+                "resolution_multiple": {
+                  "type": "integer",
+                  "minimum": 8
+                },
+                "framing_margin": {
+                  "type": "number",
+                  "minimum": 1.0
+                },
+                "layout_type": {
+                  "type": "string"
+                },
+                "material_family": {
+                  "type": "string"
+                },
+                "nominal_strip_width_m": {
+                  "type": "number",
+                  "exclusiveMinimum": 0.0
+                },
+                "generation_space": {
+                  "enum": [
+                    "canonical_view",
+                    "rectified_surface"
+                  ]
+                }
+              },
+              "additionalProperties": true
+            },
+            "representative_views": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            },
+            "style_prompt": {
+              "type": "string"
+            },
+            "appearance_prompt": {
+              "type": "string"
+            },
+            "material_prompt": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        },
+        "scaffold": {
+          "type": "object",
+          "properties": {
+            "parts": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/part"
+              }
+            }
+          },
+          "additionalProperties": true
+        },
+        "appearance": {
+          "type": "object"
+        },
+        "placement": {
+          "type": "object",
+          "properties": {
+            "support_target": {
+              "type": "string",
+              "minLength": 1
+            },
+            "support_axis_world": {
+              "$ref": "#/$defs/vec3"
+            },
+            "clearance_m": {
+              "type": "number",
+              "minimum": 0.0
+            }
+          },
+          "additionalProperties": true
+        },
+        "physics": {
+          "type": "object",
+          "required": [
+            "mode",
+            "body"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "static",
+                "dynamic",
+                "kinematic",
+                "visual_only"
+              ]
+            },
+            "body": {
+              "enum": [
+                "none",
+                "rigid",
+                "elastic",
+                "fluid"
+              ]
+            },
+            "parameters": {
+              "type": "object"
+            },
+            "colliders": {
+              "type": "object"
+            },
+            "topology": {
+              "type": "object"
+            }
+          },
+          "additionalProperties": true
+        },
+        "camera": {
+          "type": "object"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/object"
+          }
+        },
+        "refinement": {
+          "type": "object",
+          "properties": {
+            "camera_target": {
+              "type": "boolean"
+            },
+            "target_camera_count": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 64
+            },
+            "update_weight": {
+              "type": "number",
+              "exclusiveMinimum": 0.0
+            },
+            "generation_strength": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 1.0
+            },
+            "fusion_strength": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 1.0
+            },
+            "max_periodicity_score": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 1.0
+            }
+          },
+          "additionalProperties": true
+        },
+        "spatial_category": {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "enum": [
+                "floor",
+                "ceiling",
+                "wall",
+                "free"
+              ]
+            },
+            "wall_inward_normal_world": {
+              "$ref": "#/$defs/vec3"
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "type": {
+                    "const": "wall"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "wall_inward_normal_world"
+                ]
+              }
+            }
+          ]
+        },
+        "view_sampling": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "quota": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 64
+            },
+            "context_quota": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 64
+            },
+            "detail_quota": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 64
+            },
+            "primary": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Stage07 target-conditioned reconstruction camera quota. The target only anchors sampling/look-at and may occupy less than the significant-semantic pixel threshold."
+        }
+      },
+      "additionalProperties": true,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "generation": {
+                "properties": {
+                  "mode": {
+                    "const": "asset_3d"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "generation": {
+                "required": [
+                  "mode",
+                  "prompt",
+                  "backend"
+                ]
+              }
+            },
+            "required": [
+              "scaffold"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "generation": {
+                "properties": {
+                  "mode": {
+                    "const": "surface_texture"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "generation": {
+                "required": [
+                  "mode",
+                  "prompt",
+                  "surface"
+                ]
+              }
+            },
+            "required": [
+              "scaffold"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "generation": {
+                "properties": {
+                  "mode": {
+                    "const": "external_asset"
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "generation": {
+                "required": [
+                  "mode",
+                  "external_asset_path"
+                ]
+              }
+            },
+            "required": [
+              "scaffold"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "generation": {
+                "properties": {
+                  "mode": {
+                    "enum": [
+                      "scaffold_only"
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "scaffold"
+            ]
+          }
+        }
+      ]
+    },
+    "scene": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "prompt",
+        "coordinate_system",
+        "defaults",
+        "objects"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "coordinate_system": {
+          "$ref": "#/$defs/coordinate_system"
+        },
+        "defaults": {
+          "type": "object"
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/object"
+          }
+        },
+        "stage08_appearance_prompt": {
+          "type": "string",
+          "description": "Optional compact scene-level appearance/theme prompt used only by Stage08 whole-view photorealistic synthesis. Object generation prompts remain upstream-only."
+        }
+      },
+      "additionalProperties": true
+    },
+    "coordinate_system": {
+      "type": "object",
+      "required": [
+        "up_axis",
+        "forward_axis",
+        "unit_scale_m"
+      ],
+      "properties": {
+        "up_axis": {
+          "const": "Z"
+        },
+        "forward_axis": {
+          "const": "Y"
+        },
+        "unit_scale_m": {
+          "const": 1.0
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

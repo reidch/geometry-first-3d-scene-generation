@@ -1,0 +1,253 @@
+{
+  "schema_version": 25,
+  "stage08_policy": "Stage08 uses the complete connected Stage07 camera-correlation graph and reuses Stage07 selected-view RGB. The initial root is restricted to the two Stage07 room_coverage/bootstrap cameras. Production generation uses FLUX.2 Klein 4B native multi-reference editing with a strict two-reference contract: Image 1 is the current target-view condition (Stage07 flat RGB blended with successful trusted manual reprojections using the computed reliability without any additional cap), and Image 2 is the pixel-aligned Stage07 camera-Z depth image used only for geometry/depth ordering. Manual owner+camera-Z reprojection and Huber fusion remain active; luminance matching is disabled. Each camera is processed once with at most 12 deterministic FLUX.2 seed attempts; strict views may propagate, fallback views remain Stage09 inputs but have zero effective reference weight and never become appearance references. Depth Anything V2 one-way mesh-to-predicted edge recall remains the independent geometry validation gate. Stage08 prompting follows the V111 scene-level system: one fixed geometry/photorealism/lighting preservation contract plus one scene-level appearance prompt; object-level asset, material, surface and semantic screen-region prompts are never reused for whole-view generation.",
+  "whole_view_generation": {
+    "real_runtime_required": true,
+    "diffusion_backend": "flux2_klein_4b_multiref_16gb",
+    "generation_strength": 0.64,
+    "guidance_scale": 1.0,
+    "num_inference_steps": 4,
+    "seed": 9200,
+    "seed_stride": 1009,
+    "mask": "diagnostic_and_flux1_compatibility_only",
+    "use_depth_condition": true,
+    "semantic_conditioning": "semantic image remains an archived geometry/diagnostic signal; Stage08 whole-view prompting is scene-level only and does not reuse object-level asset, material, surface, or screen-region prompts",
+    "normal_conditioning": "archive world normals for downstream geometry use; normals are not a native FLUX.2 generator input",
+    "prompt_rule": "Photorealistic interior photograph. Preserve exact camera, perspective, geometry, silhouettes, proportions, object positions and occlusions. Never add, remove, duplicate, move or reshape objects. Replace flat placeholder lighting with coherent realistic interior illumination, soft cast and contact shadows, indirect light, and material-dependent highlights/reflections.",
+    "target_owner_prompt_policy": "disabled_for_stage08_scene_level_prompting",
+    "ordering": {
+      "graph_source": "stage07_camera_correlation_graph",
+      "method": "bootstrap_pair_root_then_weighted_best_first_frontier_expansion",
+      "initial_bootstrap_selection": "restrict_to_two_stage07_room_coverage_cameras_then_maximum_sum_incident_correlation_score_then_room_coverage",
+      "next_view_selection": "maximum_noisy_or_support_from_all_successful_trusted_neighbors_else_completed_topology_restart",
+      "edge_weight": "correlation_score",
+      "require_stage07_graph_connected": true,
+      "require_pending_view_has_accepted_neighbor": false,
+      "allow_additional_bootstrap": false,
+      "fixed_parent_tree": false,
+      "lifecycle": "single_round_success_only_reference_v124"
+    },
+    "reference_reprojection": {
+      "enabled": true,
+      "require_triangle_match": false,
+      "require_owner_match": true,
+      "require_depth_consistency": true,
+      "depth_consistency_relative_tolerance": 0.02,
+      "depth_consistency_room_diagonal_ratio": 0.001,
+      "boundary_erosion_ratio": 0.0,
+      "minimum_reference_valid_ratio": 0.005,
+      "reference_source": "all_successful_trusted_generated_neighbors_only",
+      "search_alternative_neighbors": false,
+      "require_at_least_one_locally_valid_reference_for_non_root": false,
+      "insufficient_reference_support_policy": "exclude_reference_from_rgb_writeback_and_continue_with_stage07_rgb",
+      "surface_identity_policy": "same_semantic_owner_plus_metric_depth_visibility; exact triangle match disabled to preserve continuous same-surface support"
+    },
+    "inpainting": {
+      "production_flux2_mask_usage": false,
+      "generation_mask_role": "diagnostic_and_flux1_compatibility_only",
+      "current_mesh_rgb_is_canonical_fallback": true
+    },
+    "validation": {
+      "maximum_retries": 0,
+      "seeds_per_strength": 12,
+      "retry_strength_scale": 1.0,
+      "lock_expansion_erosion_scale": 0.5,
+      "monocular_depth": {
+        "enabled": true,
+        "backend": "transformers_depth_anything_v2",
+        "checkpoint": "depth-anything/Depth-Anything-V2-Small-hf",
+        "device": "cuda",
+        "precision": "float16",
+        "local_files_only": false,
+        "allow_cpu_fallback": true,
+        "reuse_model_instance": true
+      },
+      "depth_structure": {
+        "comparison": "worldmesh_style_one_way_mesh_to_predicted_depth_edge_recall_with_depth_anything_v2",
+        "minimum_depth_edge_recall": 0.5,
+        "canny_low": 0.1,
+        "canny_high": 0.3,
+        "dilation_pixels": 10,
+        "minimum_valid_mesh_depth": 0.1,
+        "sharpen_predicted": 4.0,
+        "sharpen_mesh": 3.0,
+        "minimum_gradient_percentile": 25.0,
+        "reverse_precision": "diagnostic_only",
+        "estimator_note": "Keep the existing free Depth Anything V2 estimator; apply the WorldMesh edge-recall gate around its prediction."
+      },
+      "reference_overlap": {
+        "enabled": true,
+        "mode": "diagnostic_only"
+      },
+      "image_validity": {
+        "minimum_rgb_standard_deviation": 0.01
+      },
+      "failure_policy": [
+        "schedule_each_camera_exactly_once",
+        "try_at_most_twelve_deterministic_flux2_seed_attempts",
+        "strict_accept_immediately_on_first_depth_and_image_validity_pass",
+        "if_all_attempts_fail_publish_usable_candidate_with_maximum_mesh_to_predicted_depth_edge_recall_as_fallback_single_round",
+        "fallback_is_completed_and_stage09_eligible_but_unsuccessful_untrusted_and_never_a_reference",
+        "fallback_effective_reference_edge_weight_is_zero",
+        "prefer_successful_trusted_frontier_for_next_camera",
+        "when_successful_frontier_is_empty_choose_restart_only_from_original_completed_stage07_topology",
+        "never_defer_requeue_or_regenerate_a_camera"
+      ]
+    },
+    "atlas_writeback": {
+      "enabled": false
+    },
+    "mask_policy": "flux2_does_not_consume_mask; manual_warp_soft_blend_uses_computed_reliability_without_additional_cap; generation_mask_retained_for_diagnostics_and_flux1_compatibility",
+    "stage07_rgb_input": {
+      "manifest_field": "frames[].rgb",
+      "require_existing_file": true,
+      "rerender_in_stage08": false,
+      "require_selected_marker": true,
+      "selected_marker_name": "selected.txt"
+    },
+    "multi_reference_fusion": {
+      "use_all_generated_neighbors": true,
+      "global_weight": "stage07_edge_correlation_score",
+      "local_weight": "depth_consistency_geometric_confidence_times_valid_reprojection_mask",
+      "robust_rgb_fusion": {
+        "method": "one_step_huber",
+        "rgb_residual_delta": 0.08
+      },
+      "reference_support_scale": 0.35,
+      "reference_lock_threshold": 0.6,
+      "condition_blend": "trusted_manual_warp_blended_with_current_stage07_rgb_using_computed_reference_reliability_without_additional_cap",
+      "luminance_matching": {
+        "enabled": false,
+        "color_space": "linear_rgb",
+        "method": "disabled_preserve_reference_rgb_exactly",
+        "linear_rgb_coefficients": [
+          0.2126,
+          0.7152,
+          0.0722
+        ],
+        "epsilon": 0.0001,
+        "minimum_gain": 0.25,
+        "maximum_gain": 4.0
+      }
+    },
+    "console_progress": {
+      "enabled": true,
+      "single_line": false,
+      "non_tty_update_percent": 25,
+      "suppress_third_party_progress_bars": true,
+      "suppress_backend_progress_bars": true,
+      "quiet_backend_console": true,
+      "display_contract": "two fixed live terminal lines updated in place: overall Stage08 completed/success/fallback/remaining progress and current camera/attempt status; second line shows FLUX step progress plus latest one-way depth recall/diagnostic precision.",
+      "prefer_controlling_tty": true,
+      "emit_non_tty_status": false,
+      "live_lines": 2,
+      "render_progress_bar": true,
+      "progress_bar_width": 24,
+      "emit_attempt_result_lines": false
+    },
+    "engineering_runtime": {
+      "event_log_enabled": true,
+      "reference_memory": {
+        "release_working_arrays_before_flux": true,
+        "spill_overlap_diagnostics_to_disk": true,
+        "reuse_identical_conditioning_across_seeds": true
+      },
+      "flux_worker": {
+        "enabled": true,
+        "runtime_retries": 2,
+        "startup_timeout_seconds": 900,
+        "first_step_timeout_seconds": 420,
+        "minimum_step_timeout_seconds": 120,
+        "maximum_step_timeout_seconds": 900,
+        "step_timeout_multiplier": 8.0,
+        "shutdown_grace_seconds": 8,
+        "poll_interval_seconds": 0.25,
+        "post_steps_timeout_seconds": 300
+      },
+      "resume": {
+        "enabled": true,
+        "committed_view_contract": "selected.txt + generation_report.json + nonempty final_view.png",
+        "preserve_deferred_only_when_generated_neighbor_signature_is_unchanged": false,
+        "resume_policy": "resume only V125-compatible completed outputs; strict outputs replay as trusted references, fallback outputs replay as completed topology-only nodes; interrupted cameras restart their single round"
+      }
+    },
+    "deadlock_recovery": {
+      "enabled": false,
+      "retired_by": "single_round_success_only_reference_v112_restored_in_v124",
+      "reason": "fallback completion is not a trusted appearance reference and cameras are never requeued"
+    },
+    "depth_geometry_contract": "camera_z_v109_blender_z_pass_pixel_centers",
+    "native_reference_policy": {
+      "flux2_klein_4b_multiref_16gb": {
+        "image_1": "target_view_condition_rgb_from_stage07_plus_trusted_manual_warp",
+        "image_2": "pixel_aligned_stage07_camera_z_depth_near_bright_geometry_only",
+        "maximum_native_reference_images": 2,
+        "depth_as_native_reference": true,
+        "depth_reference_role": "geometry_and_depth_order_only_no_appearance",
+        "semantic_as_native_reference": false,
+        "fallback_views_allowed_as_native_reference": false,
+        "role_prompt_required": true
+      },
+      "flux1_depth_control_inpaint_nf4_16gb": {
+        "compatibility_mode": true,
+        "image": "manual_fused_condition_rgb",
+        "mask": "reference_reliability_generation_mask",
+        "depth_control": "stage07_camera_z_depth_png"
+      }
+    },
+    "restart_policy": {
+      "enabled": true,
+      "trigger": "successful_trusted_frontier_empty_with_unfinished_cameras",
+      "graph": "original_stage07_correlation_graph",
+      "completed_nodes_can_drive_topology_restart": true,
+      "fallback_rgb_can_be_reference": false,
+      "fallback_effective_reference_edge_weight": 0.0,
+      "selection": "maximum_noisy_or_support_from_completed_topology_then_strongest_edge_then_room_coverage_then_stage07_order"
+    },
+    "execution_contract": "v125_flux2_three_reference_bootstrap_root_success_only_single_round_no_luminance_match",
+    "negative_prompt_policy": "FLUX.2 Klein production backend does not receive a text negative prompt; the V111-style preservation contract is expressed directly in the Stage08 prompt and native-reference role instructions",
+    "depth_conditioning_mode": "flux2_native_reference_image_2_pixel_aligned_stage07_camera_z_near_bright",
+    "generation_strength_policy": "legacy_flux1_compatibility_only_not_used_by_flux2_klein",
+    "repair_pass": {
+      "enabled": true,
+      "order": "original_forward_generation_order",
+      "reference_source": "all_current_strict_neighbors_in_stage07_graph",
+      "replacement_policy": "replace_main_result_only_when_repair_pass_strict_validation_passes",
+      "rerun_rule": "each_camera_runs_one_additional_single_round_after_forward_pass"
+    }
+  },
+  "stage09_manifest": {
+    "copy_stage07_depth": true,
+    "copy_stage07_normal": true,
+    "copy_stage07_semantic": true,
+    "copy_stage07_camera": true,
+    "target_rgb": "final_view.png"
+  },
+  "stage07_render": {
+    "shared_buffer_resolution": [
+      1376,
+      768
+    ],
+    "shared_buffer_samples": 1,
+    "render_selected_view_rgb": true,
+    "lighting": {
+      "policy": "worldmesh_final_flat_unlit",
+      "source_reference": "WorldMesh run_full_pipeline.py Stage 5 passes --flat-lighting; render_multiview.py then uses RenderFlags.FLAT and adds no lights",
+      "render_flags_equivalent": "pyrender.RenderFlags.FLAT",
+      "material_strategy": "emission_from_base_color_or_stage06_texture",
+      "dynamic_lights": false,
+      "shadows": false,
+      "specular_lighting": false,
+      "use_gtao": false,
+      "view_transform": "Standard",
+      "look": "None",
+      "exposure": 0.0,
+      "gamma": 1.0,
+      "world_color": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  }
+}

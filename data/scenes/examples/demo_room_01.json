@@ -1,0 +1,1306 @@
+{
+  "schema_version": "2.0",
+  "scene": {
+    "id": "demo_room_01",
+    "name": "Generated indoor interaction scene",
+    "prompt": "A coherent refined Rococo bedroom interior with an unmistakable unified eighteenth-century French decorative language: warm ivory and cream architecture, pale blue and muted rose accents, restrained gilded highlights, graceful asymmetrical curves, floral scrollwork, shell-inspired ornament, carved craftsmanship, silk-like textiles, elegant parquet, soft warm illumination, luxurious layered detail distributed throughout the room, photorealistic materials, tasteful rather than gaudy.",
+    "coordinate_system": {
+      "up_axis": "Z",
+      "forward_axis": "Y",
+      "unit_scale_m": 1.0
+    },
+    "defaults": {
+      "appearance": {
+        "base_color": [
+          0.55,
+          0.55,
+          0.55,
+          1.0
+        ]
+      },
+      "placement": {
+        "support_axis_world": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "clearance_m": 0.0015
+      },
+      "registration": {
+        "rotation_candidates": "proper_axis_24",
+        "scale_mode": "uniform",
+        "surface_sample_count": 3500,
+        "truncation_ratio": 0.08,
+        "scale_lower_factor": 0.7,
+        "scale_upper_factor": 1.35
+      }
+    },
+    "objects": [
+      {
+        "id": "room_shell",
+        "name": "Room shell",
+        "semantic": "enclosing architecture",
+        "transform": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "group"
+        },
+        "physics": {
+          "mode": "static",
+          "body": "none"
+        },
+        "children": [
+          {
+            "id": "surface_base",
+            "name": "Lower enclosing surface",
+            "semantic": "room-scale supporting surface",
+            "transform": {
+              "position": [
+                0,
+                0,
+                -0.05
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "Complete room-sized Rococo parquet floor viewed orthographically from above, built from many medium-width warm walnut and honey-oak boards in an elegant parquet rhythm, with readable seams, fine bevels, coordinated natural grain, subtle inlay-like border character, restrained tonal variation, polished satin sheen, and continuous believable scale across the whole floor.",
+              "negative_prompt": "isolated objects, decals, silhouettes, text, watermark, close-up material sample, a few oversized boards, flat uniform brown fill, giant knots, repeated identical grain, muddy blurred wood, modern laminate, rustic farmhouse floor",
+              "surface": {
+                "projection": "top",
+                "continuity_group": "room_floor",
+                "order": 0,
+                "layout_type": "parallel_strips",
+                "material_family": "wood",
+                "nominal_strip_width_m": 0.14,
+                "style_group": "room_shell"
+              },
+              "style_prompt": "Refined French Rococo design with warm ivory and cream, pale blue and muted rose accents, restrained antique-gold highlights, graceful asymmetrical curves, floral scrollwork, shell-inspired ornament, carved craftsmanship, layered elegance, and photorealistic materials.",
+              "appearance_prompt": "Warm polished walnut and honey oak, refined parquet construction, crisp but natural board seams, subtle aristocratic sheen, no muddy blur or oversized wood grain."
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Base slab",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      6.0,
+                      6.0,
+                      0.1
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.42,
+                0.34,
+                0.24,
+                1.0
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "floor",
+              "description": "floor object for category-specific representative camera sampling"
+            },
+            "refinement": {
+              "generation_strength": 0.5,
+              "fusion_strength": 0.22,
+              "max_periodicity_score": 0.92,
+              "camera_target": false
+            }
+          },
+          {
+            "id": "surface_rear",
+            "name": "Rear enclosing surface",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                0,
+                3.0,
+                1.5
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "Complete Rococo interior wall elevation covered across the full wall by warm ivory decorative plaster panels, continuous low-relief floral scrollwork, graceful asymmetrical mouldings, shell-inspired corner ornaments, restrained antique-gold trim, and pale blue damask infill fields; the ornament hierarchy and panel rhythm must remain visible and distributed across the whole wall rather than appearing as one small centered symbol.",
+              "negative_prompt": "isolated objects, posters, decals, text, watermark, close-up material swatch, blank uniform wall, featureless beige fill, oversized single ornament, tiny centered emblem, empty wall around one motif, modern minimalist wall, repeated stamp pattern",
+              "surface": {
+                "projection": "front",
+                "continuity_group": "room_walls",
+                "order": 1,
+                "reference_edge": "left",
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "style_group": "room_shell"
+              },
+              "style_prompt": "Refined French Rococo design with warm ivory and cream, pale blue and muted rose accents, restrained antique-gold highlights, graceful asymmetrical curves, floral scrollwork, shell-inspired ornament, carved craftsmanship, layered elegance, and photorealistic materials.",
+              "appearance_prompt": "Layered ivory plaster relief, delicate gilded moulding edges, pale blue silk-damask infill, fine hand-finished surface variation, elegant full-wall architectural composition."
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Rear slab",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      6.0,
+                      0.1,
+                      3.0
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.7,
+                0.67,
+                0.58,
+                1.0
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "description": "wall object for category-specific representative camera sampling",
+              "wall_inward_normal_world": [
+                0,
+                -1,
+                0
+              ]
+            },
+            "refinement": {
+              "generation_strength": 0.6,
+              "fusion_strength": 0.3,
+              "max_periodicity_score": 0.96,
+              "camera_target": false
+            }
+          },
+          {
+            "id": "surface_front",
+            "name": "Front enclosing surface",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                0,
+                -3.0,
+                1.5
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "Complete linked Rococo interior wall elevation continuing the neighbouring wall system with the same warm ivory decorative plaster panels, trim heights, continuous low-relief floral scrollwork, graceful asymmetrical mouldings, shell-inspired accents, restrained antique-gold edging, and pale blue damask infill distributed across the full wall.",
+              "negative_prompt": "isolated objects, posters, decals, text, watermark, close-up material swatch, blank uniform wall, abrupt material change, tiny centered emblem, empty field around one ornament, modern minimalist wall, repeated stamp pattern",
+              "surface": {
+                "projection": "front",
+                "continuity_group": "room_walls",
+                "order": 3,
+                "reference_edge": "left",
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "style_group": "room_shell"
+              },
+              "style_prompt": "Refined French Rococo design with warm ivory and cream, pale blue and muted rose accents, restrained antique-gold highlights, graceful asymmetrical curves, floral scrollwork, shell-inspired ornament, carved craftsmanship, layered elegance, and photorealistic materials.",
+              "appearance_prompt": "Match the linked wall exactly at the shared boundary in color, relief depth, panel proportions, moulding elevation, motif scale, gilded trim, and damask rhythm."
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Front slab",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      6.0,
+                      0.1,
+                      3.0
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.7,
+                0.67,
+                0.58,
+                1.0
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "description": "wall object for category-specific representative camera sampling",
+              "wall_inward_normal_world": [
+                0,
+                1,
+                0
+              ]
+            },
+            "refinement": {
+              "generation_strength": 0.6,
+              "fusion_strength": 0.3,
+              "max_periodicity_score": 0.96,
+              "camera_target": false
+            }
+          },
+          {
+            "id": "surface_left",
+            "name": "Left enclosing surface",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                -3.0,
+                0,
+                1.5
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "Complete linked Rococo interior wall elevation closing the continuous room-wide wall system with the same warm ivory decorative plaster panels, trim heights, low-relief floral scrollwork, graceful asymmetrical mouldings, shell-inspired accents, restrained antique-gold edging, and pale blue damask infill distributed across the full wall.",
+              "negative_prompt": "isolated objects, posters, decals, text, watermark, close-up material swatch, blank uniform wall, abrupt material change, tiny centered emblem, empty field around one ornament, modern minimalist wall, repeated stamp pattern",
+              "surface": {
+                "projection": "side",
+                "continuity_group": "room_walls",
+                "order": 4,
+                "reference_edge": "left",
+                "close_cycle": true,
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "style_group": "room_shell"
+              },
+              "style_prompt": "Refined French Rococo design with warm ivory and cream, pale blue and muted rose accents, restrained antique-gold highlights, graceful asymmetrical curves, floral scrollwork, shell-inspired ornament, carved craftsmanship, layered elegance, and photorealistic materials.",
+              "appearance_prompt": "Match both linked boundaries in color, relief depth, panel proportions, moulding elevation, motif scale, gilded trim, and damask rhythm to close one coherent Rococo wall cycle."
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Left slab",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      0.1,
+                      6.0,
+                      3.0
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.7,
+                0.67,
+                0.58,
+                1.0
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "description": "wall object for category-specific representative camera sampling",
+              "wall_inward_normal_world": [
+                1,
+                0,
+                0
+              ]
+            },
+            "refinement": {
+              "generation_strength": 0.6,
+              "fusion_strength": 0.3,
+              "max_periodicity_score": 0.96,
+              "camera_target": false
+            }
+          },
+          {
+            "id": "surface_right",
+            "name": "Right enclosing surface",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                3.0,
+                0,
+                1.5
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "Complete linked Rococo interior wall elevation continuing the neighbouring wall system with the same warm ivory decorative plaster panels, trim heights, continuous low-relief floral scrollwork, graceful asymmetrical mouldings, shell-inspired accents, restrained antique-gold edging, and pale blue damask infill distributed across the full wall.",
+              "negative_prompt": "isolated objects, posters, decals, text, watermark, close-up material swatch, blank uniform wall, abrupt material change, tiny centered emblem, empty field around one ornament, modern minimalist wall, repeated stamp pattern",
+              "surface": {
+                "projection": "side",
+                "continuity_group": "room_walls",
+                "order": 2,
+                "reference_edge": "left",
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "style_group": "room_shell"
+              },
+              "style_prompt": "Refined French Rococo design with warm ivory and cream, pale blue and muted rose accents, restrained antique-gold highlights, graceful asymmetrical curves, floral scrollwork, shell-inspired ornament, carved craftsmanship, layered elegance, and photorealistic materials.",
+              "appearance_prompt": "Match the linked wall exactly at the shared boundary in color, relief depth, panel proportions, moulding elevation, motif scale, gilded trim, and damask rhythm."
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Right slab",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      0.1,
+                      6.0,
+                      3.0
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.7,
+                0.67,
+                0.58,
+                1.0
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "description": "wall object for category-specific representative camera sampling",
+              "wall_inward_normal_world": [
+                -1,
+                0,
+                0
+              ]
+            },
+            "refinement": {
+              "generation_strength": 0.6,
+              "fusion_strength": 0.3,
+              "max_periodicity_score": 0.96,
+              "camera_target": false
+            }
+          },
+          {
+            "id": "surface_upper",
+            "name": "Upper enclosing surface",
+            "semantic": "upper architectural surface",
+            "transform": {
+              "position": [
+                0,
+                0,
+                3.05
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "Complete room-sized Rococo ceiling viewed orthographically from below, with warm ivory plaster, continuous delicate perimeter mouldings, shallow asymmetrical floral and shell-inspired relief, restrained antique-gold accents, soft broad panel organization, and fine hand-finished variation distributed across the ceiling without becoming a single oversized central medallion.",
+              "negative_prompt": "isolated objects, decals, text, watermark, close-up material sample, blank white fill, featureless ceiling, one oversized central medallion, tiny isolated emblem, harsh stains, modern flat ceiling",
+              "surface": {
+                "projection": "bottom",
+                "continuity_group": "room_ceiling",
+                "order": 5,
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "style_group": "room_shell"
+              },
+              "style_prompt": "Refined French Rococo design with warm ivory and cream, pale blue and muted rose accents, restrained antique-gold highlights, graceful asymmetrical curves, floral scrollwork, shell-inspired ornament, carved craftsmanship, layered elegance, and photorealistic materials.",
+              "appearance_prompt": "Matte warm-ivory plaster, shallow elegant stucco relief, delicate moulding shadows, restrained aged-gold edging, coherent room-wide ornament with subtle depth."
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Upper slab",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      6.0,
+                      6.0,
+                      0.1
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.78,
+                0.76,
+                0.7,
+                1.0
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "ceiling",
+              "description": "ceiling object for category-specific representative camera sampling"
+            },
+            "refinement": {
+              "generation_strength": 0.56,
+              "fusion_strength": 0.27,
+              "max_periodicity_score": 0.95,
+              "camera_target": false
+            }
+          }
+        ],
+        "spatial_category": {
+          "type": "free",
+          "description": "free object for category-specific representative camera sampling"
+        }
+      },
+      {
+        "id": "sleeping_unit",
+        "name": "Wooden sleeping unit",
+        "semantic": "sleeping furniture with raised rear panel and supported platform",
+        "transform": {
+          "position": [
+            -1.45,
+            1.2,
+            0.0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "prompt": "A complete elegant Rococo sleeping furniture object with a pale carved-wood frame, softly upholstered mattress platform, graceful curved headboard and lower end panel, balanced short supports, refined proportions, and one consistent fully assembled identity from every view.",
+          "negative_prompt": "extra objects, room background, cropped geometry, duplicate parts, missing supports, text, watermark, modern minimal bed, plain block surfaces, excessive baroque mass, distorted upholstery",
+          "backend": "pixal3d",
+          "appearance_prompt": "Use warm ivory-painted carved wood with restrained antique-gold accents, pale blue and muted rose silk upholstery, delicate floral scroll carving, softened edges, refined joinery, and luxurious but believable material detail.",
+          "style_prompt": "Refined French Rococo design with warm ivory and cream, pale blue and muted rose accents, restrained antique-gold highlights, graceful asymmetrical curves, floral scrollwork, shell-inspired ornament, carved craftsmanship, layered elegance, and photorealistic materials."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "platform",
+              "name": "Main platform",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.75,
+                  2.15,
+                  0.22
+                ]
+              }
+            },
+            {
+              "id": "rear_panel",
+              "name": "Raised rear panel",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  1.02,
+                  0.84
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.75,
+                  0.12,
+                  1.18
+                ]
+              }
+            },
+            {
+              "id": "front_panel",
+              "name": "Lower end panel",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -1.02,
+                  0.54
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.75,
+                  0.12,
+                  0.58
+                ]
+              }
+            },
+            {
+              "id": "support_a",
+              "name": "Support A",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.76,
+                  -0.88,
+                  0.18
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.16,
+                  0.16,
+                  0.36
+                ]
+              }
+            },
+            {
+              "id": "support_b",
+              "name": "Support B",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.76,
+                  -0.88,
+                  0.18
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.16,
+                  0.16,
+                  0.36
+                ]
+              }
+            },
+            {
+              "id": "support_c",
+              "name": "Support C",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.76,
+                  0.88,
+                  0.18
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.16,
+                  0.16,
+                  0.36
+                ]
+              }
+            },
+            {
+              "id": "support_d",
+              "name": "Support D",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.76,
+                  0.88,
+                  0.18
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.16,
+                  0.16,
+                  0.36
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.52,
+            0.39,
+            0.25,
+            1.0
+          ]
+        },
+        "placement": {
+          "support_target": "surface_base",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.002
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "camera": {
+          "importance": 1.0
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 6,
+          "generation_strength": 0.49,
+          "fusion_strength": 0.23,
+          "max_periodicity_score": 0.76
+        },
+        "spatial_category": {
+          "type": "floor",
+          "description": "floor object for category-specific representative camera sampling"
+        }
+      },
+      {
+        "id": "work_surface_unit",
+        "name": "Four-supported work surface",
+        "semantic": "horizontal furniture surface with four vertical supports",
+        "transform": {
+          "position": [
+            1.2,
+            -0.55,
+            0.0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "prompt": "A complete compact Rococo occasional table with one level rectangular top, four stable gracefully shaped supports, refined carved apron structure, practical proportions, and consistent assembled identity from every view.",
+          "negative_prompt": "extra objects, room background, cropped geometry, duplicate supports, missing support, text, watermark, plain modern table, featureless block legs, excessive deformation, unstable structure",
+          "backend": "pixal3d",
+          "appearance_prompt": "Use warm ivory-painted or pale walnut wood, restrained antique-gold edge accents, delicate floral carving on the apron, elegant curved support character, readable joinery, polished satin finish, and refined tonal variation.",
+          "style_prompt": "Refined French Rococo design with warm ivory and cream, pale blue and muted rose accents, restrained antique-gold highlights, graceful asymmetrical curves, floral scrollwork, shell-inspired ornament, carved craftsmanship, layered elegance, and photorealistic materials."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.82
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.75,
+                  1.2,
+                  0.14
+                ]
+              }
+            },
+            {
+              "id": "support_a",
+              "name": "Support A",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.75,
+                  -0.47,
+                  0.4
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.14,
+                  0.14,
+                  0.8
+                ]
+              }
+            },
+            {
+              "id": "support_b",
+              "name": "Support B",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.75,
+                  -0.47,
+                  0.4
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.14,
+                  0.14,
+                  0.8
+                ]
+              }
+            },
+            {
+              "id": "support_c",
+              "name": "Support C",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.75,
+                  0.47,
+                  0.4
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.14,
+                  0.14,
+                  0.8
+                ]
+              }
+            },
+            {
+              "id": "support_d",
+              "name": "Support D",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.75,
+                  0.47,
+                  0.4
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.14,
+                  0.14,
+                  0.8
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.48,
+            0.31,
+            0.18,
+            1.0
+          ]
+        },
+        "placement": {
+          "support_target": "surface_base",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.002
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "camera": {
+          "importance": 1.0
+        },
+        "children": [
+          {
+            "id": "flexible_cover",
+            "name": "Flexible woven cover",
+            "semantic": "thin deformable rectangular textile",
+            "transform": {
+              "position": [
+                0.0,
+                -0.35,
+                0.9
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "asset_3d",
+              "prompt": "A single complete thin rectangular Rococo decorative textile cover with a believable flexible drape, shallow soft folds, narrow finished edges, and a coherent fabric identity from every view; preserve the broad rectangular sheet and thin profile rather than turning it into a rigid slab.",
+              "negative_prompt": "extra objects, room background, thick rigid slab, hard board, duplicate cloth, cropped sheet, missing corners, extreme crumpling, text, watermark, plain solid blue placeholder, plastic material",
+              "appearance_prompt": "Use pale blue silk-brocade fabric with muted rose floral scroll embroidery, restrained antique-gold woven edging, fine visible weave, soft specular response, elegant shallow folds, and luxurious lightweight textile character.",
+              "backend": "pixal3d",
+              "style_prompt": "Refined French Rococo design with warm ivory and cream, pale blue and muted rose accents, restrained antique-gold highlights, graceful asymmetrical curves, floral scrollwork, shell-inspired ornament, carved craftsmanship, layered elegance, and photorealistic materials."
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "sheet",
+                  "name": "Initial textile sheet",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      1.55,
+                      1.0,
+                      0.025
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.07,
+                0.12,
+                0.5,
+                1.0
+              ]
+            },
+            "placement": {
+              "support_target": "work_surface_unit",
+              "support_axis_world": [
+                0,
+                0,
+                1
+              ],
+              "clearance_m": 0.003
+            },
+            "physics": {
+              "mode": "dynamic",
+              "body": "elastic",
+              "parameters": {
+                "mass_per_particle": 0.03,
+                "stiffness": 0.7,
+                "damping": 0.15,
+                "collision_thickness_m": 0.006
+              },
+              "topology": {
+                "generator": "grid",
+                "resolution": [
+                  20,
+                  14
+                ],
+                "size": [
+                  1.55,
+                  1.0
+                ],
+                "fixed_points": []
+              }
+            },
+            "camera": {
+              "importance": 0.8
+            },
+            "refinement": {
+              "update_weight": 1.15,
+              "camera_target": true,
+              "target_camera_count": 6,
+              "generation_strength": 0.58,
+              "fusion_strength": 0.29,
+              "max_periodicity_score": 0.84
+            },
+            "children": [
+              {
+                "id": "upright_light_object",
+                "name": "Compact upright light object",
+                "semantic": "upright object with base, narrow stem, and upper shade",
+                "transform": {
+                  "position": [
+                    0.0,
+                    0.12,
+                    0.010000000000000009
+                  ],
+                  "rotation_deg": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "generation": {
+                  "mode": "asset_3d",
+                  "prompt": "A single complete compact Rococo table lamp with a stable decorative base, narrow connected stem, and elegant taller upper shade, all tightly assembled with refined proportions and consistent identity from every view.",
+                  "negative_prompt": "extra objects, room background, detached parts, cropped geometry, missing shade, duplicate base, text, watermark, plain modern cylinder lamp, featureless plastic, excessive deformation",
+                  "backend": "pixal3d",
+                  "appearance_prompt": "Use an ivory porcelain or carved base with restrained antique-gold floral accents, a slender warm-metal stem, and a pale silk shade with delicate trim, soft textile texture, subtle roughness contrast, and every component clearly connected.",
+                  "style_prompt": "Refined French Rococo design with warm ivory and cream, pale blue and muted rose accents, restrained antique-gold highlights, graceful asymmetrical curves, floral scrollwork, shell-inspired ornament, carved craftsmanship, layered elegance, and photorealistic materials."
+                },
+                "scaffold": {
+                  "parts": [
+                    {
+                      "id": "base",
+                      "name": "Base",
+                      "primitive": "cylinder",
+                      "transform": {
+                        "position": [
+                          0,
+                          0,
+                          0.07
+                        ],
+                        "rotation_deg": [
+                          0,
+                          0,
+                          0
+                        ],
+                        "scale": [
+                          0.3,
+                          0.3,
+                          0.14
+                        ]
+                      }
+                    },
+                    {
+                      "id": "stem",
+                      "name": "Stem",
+                      "primitive": "cylinder",
+                      "transform": {
+                        "position": [
+                          0,
+                          0,
+                          0.4
+                        ],
+                        "rotation_deg": [
+                          0,
+                          0,
+                          0
+                        ],
+                        "scale": [
+                          0.07,
+                          0.07,
+                          0.66
+                        ]
+                      }
+                    },
+                    {
+                      "id": "shade",
+                      "name": "Upper shade",
+                      "primitive": "cylinder",
+                      "transform": {
+                        "position": [
+                          0,
+                          0,
+                          0.76
+                        ],
+                        "rotation_deg": [
+                          0,
+                          0,
+                          0
+                        ],
+                        "scale": [
+                          0.25,
+                          0.25,
+                          0.38
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "appearance": {
+                  "base_color": [
+                    0.74,
+                    0.72,
+                    0.58,
+                    1.0
+                  ]
+                },
+                "placement": {
+                  "support_target": "flexible_cover",
+                  "support_axis_world": [
+                    0,
+                    0,
+                    1
+                  ],
+                  "clearance_m": 0.003
+                },
+                "physics": {
+                  "mode": "dynamic",
+                  "body": "rigid",
+                  "parameters": {
+                    "mass": 0.8,
+                    "friction": 0.65,
+                    "restitution": 0.03
+                  },
+                  "colliders": {
+                    "mode": "from_scaffold"
+                  }
+                },
+                "camera": {
+                  "importance": 0.8
+                },
+                "refinement": {
+                  "camera_target": true,
+                  "target_camera_count": 6,
+                  "generation_strength": 0.53,
+                  "fusion_strength": 0.25,
+                  "max_periodicity_score": 0.78
+                },
+                "spatial_category": {
+                  "type": "wall",
+                  "description": "wall object for category-specific representative camera sampling",
+                  "wall_inward_normal_world": [
+                    -1,
+                    0,
+                    0
+                  ]
+                }
+              }
+            ],
+            "spatial_category": {
+              "type": "floor",
+              "description": "floor object for category-specific representative camera sampling"
+            }
+          }
+        ],
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 6,
+          "generation_strength": 0.51,
+          "fusion_strength": 0.24,
+          "max_periodicity_score": 0.76
+        },
+        "spatial_category": {
+          "type": "floor",
+          "description": "floor object for category-specific representative camera sampling"
+        }
+      }
+    ]
+  }
+}

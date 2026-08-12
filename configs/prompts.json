@@ -1,0 +1,6 @@
+{
+  "schema_version": 4,
+  "source": "scene JSON object generation.prompt and generation.negative_prompt",
+  "global_suffix": "make the requested design style unmistakably visible through refined color harmony, physically legible material grain, woven or carved texture, ornamental pattern, layered finish, and crafted edge detail while preserving geometry, object identity, semantic boundary, support relationships, UV correspondence, and cross-view consistency",
+  "global_negative": "new object, duplicate object, changed geometry, changed silhouette, missing component, leakage outside active mask, flat placeholder color, featureless material, untextured plastic, crude block color, cheap simplified finish, poster-like decal, isolated unrelated emblem, text, watermark"
+}

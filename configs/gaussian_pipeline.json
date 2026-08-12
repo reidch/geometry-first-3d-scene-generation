@@ -1,0 +1,61 @@
+{
+  "schema_version": 13,
+  "production_backend": "worldmesh_nerfstudio_depth_splatfacto",
+  "dataset": {
+    "manifest": "08_viewwise_refinement/stage09_training_manifest.json",
+    "output_dir": "dataset",
+    "rgb_source": "stage08_whole_final_view",
+    "depth_source": "stage07_metric_camera_z_depth",
+    "camera_source": "stage07_exact_opencv_camera",
+    "depth_png_unit": "millimeter",
+    "depth_unit_scale_factor": 0.001,
+    "pixel_center_offset": 0.5,
+    "maximum_initial_points": 5000000,
+    "initial_point_policy": "backproject_all_valid_camera_z_pixels_then_deterministically_subsample_to_global_cap"
+  },
+  "training": {
+    "conda_env": "worldmesh-nerfstudio",
+    "method": "depth-splatfacto",
+    "depth_loss_mult": 0.7,
+    "camera_optimizer_mode": "off",
+    "eval_mode": "all",
+    "viewer_quit_on_train_completion": true,
+    "framework_default_optimization_schedule": true,
+    "expected_framework_default_iterations": 30000,
+    "disable_periodic_full_image_eval": true,
+    "steps_per_eval_image": 1000000000,
+    "steps_per_eval_all_images": 1000000000,
+    "policy": "Use the WorldMesh-compatible Nerfstudio depth-splatfacto implementation and its native optimizer, densification, pruning, opacity-reset and training schedule; do not reimplement these mechanisms in project code.",
+    "ssim_lambda": 0.2,
+    "photometric_loss": "0.8*L1 + 0.2*DSSIM (Nerfstudio Splatfacto ssim_lambda=0.2)",
+    "use_scale_regularization": true,
+    "max_gauss_ratio": 10.0,
+    "scale_regularization_policy": "Enable Nerfstudio/PhysGaussian scale-ratio regularization to suppress huge spiky Gaussians; penalize only max_scale/min_scale ratios above max_gauss_ratio."
+  },
+  "evaluation": {
+    "final_all_views": true,
+    "command": "ns-eval",
+    "lpips_policy": "exactly_once_per_final_view_after_training",
+    "save_render_outputs": true,
+    "standard_metrics": [
+      "psnr",
+      "ssim",
+      "lpips"
+    ],
+    "depth_supervision_metric_source": "depth-splatfacto_training_and_final_render_outputs"
+  },
+  "viewer": {
+    "command": "ns-viewer --load-config <nerfstudio_config.yml>",
+    "command_file": "09_gaussian_splat/view_scene.txt"
+  },
+  "retired_custom_stage09": {
+    "production_enabled": false,
+    "custom_gsplat_training_loop": false,
+    "custom_optimizer_and_lr_schedule": false,
+    "custom_split_clone_prune_reset": false,
+    "mesh_anchor_or_normal_lock": false,
+    "custom_graph_photometric_canonicalization": false,
+    "custom_sh_schedule": false,
+    "custom_stage10_checkpoint_viewer": false
+  }
+}

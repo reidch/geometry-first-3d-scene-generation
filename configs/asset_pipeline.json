@@ -1,0 +1,152 @@
+{
+  "schema_version": 5,
+  "routing": "generation.mode is copied from scene JSON; semantic labels are opaque",
+  "representative_image_generation": {
+    "backend": "flux1_depth_control_inpaint_nf4_16gb",
+    "require_blender_capture": true,
+    "capture_script": "src/blender/prephysics_runtime/capture_object_multiview_inputs.py",
+    "fail_if_diffusion_unavailable": true,
+    "strength": 0.84,
+    "guidance_scale": 9.5,
+    "num_inference_steps": 30,
+    "width": 1024,
+    "height": 1024,
+    "mask_dilation_px": 6,
+    "depth_valid_min_gray": 24,
+    "depth_min_unique_levels": 3,
+    "generic_prompt_suffix": "single complete object, preserve the scaffold geometry, proportions and silhouette, realistic material and surface detail, no unrelated objects or background scene",
+    "candidate_orbit": {
+      "floor_elevation_deg": 35.0,
+      "ceiling_elevation_deg": -35.0,
+      "floor_ceiling_view_count": 8,
+      "wall_view_count": 4,
+      "wall_ring_half_angle_deg": 35.0,
+      "distance_scale": 2.2,
+      "camera_projection": "PERSP",
+      "fov_deg": 28.0,
+      "frustum_margin_ndc": 0.86
+    },
+    "anchor_selection": {
+      "max_anchors": 1,
+      "score_weights": {
+        "visible_area_fraction": 0.35,
+        "normal_diversity": 0.15,
+        "part_coverage_fraction": 0.2,
+        "framing_score": 0.1,
+        "levelness_score": 0.05
+      },
+      "greedy_weights": {
+        "coverage_gain": 0.65,
+        "part_gain": 0.15,
+        "view_diversity": 0.15,
+        "canonical_slot_gain": 0.05,
+        "base_score": 0.1
+      },
+      "early_stop": {
+        "after_2_coverage": 0.84,
+        "after_2_remaining_gain": 0.04,
+        "after_3_coverage": 0.92,
+        "after_3_remaining_gain": 0.02
+      },
+      "minimum_anchor_count": 1
+    },
+    "max_sequence_length": 384,
+    "clip_max_tokens": 75,
+    "hero_generation": {
+      "strength": 0.78,
+      "guidance_scale": 9.0,
+      "num_inference_steps": 36,
+      "max_sequence_length": 384,
+      "clip_max_tokens": 75
+    },
+    "consistency_generation": {
+      "strength": 0.78,
+      "guidance_scale": 9.25,
+      "num_inference_steps": 32,
+      "max_sequence_length": 384,
+      "clip_max_tokens": 75
+    },
+    "camera_capture_generation_modes": [
+      "asset_3d"
+    ],
+    "policy_note": "Stage03 samples one category-specific orbit and selects exactly one fully framed representative view for Pixal3D single-image generation."
+  },
+  "registration": {
+    "method": "truncated_bidirectional_surface_distance",
+    "rotation_candidates": "48_signed_axis_rotations_and_reflections",
+    "scale_mode": "uniform",
+    "scale_solver": "per_candidate_closed_form_least_squares",
+    "surface_sample_count": 3500,
+    "coarse_surface_sample_count": 1600,
+    "rotation_refine_count": 8,
+    "optimizer_maxiter": 28,
+    "optimizer_maxfev": 180,
+    "robust_trim_fraction": 0.01,
+    "truncation_ratio": 0.08,
+    "scale_lower_factor": 0.7,
+    "scale_upper_factor": 1.35,
+    "translation_radius_ratio": 0.18,
+    "translation_radius_max_m": 0.3
+  },
+  "alignment": {
+    "registration_source": "registration_plan.json",
+    "placement_source": "explicit object placement in scene JSON",
+    "hide_scaffold_after_import": true,
+    "keep_scaffold_as_physics_proxy": true,
+    "atlas_resolution": 1024,
+    "bake_margin_px": 24,
+    "atlas_gutter_px": 3,
+    "blender_import_mode": "stdlib_obj_parser+bpy_data_api",
+    "support_clearance_m": 0.0015,
+    "strict_validation": true,
+    "support_estimator": {
+      "method": "adaptive_trimmed_contact_depth_only",
+      "trim_schedule": [
+        0.0,
+        0.0025,
+        0.005,
+        0.01,
+        0.02,
+        0.04
+      ],
+      "max_trim_ratio": 0.04,
+      "support_band_ratio": 0.02,
+      "min_support_points": 16,
+      "candidate_max_penetration_depth_m": 0.006
+    },
+    "validation": {
+      "max_registration_loss": 0.08,
+      "max_support_gap_m": 0.005,
+      "max_support_penetration_m": 0.003
+    },
+    "diagnostics": {
+      "overlap_warning_threshold_m": 0.005
+    }
+  },
+  "real_runtime_required": true,
+  "pixal3d": {
+    "repo_url": "https://github.com/TencentARC/Pixal3D.git",
+    "repo_dir": "external/Pixal3D",
+    "auto_clone_repo": true,
+    "runtime_python": "python",
+    "runtime_env_name": "pixal3d_runtime",
+    "model_path": "TencentARC/Pixal3D",
+    "low_vram": true,
+    "resolution": 1024,
+    "manual_fov_deg": 28.0,
+    "seed": 7100,
+    "heartbeat_seconds": 30,
+    "blender_executable": "blender",
+    "require_pbr_glb": true,
+    "candidate_selection": {
+      "attempt_count": 3,
+      "seed_stride": 997,
+      "policy": "accept first successfully generated candidate; retry with next deterministic seed only after Pixal3D stall timeout; after all configured attempts time out, continue with the authoritative JSON scaffold"
+    },
+    "texture_naf_target_size": 64,
+    "texture_resolution_policy": "Reduce only Pixal3D texture-conditioning NAF feature map; keep 3D cascade resolution and downstream atlas/refinement defaults unchanged.",
+    "stall_timeout_seconds": 600,
+    "max_runtime_seconds": 3600,
+    "conversion_timeout_seconds": 900
+  }
+}

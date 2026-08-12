@@ -1,0 +1,9 @@
+# Isolated Stage09E image-quality runtime.
+# This MUST NOT be installed into worldmesh-nerfstudio because Nerfstudio 1.1.5
+# pins timm==0.6.7 and transformers==4.29.2.
+setuptools==80.9.0
+pyiqa==0.1.16
+open_clip_torch==3.3.0
+openai-clip==1.0.1
+timm==1.0.28
+transformers==5.15.0

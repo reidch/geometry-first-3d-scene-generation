@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "stage_root": "09e_evaluation",
+  "camera_protocol": {
+    "short_trajectory_count": 3,
+    "short_trajectory_frames": 5,
+    "closeup_object_count": 3,
+    "closeup_views_per_object": 2,
+    "rotation_object_count": 3,
+    "rotation_frames": 5,
+    "rotation_nominal_half_arc_degrees": 40.0,
+    "rotation_fallback_half_arcs_degrees": [
+      30.0,
+      20.0
+    ],
+    "height_fractions_between_eye_and_overhead": [
+      0.125,
+      0.3125,
+      0.5,
+      0.6875,
+      0.875
+    ],
+    "closeup_height_fraction": 0.35,
+    "rotation_height_fraction": 0.35,
+    "perimeter_dense_sample_count": 72,
+    "short_trajectory_inward_fraction": 0.35,
+    "short_trajectory_minimum_object_clearance_m": 0.6,
+    "minimum_camera_clearance_m": 0.3,
+    "minimum_training_camera_position_separation_m": 0.1,
+    "minimum_training_camera_direction_separation_degrees": 8.0,
+    "object_minimum_characteristic_size_m": 0.15,
+    "object_closeup_framing_margin": 1.25,
+    "object_radius_min_m": 0.65,
+    "object_radius_max_fraction_room_diagonal": 0.45,
+    "pitch_limit_policy": "maximum_absolute_pitch_of_accepted_stage07_overhead_cameras",
+    "manual_curation_sees_gaussian_output": false
+  },
+  "metrics": {
+    "training_replay": [
+      "psnr",
+      "ssim",
+      "lpips"
+    ],
+    "novel_per_view": [
+      "m_mae_m",
+      "m_rmse_m",
+      "n_cos",
+      "n_ang_deg",
+      "clip_iqa_plus",
+      "clip_aesthetic"
+    ],
+    "novel_pairs": [
+      "reproj_mae_m",
+      "reproj_absrel"
+    ],
+    "normal_depth_discontinuity_relative_threshold": 0.05,
+    "normal_depth_discontinuity_absolute_threshold_m": 0.05,
+    "reprojection_occlusion_absolute_tolerance_m": 0.03,
+    "reprojection_occlusion_relative_tolerance": 0.01
+  },
+  "image_quality": {
+    "auto_install_missing_packages": true,
+    "pyiqa_metric": "clipiqa+",
+    "clip_model": "ViT-L-14",
+    "clip_pretrained": "openai",
+    "aesthetic_weights_url": "https://github.com/LAION-AI/aesthetic-predictor/raw/main/sa_0_4_vit_l_14_linear.pth",
+    "runtime_policy": "project_local_isolated_venv_with_worldmesh_torch_system_site_packages",
+    "isolated_venv_dir": ".runtime/stage09e_quality",
+    "requirements_file": "requirements-stage09e-quality.txt"
+  }
+}

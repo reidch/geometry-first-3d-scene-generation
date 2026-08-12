@@ -1,0 +1,73 @@
+{
+  "parameter_schema_version": 2,
+  "backend": {
+    "name": "flux1_depth_control_inpaint_nf4_16gb",
+    "authentication": {
+      "preflight_check": true,
+      "token_env_var": "HF_TOKEN",
+      "require_gated_model_access": true
+    },
+    "profiles": {
+      "flux1_depth_control_inpaint_nf4_16gb": {
+        "base_model_id": "black-forest-labs/FLUX.1-Depth-dev",
+        "quantized_model_id": "diffusers/FLUX.1-Depth-dev-nf4",
+        "local_base_path": "models/flux1-depth-dev-base-lite",
+        "local_nf4_path": "models/flux1-depth-dev-nf4",
+        "dtype": "bfloat16",
+        "device": "cuda",
+        "cpu_offload": true,
+        "vae_slicing": true,
+        "vae_tiling": true,
+        "local_files_only_after_download": true,
+        "require_local_models": false,
+        "preflight_check": true,
+        "width": 1024,
+        "height": 576,
+        "seed": 20260710,
+        "guidance_scale": 10.0,
+        "num_inference_steps": 30,
+        "strength": 0.82,
+        "max_sequence_length": 384,
+        "append_negative_as_avoid_clause": false,
+        "target_region_guard": "Edit only the white mask. Preserve geometry, placement, and camera perspective.",
+        "memory_target": "RTX 5080 16GB via NF4 transformer/T5 + CPU offload",
+        "notes": "Active pre-physics FLUX backend. Preserves Blender 16-bit depth gradients, uses separate CLIP/T5 prompt budgets, and accepts prompt + RGB + mask + depth. Representative anchor generation now supports token-aware hero/consistency prompting and a larger default T5 budget.",
+        "auto_download": true,
+        "clip_max_tokens": 75
+      },
+      "flux2_klein_4b_multiref_16gb": {
+        "model_id": "black-forest-labs/FLUX.2-klein-4B",
+        "local_model_path": "models/flux2-klein-4b",
+        "dtype": "bfloat16",
+        "device": "cuda",
+        "generator_device": "cpu",
+        "cpu_offload": true,
+        "vae_slicing": true,
+        "vae_tiling": true,
+        "local_files_only_after_download": true,
+        "require_local_models": false,
+        "width": 1376,
+        "height": 768,
+        "seed": 20260809,
+        "guidance_scale": 1.0,
+        "num_inference_steps": 4,
+        "max_sequence_length": 512,
+        "memory_target": "consumer 16GB GPU via FLUX.2 [klein] 4B + CPU offload",
+        "notes": "Stage08 production backend. Native multi-reference image editing uses exactly two ordered references: Image 1 is the exact target-view RGB condition after trusted manual-warp fusion, and Image 2 is the pixel-aligned Stage07 camera-Z depth geometry reference. Semantic maps are not native generator inputs.",
+        "auto_download": true,
+        "preserve_reference_raster": true,
+        "reference_raster_policy": "disable Diffusers Flux2Klein >1MP reference auto-resize so 1376x768 Stage07/Stage08 references keep exact pixel geometry; dimensions are already divisible by the Flux2 VAE packing multiple",
+        "maximum_native_reference_images": 2,
+        "native_reference_order": [
+          "target_rgb_condition",
+          "camera_z_depth"
+        ]
+      }
+    }
+  },
+  "atlas": {
+    "resolution": 1024,
+    "color_space": "sRGB storage / linear-sRGB fusion",
+    "triangle_baking": "conservative UV-space rasterization"
+  }
+}

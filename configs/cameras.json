@@ -1,0 +1,92 @@
+{
+  "schema_version": 19,
+  "stage07_policy": "WorldMesh-style deterministic room cameras plus greedy room-shell coverage repair. The two bootstrap cameras remain on the opposite short walls at eye level and the WorldMesh wall offset. Because Stage07 runs after placed-object insertion, each bootstrap is allowed the minimum deterministic tangential slide along its wall needed to reach 75% of the best scaffold-unoccluded wall visibility available on that wall, retaining the WorldMesh midpoint prior whenever possible. Sixteen equal-arc eye-level perimeter cameras and eight overhead cameras are then generated and redundant perimeter views near the bootstraps are pruned. Camera adjustment uses one 20 cm scaffold-part OBB threshold only. The signed intersection along the actual sight direction may be negative; if no nearby body has a positive sight-direction exit the camera is left unchanged. Otherwise only positive view/left/right relocation candidates are evaluated and the shortest valid one is selected. Each camera is adjusted at most once. The existing room-shell coverage representation and Stage08 graph contract remain unchanged, with largest-hole-first deterministic repair.",
+  "reconstruction_sampling": {
+    "camera_model": {
+      "resolution": [
+        1376,
+        768
+      ],
+      "vertical_fov_degrees": 60.0,
+      "sensor_width_mm": 36.0,
+      "sensor_fit": "HORIZONTAL",
+      "derived_focal_length_mm": 17.401068578366395,
+      "fov_source": "WorldMesh final appearance/reconstruction setting: all non-object-placement images use 60 degree FOV; final paper images are 1376x768"
+    },
+    "worldmesh_base_layout": {
+      "room_coverage_count": 2,
+      "eye_level_perimeter_count": 16,
+      "overhead_count": 8,
+      "camera_height_m": 1.6,
+      "overhead_height_offset_m": 0.8,
+      "perimeter_wall_offset_m": 0.4,
+      "coverage_wall_offset_m": 0.05,
+      "coverage_duplicate_azimuth_degrees": 10.0,
+      "collision_padding_m": 0.3,
+      "look_at_policy": "coverage cameras look toward the opposite wall at eye level; perimeter cameras look at room center at eye level; overhead cameras use the same perimeter placement at +0.8m and look at room center at eye level",
+      "collision_policy": "iterative_true_obb_visibility_gate_then_positive_inflated_obb_view_left_right_minimum_delete_on_exhausted_lateral_limit",
+      "bootstrap_wall_candidate_count": 13,
+      "bootstrap_wall_end_margin_m": 0.4,
+      "bootstrap_selection_policy": "worldmesh_opposite_short_wall_midpoints_with_minimum_tangential_slide_to_reach_scaffold_visibility_sufficiency",
+      "bootstrap_visibility_metric": "area_weighted_visible_vertical_room_shell_samples_after_scaffold_primitive_occlusion",
+      "bootstrap_visibility_sufficiency_ratio": 0.75,
+      "collision_motion_directions": [
+        "view_direction",
+        "left",
+        "right"
+      ],
+      "forbid_backward_motion": true,
+      "camera_wall_clearance_m": 0.05,
+      "maximum_left_adjustments": 5,
+      "maximum_right_adjustments": 5
+    },
+    "coverage_repair": {
+      "enabled": true,
+      "component_connectivity": 4,
+      "component_priority": "largest_uncovered_representative_area_first",
+      "target": "area_weighted_world_centroid_of_largest_uncovered_component",
+      "center_bias_fractions": [
+        1.0,
+        0.75,
+        0.5
+      ],
+      "camera_heights_m": [
+        1.6,
+        2.4
+      ],
+      "candidate_selection": "maximum_new_uncovered_room_surface_area_then_minimum_xy_distance_to_room_center",
+      "require_graph_connection": true,
+      "duplicate_position_threshold_m": 0.1,
+      "duplicate_view_angle_degrees": 10.0,
+      "maximum_repair_cameras": 16
+    },
+    "room_surface_coverage": {
+      "surface_source": "explicit_surface_texture_scaffold_faces",
+      "ignore_non_room_object_occlusion": true,
+      "sample_spacing_room_diagonal_ratio": 0.015,
+      "horizontal_normal_alignment_threshold": 0.7,
+      "image_border_margin_ratio": 0.02,
+      "near_room_diagonal_ratio": 0.003,
+      "far_room_diagonal_ratio": 2.0,
+      "coverage_influence": {
+        "kernel": "separable_gaussian_on_each_declared_room_surface",
+        "radius_in_sample_spacings": 3.0,
+        "sigma_in_sample_spacings": 1.5,
+        "saturation": 1.0
+      }
+    },
+    "termination": {
+      "require_full_discrete_room_surface_coverage": true,
+      "require_room_sample_overlap_graph_connected": true,
+      "maximum_camera_count": 42,
+      "fail_if_requirements_unmet": true
+    },
+    "camera_overlap_graph": {
+      "overlap_metric": "area_weighted_dice",
+      "minimum_edge_correlation_score": 0.05,
+      "retain_all_pairs_passing_final_correlation_test": true,
+      "connectivity_uses_final_correlation_edges": true
+    },
+    "stage07_policy": "WorldMesh-style deterministic room cameras plus greedy room-shell coverage repair. The two bootstrap cameras remain on opposite short walls at eye level and the WorldMesh wall offset, with the minimum deterministic tangential slide needed to reach 75% of the best scaffold-unoccluded wall visibility available on that wall. Sixteen equal-arc eye-level perimeter cameras and eight overhead cameras are then generated and redundant perimeter views near the bootstraps are pruned. Camera collision adjustment is iterative and primitive-local: an inflated scaffold primitive OBB is entered only after a cheap enclosing-sphere broad phase and exact point-in-inflated-OBB test. The actual unpadded scaffold OBB gates movement: if the current view line intersects the true OBB and every signed intersection is negative, that primitive is ignored; an empty true-OBB intersection is allowed to trigger movement. Otherwise positive-only view/left/right exits are computed from the inflated OBB, candidates must remain inside the room with wall clearance, and the shortest valid move is applied before restarting the primitive scan from the beginning. Left and right moves are each limited to five executed moves; if the shortest required move would use an exhausted lateral direction, the camera is deleted. A full primitive pass with no movement accepts the current camera. Existing room-shell coverage representation and Stage08 graph contract remain unchanged, with largest-hole-first deterministic repair compensating for deleted or missing base views."
+  }
+}
