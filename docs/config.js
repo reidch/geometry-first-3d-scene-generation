@@ -1,8 +1,8 @@
 window.PROJECT_CONFIG = {
   links: {
     paper: "assets/dissertation.pdf",
-    code: "",
-    video: ""
+    code: "https://github.com/reidch/geometry-first-3d-scene-generation",
+    video: "#results"
   },
   media: {
     heroVideo: "assets/hero.mp4",

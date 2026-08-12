@@ -2,8 +2,8 @@
 
 > Replace this line with one strong teaser image from `docs/assets/`.
 
-**Project Page:** `https://YOUR_USERNAME.github.io/YOUR_REPOSITORY/`  
-**Paper:** `UPDATE_LINK`  
+**Project Page:** `https://reidch.github.io/geometry-first-3d-scene-generation/`  
+**Paper:** `https://github.com/reidch/geometry-first-3d-scene-generation`  
 **Video:** `UPDATE_LINK`
 
 ## Overview

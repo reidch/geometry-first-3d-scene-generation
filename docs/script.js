@@ -7,6 +7,10 @@
     if (url) {
       el.href = url;
       el.classList.remove("disabled");
+      if (url.startsWith("#")) {
+        el.removeAttribute("target");
+        el.removeAttribute("rel");
+      }
     } else {
       el.href = "#";
       el.addEventListener("click", (e) => e.preventDefault());
