@@ -1,11 +1,5 @@
 # A Fully Automated Geometry-First Framework for Controllable Indoor 3D Scene Generation
 
-> Replace this line with one strong teaser image from `docs/assets/`.
-
-**Project Page:** `https://reidch.github.io/geometry-first-3d-scene-generation/`  
-**Paper:** `https://github.com/reidch/geometry-first-3d-scene-generation`  
-**Video:** `UPDATE_LINK`
-
 ## Overview
 
 This repository contains the implementation of a fully automated geometry-first framework for controllable indoor 3D scene generation. The system treats explicitly supplied scene geometry as persistent spatial authority while pretrained generative components add object detail, architectural appearance and final scene-level visual style.
