@@ -3,37 +3,33 @@
 
   function setLink(id, url) {
     const el = document.getElementById(id);
-    if (!el) return;
-    if (url) {
-      el.href = url;
-      el.classList.remove("disabled");
-      if (url.startsWith("#")) {
-        el.removeAttribute("target");
-        el.removeAttribute("rel");
-      }
-    } else {
-      el.href = "#";
-      el.addEventListener("click", (e) => e.preventDefault());
-      el.title = "Add this URL in config.js";
-      el.style.opacity = "0.55";
+    if (!el || !url) return;
+    el.href = url;
+    el.classList.remove("disabled");
+    el.style.opacity = "";
+    if (url.startsWith("#")) {
+      el.removeAttribute("target");
+      el.removeAttribute("rel");
     }
   }
 
   function setImage(id, src) {
     if (!src) return;
     const el = document.getElementById(id);
-    if (el) el.src = src;
+    if (el && el.tagName === "IMG") el.src = src;
   }
 
-  function setVideo(videoId, fallbackId, src) {
+  function setVideo(videoId, fallbackId, src, poster) {
     if (!src) return;
     const video = document.getElementById(videoId);
     const fallback = fallbackId ? document.getElementById(fallbackId) : null;
     if (!video) return;
+    video.innerHTML = "";
     const source = document.createElement("source");
     source.src = src;
     source.type = src.toLowerCase().endsWith(".webm") ? "video/webm" : "video/mp4";
     video.appendChild(source);
+    if (poster) video.poster = poster;
     video.hidden = false;
     if (fallback) fallback.hidden = true;
     video.load();
@@ -44,11 +40,7 @@
   setLink("video-link", cfg.links?.video);
 
   if (cfg.media?.heroVideo) {
-    setVideo("hero-video", "hero-image", cfg.media.heroVideo);
-    if (cfg.media?.heroImage) {
-      const heroVideo = document.getElementById("hero-video");
-      if (heroVideo) heroVideo.poster = cfg.media.heroImage;
-    }
+    setVideo("hero-video", "hero-image", cfg.media.heroVideo, cfg.media?.heroImage);
     const note = document.querySelector(".hero-media .media-note");
     if (note) note.hidden = true;
   } else if (cfg.media?.heroImage) {
@@ -61,16 +53,13 @@
   setImage("scene-modern", cfg.media?.sceneModern);
   setImage("scene-anime", cfg.media?.sceneAnime);
   setImage("pipeline-image", cfg.media?.pipeline);
-  setImage("matched-rococo", cfg.media?.matchedRococo);
-  setImage("matched-modern", cfg.media?.matchedModern);
+  setImage("style-control", cfg.media?.styleControl);
   setImage("ablation-multiview", cfg.media?.ablationMultiview);
-  setImage("ablation-reprojection", cfg.media?.ablationReprojection);
   setImage("ablation-repair", cfg.media?.ablationRepair);
-  setImage("ablation-camera", cfg.media?.ablationCamera);
 
-  setVideo("video-rococo", "video-rococo-fallback", cfg.media?.videoRococo);
-  setVideo("video-modern", "video-modern-fallback", cfg.media?.videoModern);
-  setVideo("video-anime", "video-anime-fallback", cfg.media?.videoAnime);
+  setVideo("video-rococo", "video-rococo-fallback", cfg.media?.videoRococo, cfg.media?.sceneRococo);
+  setVideo("video-modern", "video-modern-fallback", cfg.media?.videoModern, cfg.media?.sceneModern);
+  setVideo("video-anime", "video-anime-fallback", cfg.media?.videoAnime, cfg.media?.sceneAnime);
 
   const copy = document.getElementById("copy-bibtex");
   copy?.addEventListener("click", async () => {

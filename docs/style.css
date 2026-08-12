@@ -153,3 +153,19 @@ tr.ours { background: #f5f3ff; font-weight: 700; }
   .scene-card figcaption { align-items: flex-start; flex-direction: column; }
   .footer-inner { flex-direction: column; }
 }
+
+/* v3: source-resolution dissertation figures */
+.source-figure { margin: 0; }
+.source-figure img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow); }
+.source-figure figcaption { max-width: 920px; margin: 12px auto 0; color: var(--muted); text-align: center; font-size: 0.88rem; line-height: 1.55; }
+.wide-figure { max-width: 1180px; margin-left: auto; margin-right: auto; }
+
+.ablation-gallery { display: grid; gap: 12px; align-content: start; }
+.ablation-gallery img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); background: #fff; }
+.ablation-gallery.three-up { max-height: 920px; overflow: auto; padding-right: 4px; scrollbar-width: thin; }
+.camera-gallery { grid-template-columns: 1fr 1fr; align-items: start; }
+
+@media (max-width: 900px) {
+  .camera-gallery { grid-template-columns: 1fr; }
+  .ablation-gallery.three-up { max-height: none; overflow: visible; }
+}

@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#f7f7fb" />
   <title>Geometry-First 3D Scene Generation</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=3" />
 </head>
 <body>
   <header class="site-header">
@@ -39,9 +39,9 @@
         </p>
         <p class="authors"><strong>Rundong Chen</strong> · Supervisor: Binh-Son Hua</p>
         <div class="button-row" aria-label="Project links">
-          <a id="paper-link" class="button primary" href="#" target="_blank" rel="noreferrer">Paper</a>
-          <a id="code-link" class="button" href="#" target="_blank" rel="noreferrer">Code</a>
-          <a id="video-link" class="button" href="#" target="_blank" rel="noreferrer">Video</a>
+          <a id="paper-link" class="button primary" href="assets/dissertation.pdf" target="_blank" rel="noreferrer">Paper</a>
+          <a id="code-link" class="button" href="https://github.com/reidch/geometry-first-3d-scene-generation" target="_blank" rel="noreferrer">Code</a>
+          <a id="video-link" class="button" href="#results">Video</a>
         </div>
       </div>
 
@@ -116,7 +116,7 @@
 
       <div class="pipeline-layout">
         <div class="media-frame pipeline-media">
-          <img id="pipeline-image" src="assets/pipeline.svg" alt="Pipeline figure placeholder" />
+          <img id="pipeline-image" src="assets/pipeline_overview.png" alt="Pipeline figure placeholder" />
         </div>
         <div class="pipeline-steps">
           <div class="step"><span>1</span><div><strong>Declarative scene + scaffold</strong><p>Hierarchy, transforms, generation modes and approximate geometry define the spatial contract.</p></div></div>
@@ -176,10 +176,10 @@
         <h2>Same spatial layout, different appearance</h2>
         <p>These views compare the same scene layout under two visual styles. The recognisable bed, bench, wardrobe and room boundaries show that appearance can change substantially while the requested spatial structure remains stable.</p>
       </div>
-      <div class="compare-grid">
-        <figure class="compare-card"><img id="matched-rococo" src="assets/matched-rococo.svg" alt="Matched Rococo view placeholder" /><figcaption>Rococo</figcaption></figure>
-        <figure class="compare-card"><img id="matched-modern" src="assets/matched-modern.svg" alt="Matched modern view placeholder" /><figcaption>Modern</figcaption></figure>
-      </div>
+      <figure class="source-figure wide-figure">
+        <img id="style-control" src="assets/evaluation_style_control.png" alt="Matched Rococo and modern novel-view renders using identical cameras" />
+        <figcaption>Matched novel views from identical evaluation cameras. The spatial arrangement remains recognisable while materials, decoration and appearance change substantially.</figcaption>
+      </figure>
     </section>
 
     <section id="ablations" class="section section-muted">
@@ -198,7 +198,7 @@
               <div class="delta-row"><span><strong>33.61 → 27.80</strong> PSNR</span><span><strong>0.0378 → 0.1144</strong> LPIPS</span></div>
               <p>Independent per-view generation makes the training observations harder to explain with one persistent 3D representation and produces visible smearing, duplication and translucent artefacts after reconstruction.</p>
             </div>
-            <img id="ablation-multiview" src="assets/ablation-multiview.svg" alt="Multi-view ablation placeholder" />
+            <img id="ablation-multiview" src="assets/ablation_multiview_qualitative.png" alt="Multi-view ablation placeholder" />
           </article>
 
           <article class="ablation-card reverse">
@@ -208,7 +208,11 @@
               <div class="delta-row"><span><strong>100% → 55.6%</strong> strict acceptance</span><span><strong>21 → 124</strong> validated attempts</span></div>
               <p>An unaligned reference can leak its own viewpoint, composition and visibility pattern into the target. Explicit target-space reprojection removes a correspondence problem the geometry has already solved.</p>
             </div>
-            <img id="ablation-reprojection" src="assets/ablation-reprojection.svg" alt="Reprojection ablation placeholder" />
+            <div id="ablation-reprojection" class="ablation-gallery three-up" aria-label="Reprojection ablation examples">
+              <img src="assets/ablation_no_reprojection_matched_1.png" alt="Reprojection ablation matched targets, part 1" />
+              <img src="assets/ablation_no_reprojection_matched_2.png" alt="Reprojection ablation matched targets, part 2" />
+              <img src="assets/ablation_no_reprojection_matched_3.png" alt="Reprojection ablation matched targets, part 3" />
+            </div>
           </article>
 
           <article class="ablation-card">
@@ -217,7 +221,7 @@
               <h3>Remove the post-hoc repair sweep</h3>
               <p>Early views can be geometrically valid yet commit to a weaker appearance choice because few trusted neighbours are available. A single bounded revisit lets those views use the stronger scene-level consensus available later.</p>
             </div>
-            <img id="ablation-repair" src="assets/ablation-repair.svg" alt="Repair ablation placeholder" />
+            <img id="ablation-repair" src="assets/ablation_repair_early_views.png" alt="Repair ablation placeholder" />
           </article>
 
           <article class="ablation-card reverse">
@@ -227,7 +231,10 @@
               <div class="delta-row"><span><strong>51.4% → 0.0%</strong> room-surface visibility in the strongest failure case</span></div>
               <p>The direct OBB exit calculation gives deterministic geometric progress in tight configurations, whereas bounded local stepping can leave a selected camera almost completely occluded.</p>
             </div>
-            <img id="ablation-camera" src="assets/ablation-camera.svg" alt="Camera collision ablation placeholder" />
+            <div id="ablation-camera" class="ablation-gallery camera-gallery" aria-label="Camera collision ablation examples">
+              <img src="assets/ablation_camera_collision_comparison_1.png" alt="Camera collision comparison, part 1" />
+              <img src="assets/ablation_camera_collision_comparison_2.png" alt="Camera collision comparison, part 2" />
+            </div>
           </article>
         </div>
       </div>
@@ -288,7 +295,7 @@
     <div class="shell footer-inner"><span>Geometry-First 3D Scene Generation</span><span>Built as a static GitHub Pages site.</span></div>
   </footer>
 
-  <script src="config.js"></script>
-  <script src="script.js"></script>
+  <script src="config.js?v=3"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>
