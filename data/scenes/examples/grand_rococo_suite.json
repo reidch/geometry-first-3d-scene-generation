@@ -1,0 +1,3160 @@
+{
+  "schema_version": "2.0",
+  "scene": {
+    "id": "grand_rococo_suite",
+    "name": "Grand Rococo Palace Bedroom Suite",
+    "prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism. Every architectural surface and furniture object must show attractive material-specific texture, grain, weave, carving, inlay, relief or ornamental pattern; use a sophisticated ivory, pale blue, blush, walnut and antique-gold palette instead of plain flat colors.",
+    "coordinate_system": {
+      "up_axis": "Z",
+      "forward_axis": "Y",
+      "unit_scale_m": 1.0
+    },
+    "defaults": {
+      "appearance": {
+        "base_color": [
+          0.58,
+          0.56,
+          0.52,
+          1
+        ]
+      },
+      "placement": {
+        "support_axis_world": [
+          0,
+          0,
+          1
+        ],
+        "clearance_m": 0.004
+      },
+      "registration": {
+        "rotation_candidates": "proper_axis_24",
+        "scale_mode": "uniform",
+        "surface_sample_count": 3500,
+        "truncation_ratio": 0.08,
+        "scale_lower_factor": 0.72,
+        "scale_upper_factor": 1.3
+      }
+    },
+    "objects": [
+      {
+        "id": "room_shell",
+        "name": "Grand Rococo room shell",
+        "semantic": "enclosing architecture",
+        "transform": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "group"
+        },
+        "physics": {
+          "mode": "static",
+          "body": "none"
+        },
+        "children": [
+          {
+            "id": "floor_main",
+            "name": "Grand parquet floor",
+            "semantic": "room-scale supporting architectural surface",
+            "transform": {
+              "position": [
+                0,
+                0,
+                -0.08
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete rectified floor texture for an expansive Rococo palace bedroom, filling the full rectangle edge to edge with elegant Versailles parquet: medium-scale walnut and honey-oak geometric panels, readable board seams, decorative inlay borders, balanced repeating construction, natural non-identical wood grain, subtle tonal movement and polished satin finish.",
+              "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field",
+              "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+              "appearance_prompt": "Rich walnut and honey-oak grain, fine pores, crisp parquet joints, tasteful darker inlay lines, warm amber-brown color harmony, gentle polished reflections, no muddy blur and no flat brown fill.",
+              "surface": {
+                "projection": "top",
+                "generation_space": "rectified_surface",
+                "continuity_group": "floor_main",
+                "style_group": "grand_rococo_suite",
+                "generation_order": 0,
+                "order": 0,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "wood",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      8.4,
+                      6.4,
+                      0.16
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.4,
+                0.27,
+                0.16,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "floor",
+              "description": "explicit planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.56,
+              "fusion_strength": 0.27,
+              "max_periodicity_score": 0.95
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "ceiling_main",
+            "name": "Ornamental ceiling",
+            "semantic": "upper architectural surface",
+            "transform": {
+              "position": [
+                0,
+                0,
+                3.88
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete rectified Rococo ceiling composition filling the entire ceiling rectangle: luminous ivory plaster, a large but proportionate central ornamental medallion, layered perimeter coving, flowing shell and acanthus relief, delicate floral scrollwork, restrained antique-gold accents and balanced corner ornaments connected by coherent moulding lines.",
+              "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field",
+              "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+              "appearance_prompt": "Fine plaster microtexture, softly modelled relief shadows, clean carved edges, pearl-ivory and cream tonal layering, restrained gold leaf, elegant whole-ceiling composition with no blank featureless expanses.",
+              "surface": {
+                "projection": "bottom",
+                "generation_space": "rectified_surface",
+                "continuity_group": "ceiling_main",
+                "style_group": "grand_rococo_suite",
+                "generation_order": 1,
+                "order": 1,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      8.4,
+                      6.4,
+                      0.16
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.88,
+                0.84,
+                0.76,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "ceiling",
+              "description": "explicit planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.56,
+              "fusion_strength": 0.27,
+              "max_periodicity_score": 0.95
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_rear",
+            "name": "Principal bed wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                0,
+                3.2,
+                1.9
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge Rococo palace-bedroom wall elevation designed as a full installed architectural surface: a continuous boiserie system of tall and low ivory panels, layered carved plaster mouldings, asymmetrical shell and acanthus flourishes, delicate floral scroll relief, pale celadon-blue silk-damask panel fields, restrained antique-gold leaf on selected raised edges, and balanced decorative rhythm extending across every part of the wall. The whole rectangle must contain coherent material texture, relief, panel structure, color variation, and ornamental pattern; never reduce the design to one small central motif.",
+              "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field",
+              "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+              "appearance_prompt": "Fine warm-ivory plaster grain, hand-finished carved relief, crisp gilded edge highlights, visible woven damask texture with subtle floral pattern, softly varied cream and pale-blue color fields, controlled satin and matte roughness contrast, premium palace craftsmanship across the entire surface.",
+              "surface": {
+                "projection": "front",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "grand_rococo_suite",
+                "generation_order": 10,
+                "order": 10,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      8.4,
+                      0.16,
+                      3.8
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.82,
+                0.78,
+                0.7,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                0,
+                -1,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.97
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 2,
+              "primary": true
+            }
+          },
+          {
+            "id": "wall_right",
+            "name": "Right salon wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                4.2,
+                0,
+                1.9
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge Rococo palace-bedroom wall elevation designed as a full installed architectural surface: a continuous boiserie system of tall and low ivory panels, layered carved plaster mouldings, asymmetrical shell and acanthus flourishes, delicate floral scroll relief, pale celadon-blue silk-damask panel fields, restrained antique-gold leaf on selected raised edges, and balanced decorative rhythm extending across every part of the wall. The whole rectangle must contain coherent material texture, relief, panel structure, color variation, and ornamental pattern; never reduce the design to one small central motif.",
+              "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field",
+              "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+              "appearance_prompt": "Fine warm-ivory plaster grain, hand-finished carved relief, crisp gilded edge highlights, visible woven damask texture with subtle floral pattern, softly varied cream and pale-blue color fields, controlled satin and matte roughness contrast, premium palace craftsmanship across the entire surface.",
+              "surface": {
+                "projection": "opposite_side",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "grand_rococo_suite",
+                "generation_order": 11,
+                "order": 11,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left"
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      0.16,
+                      6.4,
+                      3.8
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.82,
+                0.78,
+                0.7,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                -1,
+                0,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.97
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_front",
+            "name": "Front entrance wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                0,
+                -3.2,
+                1.9
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge Rococo palace-bedroom wall elevation designed as a full installed architectural surface: a continuous boiserie system of tall and low ivory panels, layered carved plaster mouldings, asymmetrical shell and acanthus flourishes, delicate floral scroll relief, pale celadon-blue silk-damask panel fields, restrained antique-gold leaf on selected raised edges, and balanced decorative rhythm extending across every part of the wall. The whole rectangle must contain coherent material texture, relief, panel structure, color variation, and ornamental pattern; never reduce the design to one small central motif.",
+              "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field",
+              "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+              "appearance_prompt": "Fine warm-ivory plaster grain, hand-finished carved relief, crisp gilded edge highlights, visible woven damask texture with subtle floral pattern, softly varied cream and pale-blue color fields, controlled satin and matte roughness contrast, premium palace craftsmanship across the entire surface.",
+              "surface": {
+                "projection": "back",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "grand_rococo_suite",
+                "generation_order": 12,
+                "order": 12,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left"
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      8.4,
+                      0.16,
+                      3.8
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.82,
+                0.78,
+                0.7,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                0,
+                1,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.97
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_left",
+            "name": "Left wardrobe wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                -4.2,
+                0,
+                1.9
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge Rococo palace-bedroom wall elevation designed as a full installed architectural surface: a continuous boiserie system of tall and low ivory panels, layered carved plaster mouldings, asymmetrical shell and acanthus flourishes, delicate floral scroll relief, pale celadon-blue silk-damask panel fields, restrained antique-gold leaf on selected raised edges, and balanced decorative rhythm extending across every part of the wall. The whole rectangle must contain coherent material texture, relief, panel structure, color variation, and ornamental pattern; never reduce the design to one small central motif.",
+              "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field",
+              "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+              "appearance_prompt": "Fine warm-ivory plaster grain, hand-finished carved relief, crisp gilded edge highlights, visible woven damask texture with subtle floral pattern, softly varied cream and pale-blue color fields, controlled satin and matte roughness contrast, premium palace craftsmanship across the entire surface.",
+              "surface": {
+                "projection": "side",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "grand_rococo_suite",
+                "generation_order": 13,
+                "order": 13,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left",
+                "close_cycle": true,
+                "cycle_reference_object_id": "wall_rear",
+                "cycle_reference_edge": "left",
+                "cycle_target_edge": "right",
+                "cycle_reference_strip_fraction": 0.1
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      0.16,
+                      6.4,
+                      3.8
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.82,
+                0.78,
+                0.7,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                1,
+                0,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.97
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          }
+        ],
+        "spatial_category": {
+          "type": "free",
+          "description": "architectural group"
+        }
+      },
+      {
+        "id": "grand_bed",
+        "name": "Grand upholstered Rococo bed",
+        "semantic": "large sleeping furniture with high carved headboard",
+        "transform": {
+          "position": [
+            0,
+            1.55,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete grand Rococo palace bed with a substantial upholstered body, thick mattress, tall sculpted headboard, carved gilded timber frame, shaped crown and stable connected proportions; preserve the complete volumetric bed and all major components.",
+          "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+          "appearance_prompt": "Cream and blush-pink tufted silk-velvet upholstery with visible woven nap, floral brocade inserts, walnut carved wood grain, shell-and-acanthus relief, restrained antique-gold leaf on moulded edges, elegant color harmony and premium layered finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "bed_base",
+              "name": "Bed Base",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.3
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  2.45,
+                  2.55,
+                  0.55
+                ]
+              }
+            },
+            {
+              "id": "mattress",
+              "name": "Mattress",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.08,
+                  0.73
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  2.28,
+                  2.3,
+                  0.45
+                ]
+              }
+            },
+            {
+              "id": "headboard_core",
+              "name": "Headboard Core",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  1.12,
+                  1.55
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  2.65,
+                  0.34,
+                  2.65
+                ]
+              }
+            },
+            {
+              "id": "headboard_crown",
+              "name": "Headboard Crown",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  1.1,
+                  2.62
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  2.15,
+                  0.4,
+                  0.38
+                ]
+              }
+            },
+            {
+              "id": "footboard",
+              "name": "Footboard",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -1.18,
+                  0.72
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  2.42,
+                  0.28,
+                  1.05
+                ]
+              }
+            },
+            {
+              "id": "left_post",
+              "name": "Left Post",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -1.18,
+                  1.08,
+                  1.45
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.18,
+                  0.18,
+                  2.55
+                ]
+              }
+            },
+            {
+              "id": "right_post",
+              "name": "Right Post",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  1.18,
+                  1.08,
+                  1.45
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.18,
+                  0.18,
+                  2.55
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.66,
+            0.52,
+            0.44,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 6,
+          "generation_strength": 0.58,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "nightstand_left",
+        "name": "Left Rococo bedside commode",
+        "semantic": "compact bedside cabinet",
+        "transform": {
+          "position": [
+            -1.82,
+            1.75,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete compact Rococo bedside commode with a thick shaped top, rounded cabinet body, readable drawer fronts and four connected cabriole-inspired legs.",
+          "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+          "appearance_prompt": "Warm walnut and light mahogany grain, hand-carved drawer relief, ivory-painted panel accents, restrained gilded trim, small floral marquetry pattern, polished satin top and premium crafted color variation."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "cabinet",
+              "name": "Cabinet",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.78,
+                  0.68,
+                  0.78
+                ]
+              }
+            },
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.91
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.88,
+                  0.76,
+                  0.12
+                ]
+              }
+            },
+            {
+              "id": "leg_fl",
+              "name": "Leg Fl",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.3,
+                  -0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            },
+            {
+              "id": "leg_fr",
+              "name": "Leg Fr",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.3,
+                  -0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            },
+            {
+              "id": "leg_bl",
+              "name": "Leg Bl",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.3,
+                  0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            },
+            {
+              "id": "leg_br",
+              "name": "Leg Br",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.3,
+                  0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.55,
+            0.42,
+            0.3,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "nightstand_right",
+        "name": "Right Rococo bedside commode",
+        "semantic": "compact bedside cabinet",
+        "transform": {
+          "position": [
+            1.82,
+            1.75,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete compact Rococo bedside commode with a thick shaped top, rounded cabinet body, readable drawer fronts and four connected cabriole-inspired legs.",
+          "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+          "appearance_prompt": "Warm walnut and light mahogany grain, hand-carved drawer relief, ivory-painted panel accents, restrained gilded trim, small floral marquetry pattern, polished satin top and premium crafted color variation."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "cabinet",
+              "name": "Cabinet",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.78,
+                  0.68,
+                  0.78
+                ]
+              }
+            },
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.91
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.88,
+                  0.76,
+                  0.12
+                ]
+              }
+            },
+            {
+              "id": "leg_fl",
+              "name": "Leg Fl",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.3,
+                  -0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            },
+            {
+              "id": "leg_fr",
+              "name": "Leg Fr",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.3,
+                  -0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            },
+            {
+              "id": "leg_bl",
+              "name": "Leg Bl",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.3,
+                  0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            },
+            {
+              "id": "leg_br",
+              "name": "Leg Br",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.3,
+                  0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.55,
+            0.42,
+            0.3,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "lamp_left",
+        "name": "Left Rococo bedside lamp",
+        "semantic": "ornamental table lamp",
+        "transform": {
+          "position": [
+            -1.82,
+            1.75,
+            0.96
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete Rococo bedside lamp with substantial decorated base, connected porcelain body, slender metal stem and broad elegant fabric shade.",
+          "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+          "appearance_prompt": "Ivory porcelain with painted blush floral pattern, antique-gold relief and metal trim, pale celadon silk shade with visible weave and delicate braid, warm harmonious colors and subtle roughness contrast."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.12
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.34,
+                  0.34,
+                  0.24
+                ]
+              }
+            },
+            {
+              "id": "body",
+              "name": "Body",
+              "primitive": "sphere",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.36
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.32,
+                  0.32,
+                  0.42
+                ]
+              }
+            },
+            {
+              "id": "stem",
+              "name": "Stem",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.68
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.08,
+                  0.45
+                ]
+              }
+            },
+            {
+              "id": "shade",
+              "name": "Shade",
+              "primitive": "cone",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  1.02
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.48,
+                  0.48,
+                  0.55
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.55,
+            0.42,
+            0.3,
+            1
+          ]
+        },
+        "placement": {
+          "support_target": "nightstand_left",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.004
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.55,
+          "fusion_strength": 0.26,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "lamp_right",
+        "name": "Right Rococo bedside lamp",
+        "semantic": "ornamental table lamp",
+        "transform": {
+          "position": [
+            1.82,
+            1.75,
+            0.96
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete Rococo bedside lamp with substantial decorated base, connected porcelain body, slender metal stem and broad elegant fabric shade.",
+          "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+          "appearance_prompt": "Ivory porcelain with painted blush floral pattern, antique-gold relief and metal trim, pale celadon silk shade with visible weave and delicate braid, warm harmonious colors and subtle roughness contrast."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.12
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.34,
+                  0.34,
+                  0.24
+                ]
+              }
+            },
+            {
+              "id": "body",
+              "name": "Body",
+              "primitive": "sphere",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.36
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.32,
+                  0.32,
+                  0.42
+                ]
+              }
+            },
+            {
+              "id": "stem",
+              "name": "Stem",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.68
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.08,
+                  0.45
+                ]
+              }
+            },
+            {
+              "id": "shade",
+              "name": "Shade",
+              "primitive": "cone",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  1.02
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.48,
+                  0.48,
+                  0.55
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.55,
+            0.42,
+            0.3,
+            1
+          ]
+        },
+        "placement": {
+          "support_target": "nightstand_right",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.004
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.55,
+          "fusion_strength": 0.26,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "wardrobe_main",
+        "name": "Grand Rococo armoire",
+        "semantic": "large freestanding storage cabinet",
+        "transform": {
+          "position": [
+            -3.52,
+            0.25,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete monumental Rococo armoire with thick volumetric cabinet, two readable doors, sculpted crown, stable plinth and connected carved frame, designed as premium palace furniture.",
+          "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+          "appearance_prompt": "Ivory lacquer over visible fine wood grain, walnut inset panels, floral marquetry, carved shell relief, antique-gold moulded edges, softly aged premium finish, rich but balanced cream-walnut-gold palette."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "body",
+              "name": "Body",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  1.45
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.72,
+                  2.45,
+                  2.9
+                ]
+              }
+            },
+            {
+              "id": "crown",
+              "name": "Crown",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  3.0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.88,
+                  2.72,
+                  0.3
+                ]
+              }
+            },
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.16
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.86,
+                  2.62,
+                  0.32
+                ]
+              }
+            },
+            {
+              "id": "door_left",
+              "name": "Door Left",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.4,
+                  -0.58,
+                  1.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  1.08,
+                  2.42
+                ]
+              }
+            },
+            {
+              "id": "door_right",
+              "name": "Door Right",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.4,
+                  0.58,
+                  1.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  1.08,
+                  2.42
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.55,
+            0.42,
+            0.3,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 6,
+          "generation_strength": 0.57,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "vanity_table",
+        "name": "Rococo vanity table",
+        "semantic": "ornamental dressing table",
+        "transform": {
+          "position": [
+            3.48,
+            -0.15,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete Rococo dressing vanity with shaped thick tabletop, central drawers, four elegant connected legs and a substantial framed vertical mirror.",
+          "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+          "appearance_prompt": "Light mahogany and walnut grain, ivory lacquered panels, delicate floral marquetry, carved gilded scroll frame, polished stone-like top insert, mirror glass, harmonious blush and pale-blue accents, premium layered finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.92
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.72,
+                  1.75,
+                  0.18
+                ]
+              }
+            },
+            {
+              "id": "drawer",
+              "name": "Drawer",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.05,
+                  0,
+                  0.72
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.58,
+                  1.45,
+                  0.38
+                ]
+              }
+            },
+            {
+              "id": "leg_a",
+              "name": "Leg A",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.22,
+                  -0.68,
+                  0.38
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.13,
+                  0.13,
+                  0.76
+                ]
+              }
+            },
+            {
+              "id": "leg_b",
+              "name": "Leg B",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.22,
+                  0.68,
+                  0.38
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.13,
+                  0.13,
+                  0.76
+                ]
+              }
+            },
+            {
+              "id": "leg_c",
+              "name": "Leg C",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.22,
+                  -0.68,
+                  0.38
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.13,
+                  0.13,
+                  0.76
+                ]
+              }
+            },
+            {
+              "id": "leg_d",
+              "name": "Leg D",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.22,
+                  0.68,
+                  0.38
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.13,
+                  0.13,
+                  0.76
+                ]
+              }
+            },
+            {
+              "id": "mirror",
+              "name": "Mirror",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.05,
+                  0,
+                  1.75
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.18,
+                  1.3,
+                  1.45
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.55,
+            0.42,
+            0.3,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 6,
+          "generation_strength": 0.57,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "vanity_stool",
+        "name": "Upholstered vanity stool",
+        "semantic": "compact upholstered seat",
+        "transform": {
+          "position": [
+            2.55,
+            -0.15,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete Rococo vanity stool with thick cushioned seat and four stable elegant connected legs.",
+          "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+          "appearance_prompt": "Blush-rose silk velvet with visible woven nap and small floral brocade pattern, buttoned upholstery, carved walnut grain legs and restrained gold leaf accents."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "seat",
+              "name": "Seat",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.52
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.72,
+                  0.72,
+                  0.24
+                ]
+              }
+            },
+            {
+              "id": "leg1",
+              "name": "Leg1",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.25,
+                  -0.25,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.5
+                ]
+              }
+            },
+            {
+              "id": "leg2",
+              "name": "Leg2",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.25,
+                  -0.25,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.5
+                ]
+              }
+            },
+            {
+              "id": "leg3",
+              "name": "Leg3",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.25,
+                  0.25,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.5
+                ]
+              }
+            },
+            {
+              "id": "leg4",
+              "name": "Leg4",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.25,
+                  0.25,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.5
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.55,
+            0.42,
+            0.3,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "chaise_lounge",
+        "name": "Rococo chaise longue",
+        "semantic": "curved upholstered lounge seat",
+        "transform": {
+          "position": [
+            -2.45,
+            -1.75,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete French Rococo chaise longue with substantial curved upholstered seat, raised sculpted back, connected arm and stable carved legs; preserve the elegant asymmetric lounge silhouette.",
+          "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+          "appearance_prompt": "Pale celadon-blue silk velvet with visible nap, woven floral damask pattern, blush piping, deep tufting, carved walnut frame grain and restrained antique-gold relief on shell motifs."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "seat",
+              "name": "Seat",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.58
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  2.05,
+                  0.92,
+                  0.36
+                ]
+              }
+            },
+            {
+              "id": "back",
+              "name": "Back",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.74,
+                  0.22,
+                  1.12
+                ],
+                "rotation_deg": [
+                  0,
+                  -18,
+                  0
+                ],
+                "scale": [
+                  0.48,
+                  0.72,
+                  1.42
+                ]
+              }
+            },
+            {
+              "id": "arm",
+              "name": "Arm",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.72,
+                  0.28,
+                  0.92
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.18,
+                  0.18,
+                  0.78
+                ]
+              }
+            },
+            {
+              "id": "leg1",
+              "name": "Leg1",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.75,
+                  -0.3,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.5
+                ]
+              }
+            },
+            {
+              "id": "leg2",
+              "name": "Leg2",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.75,
+                  -0.3,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.5
+                ]
+              }
+            },
+            {
+              "id": "leg3",
+              "name": "Leg3",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.75,
+                  0.3,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.5
+                ]
+              }
+            },
+            {
+              "id": "leg4",
+              "name": "Leg4",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.75,
+                  0.3,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.5
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.55,
+            0.42,
+            0.3,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 6,
+          "generation_strength": 0.58,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "bed_end_bench",
+        "name": "Rococo bed-end bench",
+        "semantic": "upholstered bench",
+        "transform": {
+          "position": [
+            0,
+            -0.15,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete Rococo upholstered bed-end bench with thick cushioned seat, connected carved apron and four stable elegant legs.",
+          "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+          "appearance_prompt": "Cream silk brocade with visible floral woven pattern and buttoned cushion, walnut wood grain, carved shell apron and delicate antique-gold edge accents."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "seat",
+              "name": "Seat",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.58
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.75,
+                  0.68,
+                  0.3
+                ]
+              }
+            },
+            {
+              "id": "rail",
+              "name": "Rail",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.38
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.55,
+                  0.5,
+                  0.18
+                ]
+              }
+            },
+            {
+              "id": "leg1",
+              "name": "Leg1",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.68,
+                  -0.22,
+                  0.24
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.48
+                ]
+              }
+            },
+            {
+              "id": "leg2",
+              "name": "Leg2",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.68,
+                  -0.22,
+                  0.24
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.48
+                ]
+              }
+            },
+            {
+              "id": "leg3",
+              "name": "Leg3",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.68,
+                  0.22,
+                  0.24
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.48
+                ]
+              }
+            },
+            {
+              "id": "leg4",
+              "name": "Leg4",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.68,
+                  0.22,
+                  0.24
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.48
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.55,
+            0.42,
+            0.3,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "central_chandelier",
+        "name": "Grand Rococo chandelier",
+        "semantic": "ceiling-hung ornamental light",
+        "transform": {
+          "position": [
+            0,
+            0,
+            3.1
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete grand Rococo chandelier with central sculpted body, connected stem, balanced curving arms and substantial ornamental silhouette suitable for a high palace-bedroom ceiling.",
+          "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+          "appearance_prompt": "Antique-gold and warm brass metal with engraved floral texture, crystal drops and glass highlights, ivory candle sleeves, delicate patina variation and luxurious reflective detail."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "hub",
+              "name": "Hub",
+              "primitive": "sphere",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.42,
+                  0.42,
+                  0.42
+                ]
+              }
+            },
+            {
+              "id": "stem",
+              "name": "Stem",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.1,
+                  0.1,
+                  0.85
+                ]
+              }
+            },
+            {
+              "id": "ring",
+              "name": "Ring",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  -0.18
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.15,
+                  1.15,
+                  0.16
+                ]
+              }
+            },
+            {
+              "id": "arm_a",
+              "name": "Arm A",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.6,
+                  0,
+                  -0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  90,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  1.1
+                ]
+              }
+            },
+            {
+              "id": "arm_b",
+              "name": "Arm B",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.6,
+                  0,
+                  -0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  90,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  1.1
+                ]
+              }
+            },
+            {
+              "id": "arm_c",
+              "name": "Arm C",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0.6,
+                  -0.2
+                ],
+                "rotation_deg": [
+                  90,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  1.1
+                ]
+              }
+            },
+            {
+              "id": "arm_d",
+              "name": "Arm D",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  -0.6,
+                  -0.2
+                ],
+                "rotation_deg": [
+                  90,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  1.1
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.55,
+            0.42,
+            0.3,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 5,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.26,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "ornamental_mirror",
+        "name": "Large gilded Rococo mirror",
+        "semantic": "wall-mounted decorative mirror",
+        "transform": {
+          "position": [
+            3.98,
+            1.45,
+            1.75
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete large Rococo wall mirror with thick sculpted frame, readable reflective centre, shell crown and connected ornamental border.",
+          "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+          "appearance_prompt": "Clear mirror glass surrounded by deeply carved warm-gold leaf frame, visible wood underlayer, acanthus and shell relief, subtle aged patina and elegant high-end craftsmanship."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "mirror_core",
+              "name": "Mirror Core",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.16,
+                  1.1,
+                  1.7
+                ]
+              }
+            },
+            {
+              "id": "frame_top",
+              "name": "Frame Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.02,
+                  0,
+                  1.0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.24,
+                  1.35,
+                  0.34
+                ]
+              }
+            },
+            {
+              "id": "frame_bottom",
+              "name": "Frame Bottom",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.02,
+                  0,
+                  -1.0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.24,
+                  1.3,
+                  0.28
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.55,
+            0.42,
+            0.3,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "large_area_rug",
+        "name": "Large Rococo area rug",
+        "semantic": "thick decorative textile floor covering",
+        "transform": {
+          "position": [
+            0,
+            0.25,
+            0.05
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "scaffold_only",
+          "prompt": "A complete thick rectangular palace-bedroom rug with a framed Rococo textile composition and softly rounded substantial edge, not a paper-thin plane.",
+          "negative_prompt": "modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Grand eighteenth-century French Rococo palace bedroom, unmistakably ornate yet coherent, warm ivory and luminous cream architecture, pale celadon blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold leaf, asymmetrical shell and acanthus scrollwork, carved craftsmanship, silk brocade, velvet upholstery, Versailles parquet, layered material richness, harmonious elegant color palette, soft warm chandelier illumination, photorealistic premium finishes, no modern minimalism.",
+          "appearance_prompt": "Pale blue, cream and muted rose wool-silk pile with visible woven floral medallion pattern, acanthus border, fine fibre texture, tasteful antique-gold-beige accents and harmonious rich color."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "rug_body",
+              "name": "Rug Body",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  5.4,
+                  3.85,
+                  0.1
+                ]
+              }
+            },
+            {
+              "id": "rug_inner",
+              "name": "Rug Inner",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.06
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  4.95,
+                  3.4,
+                  0.08
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.5,
+            0.6,
+            0.68,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "stable volumetric visual scaffold refined through appearance generation"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.58,
+          "fusion_strength": 0.31,
+          "max_periodicity_score": 0.9,
+          "update_weight": 1.2
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      }
+    ],
+    "revision_notes": [
+      "v57 removes standalone bed_cover, pillow_group, curtain_left, and curtain_right owners.",
+      "Final generated roots inherit the scaffold owner world transform; hierarchy children preserve their declared local matrix."
+    ],
+    "stage08_appearance_prompt": "Grand eighteenth-century French Rococo palace bedroom, ornate but coherent; warm ivory and luminous cream architecture, pale celadon-blue and blush-rose textiles, walnut and light mahogany furniture, restrained antique-gold ornament, carved shell and acanthus craftsmanship, silk brocade, velvet upholstery and Versailles parquet. Premium photorealistic material finishes, harmonious warm chandelier-led ambience, refined historical richness, no modern minimalism"
+  }
+}

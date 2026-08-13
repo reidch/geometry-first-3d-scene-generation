@@ -1,0 +1,1496 @@
+{
+  "schema_version": "2.0",
+  "scene": {
+    "id": "japanese_highschool_otaku_room",
+    "name": "Japanese High School Student Otaku Bedroom",
+    "prompt": "A compact Japanese high school student's bedroom with a clear everyday-study layout and lively otaku personality. Include a single bed, a study desk, a desk lamp, a water cup, a bookshelf and a bedside cabinet. Use light maple wood, white and pale-grey storage furniture, soft blue and mint bedding accents, practical study materials and a comfortable youthful atmosphere. The room owner is an anime fan, so the walls should feature tasteful anime-themed decorations such as posters, framed prints, pinboards, small hanging banners or postcard collages, while remaining cohesive and believable. Every architectural surface and furniture object must show clear material-specific texture, grain, weave, seams, paper, metal, plastic or glass detail. Photorealistic modern bedroom with Japanese student-room character and no luxury-palace styling.",
+    "coordinate_system": {
+      "up_axis": "Z",
+      "forward_axis": "Y",
+      "unit_scale_m": 1.0
+    },
+    "defaults": {
+      "appearance": {
+        "base_color": [
+          0.62,
+          0.62,
+          0.6,
+          1
+        ]
+      },
+      "placement": {
+        "support_axis_world": [
+          0,
+          0,
+          1
+        ],
+        "clearance_m": 0.004
+      },
+      "registration": {
+        "rotation_candidates": "proper_axis_24",
+        "scale_mode": "uniform",
+        "surface_sample_count": 3500,
+        "truncation_ratio": 0.08,
+        "scale_lower_factor": 0.72,
+        "scale_upper_factor": 1.3
+      }
+    },
+    "objects": [
+      {
+        "id": "room_shell",
+        "name": "Japanese student room shell",
+        "semantic": "enclosing domestic bedroom architecture",
+        "transform": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "group"
+        },
+        "physics": {
+          "mode": "static",
+          "body": "none"
+        },
+        "children": [
+          {
+            "id": "floor_main",
+            "name": "Light wood floor",
+            "semantic": "room-scale supporting architectural surface",
+            "transform": {
+              "position": [
+                0,
+                0,
+                -0.08
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete rectified floor texture for a compact Japanese teenager bedroom, filling the full rectangle edge to edge with clean light-maple plank flooring: medium-width boards, precise seams, subtle natural grain, soft warm-beige variation and a low-sheen residential finish.",
+              "negative_prompt": "plain untextured surface, flat placeholder color, empty room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field, text, watermark, duplicate object, detached parts, noisy incoherent pattern",
+              "style_prompt": "Cozy Japanese high school student's bedroom, compact but tidy and lived-in, contemporary everyday residential interior, light maple and ash wood, white laminate, soft blue, mint, off-white and light grey palette with small warm accents, cotton bedding, practical school-study furniture, anime-otaku personality shown through tasteful wall decorations, posters, small collectibles and printed art, soft daylight plus warm desk-lamp ambience, photorealistic premium materials, believable youthful atmosphere.",
+              "appearance_prompt": "Light maple wood grain with fine pores, clean plank joints, subtle tonal variation, realistic small knots used sparingly and a smooth matte residential finish.",
+              "surface": {
+                "projection": "top",
+                "generation_space": "rectified_surface",
+                "continuity_group": "floor_main",
+                "style_group": "japanese_highschool_otaku_room",
+                "generation_order": 0,
+                "order": 0,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "linear_plank_rhythm",
+                "material_family": "wood",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      4.8,
+                      3.8,
+                      0.16
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.66,
+                0.56,
+                0.43,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "floor",
+              "description": "explicit planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.56,
+              "fusion_strength": 0.27,
+              "max_periodicity_score": 0.95
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "ceiling_main",
+            "name": "Simple painted ceiling",
+            "semantic": "upper architectural surface",
+            "transform": {
+              "position": [
+                0,
+                0,
+                2.78
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete rectified ceiling composition filling the whole rectangle with a simple clean Japanese apartment-bedroom ceiling: smooth warm-white painted plaster, subtle fine-grain texture, crisp edges and restrained practical modern construction.",
+              "negative_prompt": "plain untextured surface, flat placeholder color, empty room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field, text, watermark, duplicate object, detached parts, noisy incoherent pattern",
+              "style_prompt": "Cozy Japanese high school student's bedroom, compact but tidy and lived-in, contemporary everyday residential interior, light maple and ash wood, white laminate, soft blue, mint, off-white and light grey palette with small warm accents, cotton bedding, practical school-study furniture, anime-otaku personality shown through tasteful wall decorations, posters, small collectibles and printed art, soft daylight plus warm desk-lamp ambience, photorealistic premium materials, believable youthful atmosphere.",
+              "appearance_prompt": "Fine warm-white painted plaster microtexture, soft matte roughness and subtle tonal variation with a clean practical residential finish.",
+              "surface": {
+                "projection": "bottom",
+                "generation_space": "rectified_surface",
+                "continuity_group": "ceiling_main",
+                "style_group": "japanese_highschool_otaku_room",
+                "generation_order": 1,
+                "order": 1,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "plain_modern_plane",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      4.8,
+                      3.8,
+                      0.16
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.9,
+                0.9,
+                0.88,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "ceiling",
+              "description": "explicit planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.56,
+              "fusion_strength": 0.27,
+              "max_periodicity_score": 0.95
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_rear",
+            "name": "Bed wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                0,
+                1.9,
+                1.35
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge bedroom wall elevation for the bed wall of a Japanese high school student's room: painted warm-white wall with subtle paper-like texture, simple base trim, a few tasteful anime-themed posters and framed prints arranged above and beside the bed, and a believable youthful personal atmosphere. The whole rectangle must contain coherent wall material, realistic poster paper, tape or frame detail and balanced decoration distribution.",
+              "negative_prompt": "plain untextured surface, flat placeholder color, empty room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field, text, watermark, duplicate object, detached parts, noisy incoherent pattern",
+              "style_prompt": "Cozy Japanese high school student's bedroom, compact but tidy and lived-in, contemporary everyday residential interior, light maple and ash wood, white laminate, soft blue, mint, off-white and light grey palette with small warm accents, cotton bedding, practical school-study furniture, anime-otaku personality shown through tasteful wall decorations, posters, small collectibles and printed art, soft daylight plus warm desk-lamp ambience, photorealistic premium materials, believable youthful atmosphere.",
+              "appearance_prompt": "Warm-white painted wall with subtle matte texture, clean poster paper with crisp edges, a few pastel anime illustrations, occasional washi-tape or slim-frame detail and believable light shadowing from mounted decorations.",
+              "surface": {
+                "projection": "front",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "japanese_highschool_otaku_room",
+                "generation_order": 10,
+                "order": 10,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "decorated_wall_plane",
+                "material_family": "painted_plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      4.8,
+                      0.16,
+                      2.7
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.84,
+                0.85,
+                0.83,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                0,
+                -1,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.97
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 2,
+              "primary": true
+            }
+          },
+          {
+            "id": "wall_right",
+            "name": "Desk wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                2.4,
+                0,
+                1.35
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge bedroom wall elevation for the study side of a Japanese high school student's room: warm-white painted wall with a corkboard or pinboard zone, a few anime postcards, a slim calendar, study notes and one or two medium anime-themed prints arranged neatly above the desk area. The wall should feel personal, tidy and believable, with balanced paper items and no excessive clutter.",
+              "negative_prompt": "plain untextured surface, flat placeholder color, empty room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field, text, watermark, duplicate object, detached parts, noisy incoherent pattern",
+              "style_prompt": "Cozy Japanese high school student's bedroom, compact but tidy and lived-in, contemporary everyday residential interior, light maple and ash wood, white laminate, soft blue, mint, off-white and light grey palette with small warm accents, cotton bedding, practical school-study furniture, anime-otaku personality shown through tasteful wall decorations, posters, small collectibles and printed art, soft daylight plus warm desk-lamp ambience, photorealistic premium materials, believable youthful atmosphere.",
+              "appearance_prompt": "Soft matte warm-white wall paint, corkboard texture, pinned study papers, crisp printed anime art, slim stationery details and realistic small shadow depth from layered paper.",
+              "surface": {
+                "projection": "opposite_side",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "japanese_highschool_otaku_room",
+                "generation_order": 11,
+                "order": 11,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "decorated_wall_plane",
+                "material_family": "painted_plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left"
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      0.16,
+                      3.8,
+                      2.7
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.84,
+                0.85,
+                0.83,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                -1,
+                0,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.97
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_front",
+            "name": "Entrance wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                0,
+                -1.9,
+                1.35
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge bedroom wall elevation for the entrance side of a compact Japanese student room: mostly clean warm-white wall, simple trim and one small cluster of anime postcards or mini art prints near one side, keeping the wall functional and not overdecorated.",
+              "negative_prompt": "plain untextured surface, flat placeholder color, empty room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field, text, watermark, duplicate object, detached parts, noisy incoherent pattern",
+              "style_prompt": "Cozy Japanese high school student's bedroom, compact but tidy and lived-in, contemporary everyday residential interior, light maple and ash wood, white laminate, soft blue, mint, off-white and light grey palette with small warm accents, cotton bedding, practical school-study furniture, anime-otaku personality shown through tasteful wall decorations, posters, small collectibles and printed art, soft daylight plus warm desk-lamp ambience, photorealistic premium materials, believable youthful atmosphere.",
+              "appearance_prompt": "Warm-white painted wall, subtle paper texture, small printed-card collage, taped corners and understated lived-in student-room detail.",
+              "surface": {
+                "projection": "back",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "japanese_highschool_otaku_room",
+                "generation_order": 12,
+                "order": 12,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "decorated_wall_plane",
+                "material_family": "painted_plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left"
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      4.8,
+                      0.16,
+                      2.7
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.84,
+                0.85,
+                0.83,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                0,
+                1,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.97
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_left",
+            "name": "Bookshelf wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                -2.4,
+                0,
+                1.35
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge bedroom wall elevation for a bookshelf side wall in a Japanese high school student's room: warm-white painted wall, lightly decorated with a couple of anime art prints or hanging mini banners, balanced negative space and a neat cozy residential feel.",
+              "negative_prompt": "plain untextured surface, flat placeholder color, empty room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field, text, watermark, duplicate object, detached parts, noisy incoherent pattern",
+              "style_prompt": "Cozy Japanese high school student's bedroom, compact but tidy and lived-in, contemporary everyday residential interior, light maple and ash wood, white laminate, soft blue, mint, off-white and light grey palette with small warm accents, cotton bedding, practical school-study furniture, anime-otaku personality shown through tasteful wall decorations, posters, small collectibles and printed art, soft daylight plus warm desk-lamp ambience, photorealistic premium materials, believable youthful atmosphere.",
+              "appearance_prompt": "Soft matte wall paint, a few printed anime artworks or cloth banners, clean edges, realistic hanging hardware and subtle paper or fabric texture.",
+              "surface": {
+                "projection": "side",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "japanese_highschool_otaku_room",
+                "generation_order": 13,
+                "order": 13,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "decorated_wall_plane",
+                "material_family": "painted_plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left",
+                "close_cycle": true,
+                "cycle_reference_object_id": "wall_rear",
+                "cycle_reference_edge": "left",
+                "cycle_target_edge": "right",
+                "cycle_reference_strip_fraction": 0.1
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      0.16,
+                      3.8,
+                      2.7
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.84,
+                0.85,
+                0.83,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                1,
+                0,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.97
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          }
+        ],
+        "spatial_category": {
+          "type": "free",
+          "description": "architectural group"
+        }
+      },
+      {
+        "id": "single_bed",
+        "name": "Single student bed",
+        "semantic": "single bed for a teenager bedroom",
+        "transform": {
+          "position": [
+            -1.1,
+            0.95,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete Japanese student-room bed with a compact single-size base, mattress, pillow and a simple upright headboard, preserving all major connected components and a tidy practical silhouette.",
+          "negative_prompt": "cheap simplified furniture, crude block geometry, featureless plastic, flat placeholder color, detached parts, duplicate object, poster text, watermark, disconnected components, unstable proportions",
+          "style_prompt": "Cozy Japanese high school student's bedroom, compact but tidy and lived-in, contemporary everyday residential interior, light maple and ash wood, white laminate, soft blue, mint, off-white and light grey palette with small warm accents, cotton bedding, practical school-study furniture, anime-otaku personality shown through tasteful wall decorations, posters, small collectibles and printed art, soft daylight plus warm desk-lamp ambience, photorealistic premium materials, believable youthful atmosphere.",
+          "appearance_prompt": "White and pale-grey bed frame, light-maple details, soft blue and white cotton bedding, slightly rumpled but tidy sheets, simple pillow texture and practical youthful bedroom character."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "bed_base",
+              "name": "Bed Base",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.22
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.08,
+                  2.12,
+                  0.32
+                ]
+              }
+            },
+            {
+              "id": "mattress",
+              "name": "Mattress",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.0,
+                  2.0,
+                  0.22
+                ]
+              }
+            },
+            {
+              "id": "headboard",
+              "name": "Headboard",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0.96,
+                  0.78
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.06,
+                  0.08,
+                  1.0
+                ]
+              }
+            },
+            {
+              "id": "pillow",
+              "name": "Pillow",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0.62,
+                  0.62
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.68,
+                  0.42,
+                  0.12
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.82,
+            0.85,
+            0.88,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 6,
+          "generation_strength": 0.58,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "nightstand_main",
+        "name": "Bedside cabinet",
+        "semantic": "compact bedside cabinet",
+        "transform": {
+          "position": [
+            -2.0,
+            1.18,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete compact bedside cabinet for a teenager room with a practical rectangular body, one or two readable drawers, a simple top and stable connected legs or plinth.",
+          "negative_prompt": "cheap simplified furniture, crude block geometry, featureless plastic, flat placeholder color, detached parts, duplicate object, poster text, watermark, disconnected components, unstable proportions",
+          "style_prompt": "Cozy Japanese high school student's bedroom, compact but tidy and lived-in, contemporary everyday residential interior, light maple and ash wood, white laminate, soft blue, mint, off-white and light grey palette with small warm accents, cotton bedding, practical school-study furniture, anime-otaku personality shown through tasteful wall decorations, posters, small collectibles and printed art, soft daylight plus warm desk-lamp ambience, photorealistic premium materials, believable youthful atmosphere.",
+          "appearance_prompt": "White laminate and light-maple cabinet, simple drawer gaps, small round pulls or recessed handle detail, clean youthful finish and subtle everyday wear."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "cabinet",
+              "name": "Cabinet",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.42
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.52,
+                  0.46,
+                  0.68
+                ]
+              }
+            },
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.79
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.58,
+                  0.52,
+                  0.06
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.88,
+            0.88,
+            0.86,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 5,
+          "context_quota": 2,
+          "detail_quota": 3,
+          "primary": false
+        }
+      },
+      {
+        "id": "study_desk",
+        "name": "Student study desk",
+        "semantic": "study desk",
+        "transform": {
+          "position": [
+            1.78,
+            0.2,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete Japanese student study desk with a clean rectangular tabletop, modest side storage or support structure, readable desk proportions and stable connected construction suitable for homework and hobby use.",
+          "negative_prompt": "cheap simplified furniture, crude block geometry, featureless plastic, flat placeholder color, detached parts, duplicate object, poster text, watermark, disconnected components, unstable proportions",
+          "style_prompt": "Cozy Japanese high school student's bedroom, compact but tidy and lived-in, contemporary everyday residential interior, light maple and ash wood, white laminate, soft blue, mint, off-white and light grey palette with small warm accents, cotton bedding, practical school-study furniture, anime-otaku personality shown through tasteful wall decorations, posters, small collectibles and printed art, soft daylight plus warm desk-lamp ambience, photorealistic premium materials, believable youthful atmosphere.",
+          "appearance_prompt": "Light maple and white-laminate desk with clean edge banding, subtle storage drawers or shelves, school-study practicality, slight everyday use and tidy youthful character."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.72
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.62,
+                  1.28,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "left_support",
+              "name": "Left Support",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.24,
+                  0,
+                  0.36
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  1.12,
+                  0.72
+                ]
+              }
+            },
+            {
+              "id": "right_support",
+              "name": "Right Support",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.24,
+                  0,
+                  0.36
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  1.12,
+                  0.72
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.88,
+            0.87,
+            0.84,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 6,
+          "generation_strength": 0.57,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "desk_lamp",
+        "name": "Desk lamp",
+        "semantic": "task desk lamp",
+        "transform": {
+          "position": [
+            1.82,
+            0.55,
+            0.76
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete student desk lamp with a stable base, connected stem or articulated arm and a practical task-light shade or head.",
+          "negative_prompt": "cheap simplified furniture, crude block geometry, featureless plastic, flat placeholder color, detached parts, duplicate object, poster text, watermark, disconnected components, unstable proportions",
+          "style_prompt": "Cozy Japanese high school student's bedroom, compact but tidy and lived-in, contemporary everyday residential interior, light maple and ash wood, white laminate, soft blue, mint, off-white and light grey palette with small warm accents, cotton bedding, practical school-study furniture, anime-otaku personality shown through tasteful wall decorations, posters, small collectibles and printed art, soft daylight plus warm desk-lamp ambience, photorealistic premium materials, believable youthful atmosphere.",
+          "appearance_prompt": "White or pale-grey task lamp with a matte finish, slim metal joints, a practical modern silhouette and believable warm-light function."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.04
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.16,
+                  0.16,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "stem",
+              "name": "Stem",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.04,
+                  0.04,
+                  0.48
+                ]
+              }
+            },
+            {
+              "id": "shade",
+              "name": "Shade",
+              "primitive": "cone",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.58
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.14,
+                  0.14,
+                  0.2
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.9,
+            0.9,
+            0.92,
+            1
+          ]
+        },
+        "placement": {
+          "support_target": "study_desk",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.004
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.55,
+          "fusion_strength": 0.26,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 5,
+          "context_quota": 2,
+          "detail_quota": 3,
+          "primary": false
+        }
+      },
+      {
+        "id": "water_cup",
+        "name": "Water cup",
+        "semantic": "drinking cup",
+        "transform": {
+          "position": [
+            1.7,
+            -0.05,
+            0.76
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete drinking cup for a student desk, with a simple cylindrical or slightly tapered body, readable thickness and stable everyday proportions.",
+          "negative_prompt": "cheap simplified furniture, crude block geometry, featureless plastic, flat placeholder color, detached parts, duplicate object, poster text, watermark, disconnected components, unstable proportions",
+          "style_prompt": "Cozy Japanese high school student's bedroom, compact but tidy and lived-in, contemporary everyday residential interior, light maple and ash wood, white laminate, soft blue, mint, off-white and light grey palette with small warm accents, cotton bedding, practical school-study furniture, anime-otaku personality shown through tasteful wall decorations, posters, small collectibles and printed art, soft daylight plus warm desk-lamp ambience, photorealistic premium materials, believable youthful atmosphere.",
+          "appearance_prompt": "Transparent or lightly frosted plastic or glass cup with subtle reflections, visible rim thickness and a small amount of believable everyday-use detail."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "body",
+              "name": "Body",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.08
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.06,
+                  0.06,
+                  0.16
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.78,
+            0.86,
+            0.95,
+            0.75
+          ]
+        },
+        "placement": {
+          "support_target": "study_desk",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.004
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 2,
+          "generation_strength": 0.54,
+          "fusion_strength": 0.25,
+          "max_periodicity_score": 0.8
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 4,
+          "context_quota": 2,
+          "detail_quota": 2,
+          "primary": false
+        }
+      },
+      {
+        "id": "bookshelf_main",
+        "name": "Bookshelf",
+        "semantic": "vertical book storage furniture",
+        "transform": {
+          "position": [
+            -2.0,
+            -0.75,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete bookshelf for a teenager room with a slim vertical body, multiple readable shelves and stable connected proportions suitable for books, manga and a few small collectibles.",
+          "negative_prompt": "cheap simplified furniture, crude block geometry, featureless plastic, flat placeholder color, detached parts, duplicate object, poster text, watermark, disconnected components, unstable proportions",
+          "style_prompt": "Cozy Japanese high school student's bedroom, compact but tidy and lived-in, contemporary everyday residential interior, light maple and ash wood, white laminate, soft blue, mint, off-white and light grey palette with small warm accents, cotton bedding, practical school-study furniture, anime-otaku personality shown through tasteful wall decorations, posters, small collectibles and printed art, soft daylight plus warm desk-lamp ambience, photorealistic premium materials, believable youthful atmosphere.",
+          "appearance_prompt": "Light-maple and white shelving with visible books, manga volumes, a few storage boxes and subtle otaku collectibles, clean but lived-in and believable."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "body",
+              "name": "Body",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  1.0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.34,
+                  0.92,
+                  2.0
+                ]
+              }
+            },
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  2.04
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.38,
+                  0.98,
+                  0.08
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.88,
+            0.87,
+            0.83,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 5,
+          "generation_strength": 0.57,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      }
+    ],
+    "revision_notes": [
+      "Standalone anime poster cluster objects were removed.",
+      "Anime-themed decoration is now represented only through wall surface appearance prompts, keeping the scene structure cleaner."
+    ],
+    "stage08_appearance_prompt": "Cozy Japanese high school student's bedroom with light-maple and white furniture, soft blue, mint and off-white textiles, tidy study atmosphere, anime-themed posters and prints on the walls, books and small collectibles, soft daylight and warm desk-lamp ambience, photorealistic everyday residential materials and a believable youthful otaku personality."
+  }
+}

@@ -1,0 +1,3162 @@
+{
+  "schema_version": "2.0",
+  "scene": {
+    "id": "contemporary_modern_suite",
+    "name": "High-End Contemporary Bedroom Suite",
+    "prompt": "High-end contemporary bedroom built from the same spatial composition, with calm architectural clarity, warm residential atmosphere and materially rich modern detailing. Use warm-white mineral plaster walls, natural light-oak flooring, smoked-walnut furniture accents, honed limestone or travertine details, brushed blackened metal, soft boucle, wool and woven linen textiles, a restrained palette of ivory, sand, taupe, warm grey and charcoal, clean rectilinear furniture, subtle rounded corners, integrated joinery, shadow-gap detailing and soft indirect lighting. Every architectural surface and furniture object must show credible material-specific grain, weave, pores, joints, seams, edge treatment and roughness variation. Photorealistic premium contemporary interior with sophisticated, comfortable and coherent modern detailing.",
+    "coordinate_system": {
+      "up_axis": "Z",
+      "forward_axis": "Y",
+      "unit_scale_m": 1.0
+    },
+    "defaults": {
+      "appearance": {
+        "base_color": [
+          0.58,
+          0.56,
+          0.52,
+          1
+        ]
+      },
+      "placement": {
+        "support_axis_world": [
+          0,
+          0,
+          1
+        ],
+        "clearance_m": 0.004
+      },
+      "registration": {
+        "rotation_candidates": "proper_axis_24",
+        "scale_mode": "uniform",
+        "surface_sample_count": 3500,
+        "truncation_ratio": 0.08,
+        "scale_lower_factor": 0.72,
+        "scale_upper_factor": 1.3
+      }
+    },
+    "objects": [
+      {
+        "id": "room_shell",
+        "name": "Contemporary room shell",
+        "semantic": "enclosing contemporary architecture",
+        "transform": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "group",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury."
+        },
+        "physics": {
+          "mode": "static",
+          "body": "none"
+        },
+        "children": [
+          {
+            "id": "floor_main",
+            "name": "Natural oak floor",
+            "semantic": "room-scale supporting architectural surface",
+            "transform": {
+              "position": [
+                0,
+                0,
+                -0.08
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete rectified floor texture for a high-end contemporary bedroom, filling the full rectangle edge to edge with wide-plank natural European oak flooring: medium-width boards, precise staggered seams, subtle tonal variation, realistic knots used sparingly, fine open wood grain, matte hard-wax finish and consistent construction scale across the entire surface.",
+              "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified material, crude geometry, featureless plastic, uniform monochrome fill, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped surface, tiny centered emblem, mostly blank field, noisy incoherent pattern, excessive visual clutter",
+              "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+              "appearance_prompt": "Natural light-oak grain with fine pores and believable longitudinal fibers, crisp plank joints, subtle warm beige and honey variation, low-sheen matte finish, restrained knots and no flat uniform wood color.",
+              "surface": {
+                "projection": "top",
+                "generation_space": "rectified_surface",
+                "continuity_group": "floor_main",
+                "style_group": "contemporary_modern_suite",
+                "generation_order": 0,
+                "order": 0,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "linear_plank_rhythm",
+                "material_family": "wood",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      8.4,
+                      6.4,
+                      0.16
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.58,
+                0.46,
+                0.34,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "floor",
+              "description": "explicit planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.56,
+              "fusion_strength": 0.27,
+              "max_periodicity_score": 0.95
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "ceiling_main",
+            "name": "Contemporary ceiling",
+            "semantic": "upper architectural surface",
+            "transform": {
+              "position": [
+                0,
+                0,
+                3.88
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete rectified contemporary bedroom ceiling filling the entire rectangle: smooth warm-white mineral plaster with subtle fine-grain texture, clean perimeter shadow gaps, restrained linear recessed lighting details and a calm uninterrupted composition. Maintain realistic plaster variation and precise modern construction across the full ceiling.",
+              "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified material, crude geometry, featureless plastic, uniform monochrome fill, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped surface, tiny centered emblem, mostly blank field, noisy incoherent pattern, excessive visual clutter",
+              "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+              "appearance_prompt": "Fine warm-white mineral plaster microtexture, soft matte roughness, subtle tonal variation, crisp shadow gaps and recessed linear details, clean modern workmanship with no ornamental relief.",
+              "surface": {
+                "projection": "bottom",
+                "generation_space": "rectified_surface",
+                "continuity_group": "ceiling_main",
+                "style_group": "contemporary_modern_suite",
+                "generation_order": 1,
+                "order": 1,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "minimal_linear_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      8.4,
+                      6.4,
+                      0.16
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.86,
+                0.84,
+                0.8,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "ceiling",
+              "description": "explicit planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.56,
+              "fusion_strength": 0.27,
+              "max_periodicity_score": 0.95
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_rear",
+            "name": "Contemporary bed wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                0,
+                3.2,
+                1.9
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge high-end contemporary bedroom wall elevation designed as a fully installed modern architectural surface: warm-white mineral plaster, broad flush wall panels, selected vertical light-oak or smoked-walnut slat zones, subtle fabric or acoustic panel inserts, precise shadow gaps, clean base detailing and controlled material transitions. The entire rectangle must contain coherent modern material texture, joinery, surface variation and architectural rhythm; never introduce historical mouldings, carved decoration or a small isolated central motif.",
+              "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified material, crude geometry, featureless plastic, uniform monochrome fill, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped surface, tiny centered emblem, mostly blank field, noisy incoherent pattern, excessive visual clutter",
+              "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+              "appearance_prompt": "Fine warm-white plaster grain, natural oak or smoked-walnut fibers, tactile woven fabric inserts where present, precise panel joints, subtle matte-to-satin roughness contrast and clean premium contemporary craftsmanship distributed across the full surface.",
+              "surface": {
+                "projection": "front",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "contemporary_modern_suite",
+                "generation_order": 10,
+                "order": 10,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "modern_panel_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      8.4,
+                      0.16,
+                      3.8
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.78,
+                0.76,
+                0.71,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                0,
+                -1,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.97
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 2,
+              "primary": true
+            }
+          },
+          {
+            "id": "wall_right",
+            "name": "Right contemporary wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                4.2,
+                0,
+                1.9
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge high-end contemporary bedroom wall elevation designed as a fully installed modern architectural surface: warm-white mineral plaster, broad flush wall panels, selected vertical light-oak or smoked-walnut slat zones, subtle fabric or acoustic panel inserts, precise shadow gaps, clean base detailing and controlled material transitions. The entire rectangle must contain coherent modern material texture, joinery, surface variation and architectural rhythm; never introduce historical mouldings, carved decoration or a small isolated central motif.",
+              "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified material, crude geometry, featureless plastic, uniform monochrome fill, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped surface, tiny centered emblem, mostly blank field, noisy incoherent pattern, excessive visual clutter",
+              "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+              "appearance_prompt": "Fine warm-white plaster grain, natural oak or smoked-walnut fibers, tactile woven fabric inserts where present, precise panel joints, subtle matte-to-satin roughness contrast and clean premium contemporary craftsmanship distributed across the full surface.",
+              "surface": {
+                "projection": "opposite_side",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "contemporary_modern_suite",
+                "generation_order": 11,
+                "order": 11,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "modern_panel_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left"
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      0.16,
+                      6.4,
+                      3.8
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.78,
+                0.76,
+                0.71,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                -1,
+                0,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.97
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_front",
+            "name": "Front contemporary wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                0,
+                -3.2,
+                1.9
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge high-end contemporary bedroom wall elevation designed as a fully installed modern architectural surface: warm-white mineral plaster, broad flush wall panels, selected vertical light-oak or smoked-walnut slat zones, subtle fabric or acoustic panel inserts, precise shadow gaps, clean base detailing and controlled material transitions. The entire rectangle must contain coherent modern material texture, joinery, surface variation and architectural rhythm; never introduce historical mouldings, carved decoration or a small isolated central motif.",
+              "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified material, crude geometry, featureless plastic, uniform monochrome fill, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped surface, tiny centered emblem, mostly blank field, noisy incoherent pattern, excessive visual clutter",
+              "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+              "appearance_prompt": "Fine warm-white plaster grain, natural oak or smoked-walnut fibers, tactile woven fabric inserts where present, precise panel joints, subtle matte-to-satin roughness contrast and clean premium contemporary craftsmanship distributed across the full surface.",
+              "surface": {
+                "projection": "back",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "contemporary_modern_suite",
+                "generation_order": 12,
+                "order": 12,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "modern_panel_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left"
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      8.4,
+                      0.16,
+                      3.8
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.78,
+                0.76,
+                0.71,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                0,
+                1,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.97
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_left",
+            "name": "Left contemporary wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                -4.2,
+                0,
+                1.9
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge high-end contemporary bedroom wall elevation designed as a fully installed modern architectural surface: warm-white mineral plaster, broad flush wall panels, selected vertical light-oak or smoked-walnut slat zones, subtle fabric or acoustic panel inserts, precise shadow gaps, clean base detailing and controlled material transitions. The entire rectangle must contain coherent modern material texture, joinery, surface variation and architectural rhythm; never introduce historical mouldings, carved decoration or a small isolated central motif.",
+              "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified material, crude geometry, featureless plastic, uniform monochrome fill, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped surface, tiny centered emblem, mostly blank field, noisy incoherent pattern, excessive visual clutter",
+              "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+              "appearance_prompt": "Fine warm-white plaster grain, natural oak or smoked-walnut fibers, tactile woven fabric inserts where present, precise panel joints, subtle matte-to-satin roughness contrast and clean premium contemporary craftsmanship distributed across the full surface.",
+              "surface": {
+                "projection": "side",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "contemporary_modern_suite",
+                "generation_order": 13,
+                "order": 13,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "modern_panel_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left",
+                "close_cycle": true,
+                "cycle_reference_object_id": "wall_rear",
+                "cycle_reference_edge": "left",
+                "cycle_target_edge": "right",
+                "cycle_reference_strip_fraction": 0.1
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      0.16,
+                      6.4,
+                      3.8
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.78,
+                0.76,
+                0.71,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                1,
+                0,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.97
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          }
+        ],
+        "spatial_category": {
+          "type": "free",
+          "description": "architectural group"
+        }
+      },
+      {
+        "id": "grand_bed",
+        "name": "Contemporary upholstered bed",
+        "semantic": "large sleeping furniture with high upholstered headboard",
+        "transform": {
+          "position": [
+            0,
+            1.55,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete high-end contemporary upholstered bed with a substantial low-profile base, thick mattress, tall clean-lined padded headboard, restrained integrated side framing and stable connected proportions; preserve the complete volumetric bed and all major components with modern rectilinear design.",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+          "appearance_prompt": "Warm ivory woven linen and soft taupe upholstery with visible textile weave, subtle seam and piping detail, smoked-walnut or natural-oak frame accents, matte blackened-metal details used sparingly, layered neutral materials and premium contemporary finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "bed_base",
+              "name": "Bed Base",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.3
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  2.45,
+                  2.55,
+                  0.55
+                ]
+              }
+            },
+            {
+              "id": "mattress",
+              "name": "Mattress",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.08,
+                  0.73
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  2.28,
+                  2.3,
+                  0.45
+                ]
+              }
+            },
+            {
+              "id": "headboard_core",
+              "name": "Headboard Core",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  1.12,
+                  1.55
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  2.65,
+                  0.34,
+                  2.65
+                ]
+              }
+            },
+            {
+              "id": "headboard_crown",
+              "name": "Headboard Crown",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  1.1,
+                  2.62
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  2.15,
+                  0.4,
+                  0.38
+                ]
+              }
+            },
+            {
+              "id": "footboard",
+              "name": "Footboard",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -1.18,
+                  0.72
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  2.42,
+                  0.28,
+                  1.05
+                ]
+              }
+            },
+            {
+              "id": "left_post",
+              "name": "Left Post",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -1.18,
+                  1.08,
+                  1.45
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.18,
+                  0.18,
+                  2.55
+                ]
+              }
+            },
+            {
+              "id": "right_post",
+              "name": "Right Post",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  1.18,
+                  1.08,
+                  1.45
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.18,
+                  0.18,
+                  2.55
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.63,
+            0.59,
+            0.53,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 6,
+          "generation_strength": 0.58,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "nightstand_left",
+        "name": "Left contemporary bedside cabinet",
+        "semantic": "compact modern bedside cabinet",
+        "transform": {
+          "position": [
+            -1.82,
+            1.75,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete compact contemporary bedside cabinet with a thick clean-edged top, softly rounded rectilinear cabinet body, readable flush drawer fronts and four simple connected legs.",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+          "appearance_prompt": "Smoked-walnut veneer with clear linear grain, warm-grey lacquered drawer fronts, subtle recessed pulls, honed stone-like top surface and refined matte-satin material contrast."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "cabinet",
+              "name": "Cabinet",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.78,
+                  0.68,
+                  0.78
+                ]
+              }
+            },
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.91
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.88,
+                  0.76,
+                  0.12
+                ]
+              }
+            },
+            {
+              "id": "leg_fl",
+              "name": "Leg Fl",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.3,
+                  -0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            },
+            {
+              "id": "leg_fr",
+              "name": "Leg Fr",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.3,
+                  -0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            },
+            {
+              "id": "leg_bl",
+              "name": "Leg Bl",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.3,
+                  0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            },
+            {
+              "id": "leg_br",
+              "name": "Leg Br",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.3,
+                  0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.34,
+            0.27,
+            0.22,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "nightstand_right",
+        "name": "Right contemporary bedside cabinet",
+        "semantic": "compact modern bedside cabinet",
+        "transform": {
+          "position": [
+            1.82,
+            1.75,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete compact contemporary bedside cabinet with a thick clean-edged top, softly rounded rectilinear cabinet body, readable flush drawer fronts and four simple connected legs.",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+          "appearance_prompt": "Smoked-walnut veneer with clear linear grain, warm-grey lacquered drawer fronts, subtle recessed pulls, honed stone-like top surface and refined matte-satin material contrast."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "cabinet",
+              "name": "Cabinet",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.78,
+                  0.68,
+                  0.78
+                ]
+              }
+            },
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.91
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.88,
+                  0.76,
+                  0.12
+                ]
+              }
+            },
+            {
+              "id": "leg_fl",
+              "name": "Leg Fl",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.3,
+                  -0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            },
+            {
+              "id": "leg_fr",
+              "name": "Leg Fr",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.3,
+                  -0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            },
+            {
+              "id": "leg_bl",
+              "name": "Leg Bl",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.3,
+                  0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            },
+            {
+              "id": "leg_br",
+              "name": "Leg Br",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.3,
+                  0.24,
+                  0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.4
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.34,
+            0.27,
+            0.22,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "lamp_left",
+        "name": "Left contemporary bedside lamp",
+        "semantic": "modern table lamp",
+        "transform": {
+          "position": [
+            -1.82,
+            1.75,
+            0.96
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete contemporary bedside lamp with a substantial simple base, connected ceramic body, slender dark metal stem and broad clean fabric shade; balanced modern proportions and no decorative ornament.",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+          "appearance_prompt": "Matte warm-grey ceramic with fine mineral speckle, brushed blackened-metal stem and trim, warm ivory linen shade with visible weave, subtle edge stitching and sophisticated neutral material contrast."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.12
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.34,
+                  0.34,
+                  0.24
+                ]
+              }
+            },
+            {
+              "id": "body",
+              "name": "Body",
+              "primitive": "sphere",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.36
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.32,
+                  0.32,
+                  0.42
+                ]
+              }
+            },
+            {
+              "id": "stem",
+              "name": "Stem",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.68
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.08,
+                  0.45
+                ]
+              }
+            },
+            {
+              "id": "shade",
+              "name": "Shade",
+              "primitive": "cone",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  1.02
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.48,
+                  0.48,
+                  0.55
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.54,
+            0.52,
+            0.49,
+            1
+          ]
+        },
+        "placement": {
+          "support_target": "nightstand_left",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.004
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.55,
+          "fusion_strength": 0.26,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "lamp_right",
+        "name": "Right contemporary bedside lamp",
+        "semantic": "modern table lamp",
+        "transform": {
+          "position": [
+            1.82,
+            1.75,
+            0.96
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete contemporary bedside lamp with a substantial simple base, connected ceramic body, slender dark metal stem and broad clean fabric shade; balanced modern proportions and no decorative ornament.",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+          "appearance_prompt": "Matte warm-grey ceramic with fine mineral speckle, brushed blackened-metal stem and trim, warm ivory linen shade with visible weave, subtle edge stitching and sophisticated neutral material contrast."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.12
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.34,
+                  0.34,
+                  0.24
+                ]
+              }
+            },
+            {
+              "id": "body",
+              "name": "Body",
+              "primitive": "sphere",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.36
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.32,
+                  0.32,
+                  0.42
+                ]
+              }
+            },
+            {
+              "id": "stem",
+              "name": "Stem",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.68
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.08,
+                  0.45
+                ]
+              }
+            },
+            {
+              "id": "shade",
+              "name": "Shade",
+              "primitive": "cone",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  1.02
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.48,
+                  0.48,
+                  0.55
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.54,
+            0.52,
+            0.49,
+            1
+          ]
+        },
+        "placement": {
+          "support_target": "nightstand_right",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.004
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.55,
+          "fusion_strength": 0.26,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "wardrobe_main",
+        "name": "Contemporary wardrobe",
+        "semantic": "large freestanding modern storage cabinet",
+        "transform": {
+          "position": [
+            -3.52,
+            0.25,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete high-end contemporary wardrobe with a substantial volumetric cabinet, two readable flush doors, clean top cap, stable recessed plinth and connected rectilinear frame; designed as premium modern bedroom storage with restrained proportions and subtle softened edges.",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+          "appearance_prompt": "Smoked-walnut veneer with continuous vertical grain matching across doors, warm-grey matte lacquer accents, slim blackened-metal handles or recessed pulls, precise joinery and premium low-sheen finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "body",
+              "name": "Body",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  1.45
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.72,
+                  2.45,
+                  2.9
+                ]
+              }
+            },
+            {
+              "id": "crown",
+              "name": "Crown",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  3.0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.88,
+                  2.72,
+                  0.3
+                ]
+              }
+            },
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.16
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.86,
+                  2.62,
+                  0.32
+                ]
+              }
+            },
+            {
+              "id": "door_left",
+              "name": "Door Left",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.4,
+                  -0.58,
+                  1.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  1.08,
+                  2.42
+                ]
+              }
+            },
+            {
+              "id": "door_right",
+              "name": "Door Right",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.4,
+                  0.58,
+                  1.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  1.08,
+                  2.42
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.31,
+            0.25,
+            0.21,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 6,
+          "generation_strength": 0.57,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "vanity_table",
+        "name": "Contemporary dressing table",
+        "semantic": "modern dressing table",
+        "transform": {
+          "position": [
+            3.48,
+            -0.15,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete contemporary dressing vanity with a thick clean tabletop, central flush drawers, four slender stable connected legs and a substantial simple framed vertical mirror; refined modern residential design.",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+          "appearance_prompt": "Natural oak and smoked-walnut grain, warm taupe lacquered drawer faces, honed travertine-like top insert, thin blackened-metal mirror frame, clear mirror glass and restrained premium material transitions."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.92
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.72,
+                  1.75,
+                  0.18
+                ]
+              }
+            },
+            {
+              "id": "drawer",
+              "name": "Drawer",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.05,
+                  0,
+                  0.72
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.58,
+                  1.45,
+                  0.38
+                ]
+              }
+            },
+            {
+              "id": "leg_a",
+              "name": "Leg A",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.22,
+                  -0.68,
+                  0.38
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.13,
+                  0.13,
+                  0.76
+                ]
+              }
+            },
+            {
+              "id": "leg_b",
+              "name": "Leg B",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.22,
+                  0.68,
+                  0.38
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.13,
+                  0.13,
+                  0.76
+                ]
+              }
+            },
+            {
+              "id": "leg_c",
+              "name": "Leg C",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.22,
+                  -0.68,
+                  0.38
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.13,
+                  0.13,
+                  0.76
+                ]
+              }
+            },
+            {
+              "id": "leg_d",
+              "name": "Leg D",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.22,
+                  0.68,
+                  0.38
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.13,
+                  0.13,
+                  0.76
+                ]
+              }
+            },
+            {
+              "id": "mirror",
+              "name": "Mirror",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.05,
+                  0,
+                  1.75
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.18,
+                  1.3,
+                  1.45
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.4,
+            0.34,
+            0.29,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 6,
+          "generation_strength": 0.57,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "vanity_stool",
+        "name": "Contemporary upholstered vanity stool",
+        "semantic": "compact modern upholstered seat",
+        "transform": {
+          "position": [
+            2.55,
+            -0.15,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete contemporary vanity stool with a thick softly rounded cushioned seat and four simple stable connected legs; clean modern silhouette with comfortable residential proportions.",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+          "appearance_prompt": "Warm beige boucle upholstery with visible looped fibre texture and clean seam detail, natural-oak or smoked-walnut legs with matte finish, understated premium contemporary materials."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "seat",
+              "name": "Seat",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.52
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.72,
+                  0.72,
+                  0.24
+                ]
+              }
+            },
+            {
+              "id": "leg1",
+              "name": "Leg1",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.25,
+                  -0.25,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.5
+                ]
+              }
+            },
+            {
+              "id": "leg2",
+              "name": "Leg2",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.25,
+                  -0.25,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.5
+                ]
+              }
+            },
+            {
+              "id": "leg3",
+              "name": "Leg3",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.25,
+                  0.25,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.5
+                ]
+              }
+            },
+            {
+              "id": "leg4",
+              "name": "Leg4",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.25,
+                  0.25,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.11,
+                  0.11,
+                  0.5
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.62,
+            0.58,
+            0.52,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "chaise_lounge",
+        "name": "Contemporary chaise lounge",
+        "semantic": "asymmetric upholstered lounge seat",
+        "transform": {
+          "position": [
+            -2.45,
+            -1.75,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete contemporary chaise lounge with a substantial upholstered seat, raised softly angled back, connected low arm and stable simple legs; preserve the asymmetric lounge silhouette while using clean modern forms, soft radiused edges and restrained detailing.",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+          "appearance_prompt": "Textured warm-grey boucle or tightly woven wool upholstery with visible fibre structure, subtle channel seams, smoked-walnut or blackened-metal base accents and sophisticated neutral finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "seat",
+              "name": "Seat",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.58
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  2.05,
+                  0.92,
+                  0.36
+                ]
+              }
+            },
+            {
+              "id": "back",
+              "name": "Back",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.74,
+                  0.22,
+                  1.12
+                ],
+                "rotation_deg": [
+                  0,
+                  -18,
+                  0
+                ],
+                "scale": [
+                  0.48,
+                  0.72,
+                  1.42
+                ]
+              }
+            },
+            {
+              "id": "arm",
+              "name": "Arm",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.72,
+                  0.28,
+                  0.92
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.18,
+                  0.18,
+                  0.78
+                ]
+              }
+            },
+            {
+              "id": "leg1",
+              "name": "Leg1",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.75,
+                  -0.3,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.5
+                ]
+              }
+            },
+            {
+              "id": "leg2",
+              "name": "Leg2",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.75,
+                  -0.3,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.5
+                ]
+              }
+            },
+            {
+              "id": "leg3",
+              "name": "Leg3",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.75,
+                  0.3,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.5
+                ]
+              }
+            },
+            {
+              "id": "leg4",
+              "name": "Leg4",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.75,
+                  0.3,
+                  0.25
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.5
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.55,
+            0.54,
+            0.51,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 6,
+          "generation_strength": 0.58,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "bed_end_bench",
+        "name": "Contemporary bed-end bench",
+        "semantic": "modern upholstered bench",
+        "transform": {
+          "position": [
+            0,
+            -0.15,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete contemporary upholstered bed-end bench with a thick softly rounded cushioned seat, clean connected lower rail and four stable simple legs; refined modern residential proportions.",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+          "appearance_prompt": "Taupe woven linen or boucle cushion with visible textile texture and precise seam detail, smoked-walnut lower frame and legs, subtle matte finish and understated premium construction."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "seat",
+              "name": "Seat",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.58
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.75,
+                  0.68,
+                  0.3
+                ]
+              }
+            },
+            {
+              "id": "rail",
+              "name": "Rail",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.38
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.55,
+                  0.5,
+                  0.18
+                ]
+              }
+            },
+            {
+              "id": "leg1",
+              "name": "Leg1",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.68,
+                  -0.22,
+                  0.24
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.48
+                ]
+              }
+            },
+            {
+              "id": "leg2",
+              "name": "Leg2",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.68,
+                  -0.22,
+                  0.24
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.48
+                ]
+              }
+            },
+            {
+              "id": "leg3",
+              "name": "Leg3",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.68,
+                  0.22,
+                  0.24
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.48
+                ]
+              }
+            },
+            {
+              "id": "leg4",
+              "name": "Leg4",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.68,
+                  0.22,
+                  0.24
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.48
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.55,
+            0.51,
+            0.46,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "central_chandelier",
+        "name": "Contemporary central pendant light",
+        "semantic": "ceiling-hung modern light fixture",
+        "transform": {
+          "position": [
+            0,
+            0,
+            3.1
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete large contemporary ceiling pendant with a central hub, connected stem, balanced radial arms and a substantial geometric silhouette suitable for a high-end bedroom ceiling; clean modern construction with integrated diffused light elements.",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+          "appearance_prompt": "Brushed blackened metal and dark bronze with fine directional brushing, opal glass diffusers, subtle warm reflections and precise contemporary fabrication."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "hub",
+              "name": "Hub",
+              "primitive": "sphere",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.42,
+                  0.42,
+                  0.42
+                ]
+              }
+            },
+            {
+              "id": "stem",
+              "name": "Stem",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.1,
+                  0.1,
+                  0.85
+                ]
+              }
+            },
+            {
+              "id": "ring",
+              "name": "Ring",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  -0.18
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.15,
+                  1.15,
+                  0.16
+                ]
+              }
+            },
+            {
+              "id": "arm_a",
+              "name": "Arm A",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.6,
+                  0,
+                  -0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  90,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  1.1
+                ]
+              }
+            },
+            {
+              "id": "arm_b",
+              "name": "Arm B",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.6,
+                  0,
+                  -0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  90,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  1.1
+                ]
+              }
+            },
+            {
+              "id": "arm_c",
+              "name": "Arm C",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0.6,
+                  -0.2
+                ],
+                "rotation_deg": [
+                  90,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  1.1
+                ]
+              }
+            },
+            {
+              "id": "arm_d",
+              "name": "Arm D",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  -0.6,
+                  -0.2
+                ],
+                "rotation_deg": [
+                  90,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  1.1
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.16,
+            0.15,
+            0.14,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 5,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.26,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "ornamental_mirror",
+        "name": "Large contemporary wall mirror",
+        "semantic": "wall-mounted modern mirror",
+        "transform": {
+          "position": [
+            3.98,
+            1.45,
+            1.75
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete large contemporary wall mirror with a substantial clean frame, readable reflective centre, simple softened rectangular geometry and connected border; premium modern bedroom design.",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+          "appearance_prompt": "Clear low-iron mirror glass surrounded by a slim smoked-walnut or blackened-metal frame, precise edges, subtle brushed texture and clean high-end contemporary craftsmanship."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "mirror_core",
+              "name": "Mirror Core",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.16,
+                  1.1,
+                  1.7
+                ]
+              }
+            },
+            {
+              "id": "frame_top",
+              "name": "Frame Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.02,
+                  0,
+                  1.0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.24,
+                  1.35,
+                  0.34
+                ]
+              }
+            },
+            {
+              "id": "frame_bottom",
+              "name": "Frame Bottom",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.02,
+                  0,
+                  -1.0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.24,
+                  1.3,
+                  0.28
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.22,
+            0.21,
+            0.2,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "large_area_rug",
+        "name": "Large contemporary area rug",
+        "semantic": "thick modern textile floor covering",
+        "transform": {
+          "position": [
+            0,
+            0.25,
+            0.05
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "scaffold_only",
+          "prompt": "A complete thick rectangular contemporary bedroom rug with a quiet large-scale abstract tonal composition and softly rounded substantial edge, not a paper-thin plane; refined modern textile design with low-contrast geometry.",
+          "negative_prompt": "plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, uniform monochrome object, empty material, oversized random decoration, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, implausibly thin parts, disconnected components, unstable proportions",
+          "style_prompt": "High-end contemporary bedroom with calm architectural clarity and warm residential character; soft warm-white plaster, natural light oak and smoked walnut, textured stone, brushed blackened metal, boucle and woven linen, muted taupe, sand, warm grey and deep charcoal accents, clean rectilinear detailing, subtle shadow gaps, refined joinery, layered tactile materials, soft indirect ambient lighting, photorealistic premium finishes, sophisticated modern luxury.",
+          "appearance_prompt": "Ivory, sand, taupe and warm-grey wool pile with visible dense fibre texture, subtle abstract linear blocks, soft tonal transitions, restrained high-low pile variation and premium hand-tufted appearance."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "rug_body",
+              "name": "Rug Body",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  5.4,
+                  3.85,
+                  0.1
+                ]
+              }
+            },
+            {
+              "id": "rug_inner",
+              "name": "Rug Inner",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.06
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  4.95,
+                  3.4,
+                  0.08
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.64,
+            0.61,
+            0.56,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "stable volumetric visual scaffold refined through appearance generation"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.58,
+          "fusion_strength": 0.31,
+          "max_periodicity_score": 0.9,
+          "update_weight": 1.2
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      }
+    ],
+    "revision_notes": [
+      "Modern-style variant preserves the source scene transforms, scaffold geometry, placement relations, physics, refinement and view-sampling configuration.",
+      "Only scene identity, semantic wording and appearance-generation descriptions were restyled to demonstrate style transfer under an unchanged structural layout."
+    ],
+    "stage08_appearance_prompt": "High-end contemporary bedroom with calm warm-white architecture, natural oak and smoked-walnut furniture, honed stone details, brushed blackened metal, boucle and woven-linen textiles, muted ivory, sand, taupe, warm-grey and charcoal palette, clean rectilinear detailing, subtle shadow gaps, layered tactile materials and soft indirect ambient lighting. Premium photorealistic modern residential finishes with sophisticated, comfortable and coherent contemporary detailing."
+  }
+}
