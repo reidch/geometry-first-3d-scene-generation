@@ -140,7 +140,7 @@ Scene JSON files can be written manually. Examples under `data/scenes/examples/`
 
 For faster authoring, an example JSON can also be provided to a large language model together with a natural-language description of the desired room. For example:
 
-> "Create a modern Japanese bedroom with a bed, desk, bookshelf, floor lamp and wall decorations, and construct my scene following this JSON template."
+> "Create a modern Japanese bedroom with a bed, desk, bookshelf, floor lamp and wall decorations. Please use the provided JSON file as a structural reference and describe the scaffold for this scene using the same JSON schema and organization."
 
 The generated JSON can then be edited if needed and passed directly to the pipeline using `SCENE_JSON`. Stage 00 validates the scene description before the remaining stages are executed.
 
