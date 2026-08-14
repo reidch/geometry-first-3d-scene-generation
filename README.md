@@ -109,7 +109,29 @@ The installer prepares the runtime environments only. It does not download pretr
 
 Required pretrained models, including FLUX.1, FLUX.2, Pixal3D and the required depth models, are downloaded automatically by the corresponding pipeline stages when first needed. The first pipeline run therefore requires Internet access and sufficient disk space.
 
+When Stage 08 downloads FLUX.2 for the first time, the download process may not display a visible progress bar for part of the download. In this case, the process is not necessarily stalled. If the terminal appears inactive, it is recommended to monitor the host system's network activity to confirm that model files are still being transferred before interrupting the process.
+
 Stage 09E image-quality evaluation uses its own isolated lightweight runtime, created automatically by the evaluation pipeline when required. It is not a third project Conda environment.
+
+## Reproducibility
+
+A clean end-to-end reproduction test was carried out using the public repository instructions.
+
+For this test, the existing `world_pipeline` and `worldmesh-nerfstudio` environments were removed and recreated from scratch using `setup_project_envs.sh`. The Rococo scene specification `grand_rococo_suite.json` was then processed through the complete production pipeline following the same public instructions provided in this repository.
+
+The reproduction test used:
+
+- WSL 2
+- Ubuntu 24.04
+- CUDA 12.8
+- Python 3.10
+- Blender 4.5
+- NVIDIA RTX 5080 16 GB
+- Scene: `grand_rococo_suite.json`
+
+The complete pipeline executed successfully and reproduced the Rococo scene without relying on the previously existing development environments.
+
+This test verifies that the released environment installer, scene specification and production pipeline can be used together from a clean setup on the documented system configuration.
 
 ## Quick Start
 
