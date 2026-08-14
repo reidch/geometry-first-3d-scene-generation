@@ -17,6 +17,19 @@ The pipeline covers declarative scene compilation, scaffold construction, genera
 
 The full visual overview, videos, quantitative results and ablations are available under `docs/` and can be published directly with GitHub Pages.
 
+## System Environment
+
+The complete system used for the dissertation experiments was developed and tested in the following environment:
+
+- Windows Subsystem for Linux (WSL 2)
+- Ubuntu 24.04
+- CUDA 12.8
+- Python 3.10
+- Blender 4.5
+- NVIDIA RTX 5080 16 GB
+
+A similar system-level configuration is recommended for reproduction.
+
 ## Installation
 
 The project uses two Python 3.10 Conda environments:
@@ -31,12 +44,6 @@ bash setup_project_envs.sh
 ```
 
 The installer reproduces the package versions used for the dissertation experiments, installs the required CUDA extensions, and installs the WorldMesh-compatible Nerfstudio implementation from the recorded source revision.
-
-The experiments were developed and tested on:
-
-- Ubuntu 24.04
-- NVIDIA RTX 5080 16 GB
-- CUDA 12.8
 
 ### CUDA compilation settings
 
@@ -132,17 +139,52 @@ outputs/
 
 When Stage 09 is reached, the pipeline uses the `worldmesh-nerfstudio` environment automatically.
 
+### Running stages manually
+
+On some systems, `run_pipeline.sh` may fail to launch one of the stage scripts because the copied or cloned shell script does not have executable permission. If this happens, the recommended fallback is to execute the stages manually in order from the project root.
+
+For example:
+
+```bash
+bash run_stage00.sh
+bash run_stage01.sh
+bash run_stage02.sh
+```
+
+Continue with the remaining stages in numerical order.
+
+If a stage is split into scripts such as:
+
+```text
+run_stage06a.sh
+run_stage06b.sh
+```
+
+the letters indicate ordered sub-stages. Run `06a` before `06b`.
+
+These sub-stage splits are generally used to preserve reusable intermediate results. This avoids repeating an expensive earlier computation when only parameters in a later part of the same stage are changed.
+
+If preferred, executable permission can also be restored explicitly:
+
+```bash
+chmod +x run_pipeline.sh run_stage*.sh
+```
+
 ## Scene Description
 
 Each scene is defined by a structured JSON file describing its layout, object hierarchy, scaffold geometry, generation modes and appearance prompts.
 
 Scene JSON files can be written manually. Examples under `data/scenes/examples/` can be copied and modified as templates.
 
-For faster authoring, an example JSON can also be provided to a large language model together with a natural-language description of the desired room. For example:
+For LLM-assisted scene authoring, the Rococo scene JSON `grand_rococo_suite.json` is recommended as the reference template because it provides a complete example of the scene schema and scaffold organization.
 
-> "Create a modern Japanese bedroom with a bed, desk, bookshelf, floor lamp and wall decorations. Please use the provided JSON file as a structural reference and describe the scaffold for this scene using the same JSON schema and organization."
+Provide `grand_rococo_suite.json` to the language model together with a natural-language description of the desired scene. For example:
 
-The generated JSON can then be edited if needed and passed directly to the pipeline using `SCENE_JSON`. Stage 00 validates the scene description before the remaining stages are executed.
+> "I need a warm and cozy library room, with a row of bookshelves along one wall, and a desk and chair placed at the other end of the room. There should also be a chandelier hanging from the ceiling. Please use the provided JSON file as a structural reference and describe the scaffold for this scene using the same JSON schema and organization."
+
+The generated JSON can then be reviewed and edited if needed before being passed directly to the pipeline using `SCENE_JSON`.
+
+Stage 00 validates the scene description before the remaining stages are executed.
 
 ## Citation
 
