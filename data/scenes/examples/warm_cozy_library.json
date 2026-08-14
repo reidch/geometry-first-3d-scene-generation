@@ -1,0 +1,2516 @@
+{
+  "schema_version": "2.0",
+  "scene": {
+    "id": "warm_cozy_library",
+    "name": "Warm Cozy Library Room",
+    "prompt": "A warm and inviting library room with a continuous row of tall wooden bookshelves along the rear wall, filled with varied books; a substantial writing desk and matching chair arranged at the opposite end of the room; and a warm chandelier hanging from the center of the ceiling. Rich walnut and honey-oak wood, cream plaster walls, warm wood flooring, soft amber light, restrained traditional detailing, comfortable residential proportions, photorealistic premium finishes, coherent uncluttered layout.",
+    "coordinate_system": {
+      "up_axis": "Z",
+      "forward_axis": "Y",
+      "unit_scale_m": 1.0
+    },
+    "defaults": {
+      "appearance": {
+        "base_color": [
+          0.58,
+          0.56,
+          0.52,
+          1
+        ]
+      },
+      "placement": {
+        "support_axis_world": [
+          0,
+          0,
+          1
+        ],
+        "clearance_m": 0.004
+      },
+      "registration": {
+        "rotation_candidates": "proper_axis_24",
+        "scale_mode": "uniform",
+        "surface_sample_count": 3500,
+        "truncation_ratio": 0.08,
+        "scale_lower_factor": 0.72,
+        "scale_upper_factor": 1.3
+      }
+    },
+    "objects": [
+      {
+        "id": "room_shell",
+        "name": "Warm cozy library room shell",
+        "semantic": "enclosing architecture",
+        "transform": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "group"
+        },
+        "physics": {
+          "mode": "static",
+          "body": "none"
+        },
+        "children": [
+          {
+            "id": "floor_main",
+            "name": "Warm timber floor",
+            "semantic": "room-scale supporting architectural surface",
+            "transform": {
+              "position": [
+                0,
+                0,
+                -0.06
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete rectified floor texture for a cozy private library, filling the rectangle edge to edge with medium-width walnut and honey-oak floorboards, subtle natural grain variation, readable seams, gentle satin wear and warm amber-brown tonal movement.",
+              "negative_prompt": "cold modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, mostly blank field",
+              "style_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism.",
+              "appearance_prompt": "Rich walnut and honey-oak grain, fine pores, crisp board joints, restrained tonal variation, soft satin reflections, warm and inviting.",
+              "surface": {
+                "projection": "top",
+                "generation_space": "rectified_surface",
+                "continuity_group": "floor_main",
+                "style_group": "warm_cozy_library",
+                "generation_order": 0,
+                "order": 0,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "board_rhythm",
+                "material_family": "wood",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.9,
+              "guidance_scale": 9.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      7.2,
+                      5.4,
+                      0.12
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.42,
+                0.29,
+                0.18,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "floor",
+              "description": "explicit planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.54,
+              "fusion_strength": 0.27,
+              "max_periodicity_score": 0.93
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "ceiling_main",
+            "name": "Warm plaster ceiling",
+            "semantic": "upper architectural surface",
+            "transform": {
+              "position": [
+                0,
+                0,
+                3.46
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete rectified ceiling texture for a warm traditional library: soft cream plaster with subtle handcrafted variation, restrained perimeter moulding and a clean central area around the chandelier mount.",
+              "negative_prompt": "cold modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, mostly blank field",
+              "style_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism.",
+              "appearance_prompt": "Fine warm-cream plaster microtexture, soft tonal variation, subtle moulded edge detail, matte finish with gentle amber illumination.",
+              "surface": {
+                "projection": "bottom",
+                "generation_space": "rectified_surface",
+                "continuity_group": "ceiling_main",
+                "style_group": "warm_cozy_library",
+                "generation_order": 1,
+                "order": 1,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "soft_plaster",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.9,
+              "guidance_scale": 9.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      7.2,
+                      5.4,
+                      0.12
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.88,
+                0.84,
+                0.74,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "ceiling",
+              "description": "explicit planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.54,
+              "fusion_strength": 0.27,
+              "max_periodicity_score": 0.93
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_rear",
+            "name": "Bookshelf wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                0,
+                2.7,
+                1.7
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge warm traditional library wall elevation with creamy plaster, restrained wood trim and subtle panel rhythm, designed as a quiet architectural background for walnut bookshelves and furniture; coherent warm material variation across the whole wall.",
+              "negative_prompt": "cold modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, mostly blank field",
+              "style_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism.",
+              "appearance_prompt": "Warm cream plaster grain, understated walnut trim, soft aged tonal variation, matte wall finish, gentle amber light response, refined but not ornate.",
+              "surface": {
+                "projection": "front",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "warm_cozy_library",
+                "generation_order": 10,
+                "order": 10,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.9,
+              "guidance_scale": 9.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      7.2,
+                      0.12,
+                      3.4
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.8,
+                0.75,
+                0.66,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "description": "explicit room-facing planar architectural surface",
+              "wall_inward_normal_world": [
+                0,
+                -1,
+                0
+              ]
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.58,
+              "fusion_strength": 0.3,
+              "max_periodicity_score": 0.96
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 2,
+              "primary": true
+            }
+          },
+          {
+            "id": "wall_right",
+            "name": "Right library wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                3.6,
+                0,
+                1.7
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge warm traditional library wall elevation with creamy plaster, restrained wood trim and subtle panel rhythm, designed as a quiet architectural background for walnut bookshelves and furniture; coherent warm material variation across the whole wall.",
+              "negative_prompt": "cold modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, mostly blank field",
+              "style_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism.",
+              "appearance_prompt": "Warm cream plaster grain, understated walnut trim, soft aged tonal variation, matte wall finish, gentle amber light response, refined but not ornate.",
+              "surface": {
+                "projection": "opposite_side",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "warm_cozy_library",
+                "generation_order": 11,
+                "order": 11,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left"
+              },
+              "strength": 0.9,
+              "guidance_scale": 9.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      0.12,
+                      5.4,
+                      3.4
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.8,
+                0.75,
+                0.66,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "description": "explicit room-facing planar architectural surface",
+              "wall_inward_normal_world": [
+                -1,
+                0,
+                0
+              ]
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.58,
+              "fusion_strength": 0.3,
+              "max_periodicity_score": 0.96
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_front",
+            "name": "Desk-end wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                0,
+                -2.7,
+                1.7
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge warm traditional library wall elevation with creamy plaster, restrained wood trim and subtle panel rhythm, designed as a quiet architectural background for walnut bookshelves and furniture; coherent warm material variation across the whole wall.",
+              "negative_prompt": "cold modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, mostly blank field",
+              "style_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism.",
+              "appearance_prompt": "Warm cream plaster grain, understated walnut trim, soft aged tonal variation, matte wall finish, gentle amber light response, refined but not ornate.",
+              "surface": {
+                "projection": "back",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "warm_cozy_library",
+                "generation_order": 12,
+                "order": 12,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left"
+              },
+              "strength": 0.9,
+              "guidance_scale": 9.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      7.2,
+                      0.12,
+                      3.4
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.8,
+                0.75,
+                0.66,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "description": "explicit room-facing planar architectural surface",
+              "wall_inward_normal_world": [
+                0,
+                1,
+                0
+              ]
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.58,
+              "fusion_strength": 0.3,
+              "max_periodicity_score": 0.96
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_left",
+            "name": "Left library wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                -3.6,
+                0,
+                1.7
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge warm traditional library wall elevation with creamy plaster, restrained wood trim and subtle panel rhythm, designed as a quiet architectural background for walnut bookshelves and furniture; coherent warm material variation across the whole wall.",
+              "negative_prompt": "cold modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, mostly blank field",
+              "style_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism.",
+              "appearance_prompt": "Warm cream plaster grain, understated walnut trim, soft aged tonal variation, matte wall finish, gentle amber light response, refined but not ornate.",
+              "surface": {
+                "projection": "side",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "warm_cozy_library",
+                "generation_order": 13,
+                "order": 13,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "plaster",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left",
+                "close_cycle": true,
+                "cycle_reference_object_id": "wall_rear",
+                "cycle_reference_edge": "left",
+                "cycle_target_edge": "right",
+                "cycle_reference_strip_fraction": 0.1
+              },
+              "strength": 0.9,
+              "guidance_scale": 9.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      0.12,
+                      5.4,
+                      3.4
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.8,
+                0.75,
+                0.66,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "description": "explicit room-facing planar architectural surface",
+              "wall_inward_normal_world": [
+                1,
+                0,
+                0
+              ]
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.58,
+              "fusion_strength": 0.3,
+              "max_periodicity_score": 0.96
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          }
+        ],
+        "spatial_category": {
+          "type": "free",
+          "description": "architectural group"
+        }
+      },
+      {
+        "id": "bookcase_1",
+        "name": "Library bookcase 1",
+        "semantic": "tall stocked wooden bookshelf",
+        "transform": {
+          "position": [
+            -2.34,
+            2.42,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete tall traditional library bookcase with sturdy walnut carcass, multiple horizontal shelves and visibly stocked rows of varied books; preserve the tall rectangular furniture silhouette, stable floor-standing construction and readable shelf divisions.",
+          "negative_prompt": "cold modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism.",
+          "appearance_prompt": "Rich walnut and dark honey-oak grain, softly polished edges, varied clothbound and leather-bound book spines in muted burgundy, forest green, navy, tan and cream, subtle brass label details, warm aged finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "back",
+              "name": "Back Panel",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0.15,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.55,
+                  0.1,
+                  2.56
+                ]
+              }
+            },
+            {
+              "id": "left_side",
+              "name": "Left Side",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.73,
+                  0,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.1,
+                  0.42,
+                  2.56
+                ]
+              }
+            },
+            {
+              "id": "right_side",
+              "name": "Right Side",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.73,
+                  0,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.1,
+                  0.42,
+                  2.56
+                ]
+              }
+            },
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  2.53
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.55,
+                  0.44,
+                  0.12
+                ]
+              }
+            },
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.1
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.58,
+                  0.46,
+                  0.2
+                ]
+              }
+            },
+            {
+              "id": "shelf_1",
+              "name": "Shelf 1",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  0.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_2",
+              "name": "Shelf 2",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  0.88
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_3",
+              "name": "Shelf 3",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_4",
+              "name": "Shelf 4",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  1.68
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_5",
+              "name": "Shelf 5",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  2.08
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.48,
+            0.34,
+            0.22,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.57,
+          "fusion_strength": 0.29,
+          "max_periodicity_score": 0.88
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "bookcase_2",
+        "name": "Library bookcase 2",
+        "semantic": "tall stocked wooden bookshelf",
+        "transform": {
+          "position": [
+            -0.78,
+            2.42,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete tall traditional library bookcase with sturdy walnut carcass, multiple horizontal shelves and visibly stocked rows of varied books; preserve the tall rectangular furniture silhouette, stable floor-standing construction and readable shelf divisions.",
+          "negative_prompt": "cold modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism.",
+          "appearance_prompt": "Rich walnut and dark honey-oak grain, softly polished edges, varied clothbound and leather-bound book spines in muted burgundy, forest green, navy, tan and cream, subtle brass label details, warm aged finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "back",
+              "name": "Back Panel",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0.15,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.55,
+                  0.1,
+                  2.56
+                ]
+              }
+            },
+            {
+              "id": "left_side",
+              "name": "Left Side",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.73,
+                  0,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.1,
+                  0.42,
+                  2.56
+                ]
+              }
+            },
+            {
+              "id": "right_side",
+              "name": "Right Side",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.73,
+                  0,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.1,
+                  0.42,
+                  2.56
+                ]
+              }
+            },
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  2.53
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.55,
+                  0.44,
+                  0.12
+                ]
+              }
+            },
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.1
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.58,
+                  0.46,
+                  0.2
+                ]
+              }
+            },
+            {
+              "id": "shelf_1",
+              "name": "Shelf 1",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  0.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_2",
+              "name": "Shelf 2",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  0.88
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_3",
+              "name": "Shelf 3",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_4",
+              "name": "Shelf 4",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  1.68
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_5",
+              "name": "Shelf 5",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  2.08
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.48,
+            0.34,
+            0.22,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.57,
+          "fusion_strength": 0.29,
+          "max_periodicity_score": 0.88
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "bookcase_3",
+        "name": "Library bookcase 3",
+        "semantic": "tall stocked wooden bookshelf",
+        "transform": {
+          "position": [
+            0.78,
+            2.42,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete tall traditional library bookcase with sturdy walnut carcass, multiple horizontal shelves and visibly stocked rows of varied books; preserve the tall rectangular furniture silhouette, stable floor-standing construction and readable shelf divisions.",
+          "negative_prompt": "cold modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism.",
+          "appearance_prompt": "Rich walnut and dark honey-oak grain, softly polished edges, varied clothbound and leather-bound book spines in muted burgundy, forest green, navy, tan and cream, subtle brass label details, warm aged finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "back",
+              "name": "Back Panel",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0.15,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.55,
+                  0.1,
+                  2.56
+                ]
+              }
+            },
+            {
+              "id": "left_side",
+              "name": "Left Side",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.73,
+                  0,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.1,
+                  0.42,
+                  2.56
+                ]
+              }
+            },
+            {
+              "id": "right_side",
+              "name": "Right Side",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.73,
+                  0,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.1,
+                  0.42,
+                  2.56
+                ]
+              }
+            },
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  2.53
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.55,
+                  0.44,
+                  0.12
+                ]
+              }
+            },
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.1
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.58,
+                  0.46,
+                  0.2
+                ]
+              }
+            },
+            {
+              "id": "shelf_1",
+              "name": "Shelf 1",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  0.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_2",
+              "name": "Shelf 2",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  0.88
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_3",
+              "name": "Shelf 3",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_4",
+              "name": "Shelf 4",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  1.68
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_5",
+              "name": "Shelf 5",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  2.08
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.48,
+            0.34,
+            0.22,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.57,
+          "fusion_strength": 0.29,
+          "max_periodicity_score": 0.88
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "bookcase_4",
+        "name": "Library bookcase 4",
+        "semantic": "tall stocked wooden bookshelf",
+        "transform": {
+          "position": [
+            2.34,
+            2.42,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete tall traditional library bookcase with sturdy walnut carcass, multiple horizontal shelves and visibly stocked rows of varied books; preserve the tall rectangular furniture silhouette, stable floor-standing construction and readable shelf divisions.",
+          "negative_prompt": "cold modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism.",
+          "appearance_prompt": "Rich walnut and dark honey-oak grain, softly polished edges, varied clothbound and leather-bound book spines in muted burgundy, forest green, navy, tan and cream, subtle brass label details, warm aged finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "back",
+              "name": "Back Panel",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0.15,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.55,
+                  0.1,
+                  2.56
+                ]
+              }
+            },
+            {
+              "id": "left_side",
+              "name": "Left Side",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.73,
+                  0,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.1,
+                  0.42,
+                  2.56
+                ]
+              }
+            },
+            {
+              "id": "right_side",
+              "name": "Right Side",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.73,
+                  0,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.1,
+                  0.42,
+                  2.56
+                ]
+              }
+            },
+            {
+              "id": "top",
+              "name": "Top",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  2.53
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.55,
+                  0.44,
+                  0.12
+                ]
+              }
+            },
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.1
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.58,
+                  0.46,
+                  0.2
+                ]
+              }
+            },
+            {
+              "id": "shelf_1",
+              "name": "Shelf 1",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  0.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_2",
+              "name": "Shelf 2",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  0.88
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_3",
+              "name": "Shelf 3",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  1.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_4",
+              "name": "Shelf 4",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  1.68
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "shelf_5",
+              "name": "Shelf 5",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.02,
+                  2.08
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.4,
+                  0.08
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.48,
+            0.34,
+            0.22,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.57,
+          "fusion_strength": 0.29,
+          "max_periodicity_score": 0.88
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "writing_desk",
+        "name": "Warm walnut writing desk",
+        "semantic": "substantial traditional writing desk",
+        "transform": {
+          "position": [
+            0,
+            -1.95,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete traditional writing desk with thick rectangular top, shallow central drawer section and four sturdy connected legs, comfortable residential library proportions, substantial but not oversized.",
+          "negative_prompt": "cold modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism.",
+          "appearance_prompt": "Warm walnut grain, honey-brown polished desktop, subtle dark edge moulding, small antique-brass drawer pulls, gentle satin wear and handcrafted wood variation."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "desktop",
+              "name": "Desktop",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.8
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.75,
+                  0.85,
+                  0.14
+                ]
+              }
+            },
+            {
+              "id": "drawer_block",
+              "name": "Drawer Block",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0.05,
+                  0.64
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.42,
+                  0.66,
+                  0.24
+                ]
+              }
+            },
+            {
+              "id": "leg_fl",
+              "name": "Leg Fl",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.72,
+                  -0.28,
+                  0.37
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.72
+                ]
+              }
+            },
+            {
+              "id": "leg_fr",
+              "name": "Leg Fr",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.72,
+                  -0.28,
+                  0.37
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.72
+                ]
+              }
+            },
+            {
+              "id": "leg_bl",
+              "name": "Leg Bl",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.72,
+                  0.28,
+                  0.37
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.72
+                ]
+              }
+            },
+            {
+              "id": "leg_br",
+              "name": "Leg Br",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.72,
+                  0.28,
+                  0.37
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.12,
+                  0.72
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.48,
+            0.34,
+            0.22,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 5,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.84
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "desk_chair",
+        "name": "Cozy upholstered library chair",
+        "semantic": "traditional desk chair",
+        "transform": {
+          "position": [
+            0,
+            -0.95,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            180
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete comfortable traditional library desk chair with a padded seat, supportive upholstered back and four stable wooden legs; compact enough to pair naturally with the writing desk.",
+          "negative_prompt": "cold modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism.",
+          "appearance_prompt": "Warm brown walnut legs, deep muted burgundy or tobacco-brown woven upholstery, visible fabric texture, restrained button or seam detail, soft lived-in premium finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "seat",
+              "name": "Seat",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.48
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.58,
+                  0.58,
+                  0.16
+                ]
+              }
+            },
+            {
+              "id": "back",
+              "name": "Back",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0.24,
+                  0.96
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.58,
+                  0.14,
+                  0.88
+                ]
+              }
+            },
+            {
+              "id": "leg_fl",
+              "name": "Leg Fl",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.22,
+                  -0.2,
+                  0.23
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.09,
+                  0.09,
+                  0.46
+                ]
+              }
+            },
+            {
+              "id": "leg_fr",
+              "name": "Leg Fr",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.22,
+                  -0.2,
+                  0.23
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.09,
+                  0.09,
+                  0.46
+                ]
+              }
+            },
+            {
+              "id": "leg_bl",
+              "name": "Leg Bl",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.22,
+                  0.2,
+                  0.23
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.09,
+                  0.09,
+                  0.46
+                ]
+              }
+            },
+            {
+              "id": "leg_br",
+              "name": "Leg Br",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.22,
+                  0.2,
+                  0.23
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.09,
+                  0.09,
+                  0.46
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.42,
+            0.25,
+            0.2,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "central_chandelier",
+        "name": "Warm library chandelier",
+        "semantic": "ceiling-hung ornamental light",
+        "transform": {
+          "position": [
+            0,
+            0,
+            2.82
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete warm traditional chandelier for a cozy library, with central brass body, short ceiling stem, balanced curving arms and compact elegant silhouette; substantial enough to read clearly but scaled for a residential room.",
+          "negative_prompt": "cold modern minimalist, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism.",
+          "appearance_prompt": "Aged warm brass and antique bronze metal, soft amber bulbs or candle-like lights, subtle glass highlights, restrained patina and warm reflective detail."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "hub",
+              "name": "Hub",
+              "primitive": "sphere",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.34,
+                  0.34,
+                  0.34
+                ]
+              }
+            },
+            {
+              "id": "stem",
+              "name": "Stem",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.4
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.08,
+                  0.72
+                ]
+              }
+            },
+            {
+              "id": "ring",
+              "name": "Ring",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  -0.18
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.88,
+                  0.88,
+                  0.12
+                ]
+              }
+            },
+            {
+              "id": "arm_e",
+              "name": "Arm E",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0.48,
+                  0,
+                  -0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  90,
+                  0
+                ],
+                "scale": [
+                  0.09,
+                  0.09,
+                  0.9
+                ]
+              }
+            },
+            {
+              "id": "arm_w",
+              "name": "Arm W",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  -0.48,
+                  0,
+                  -0.2
+                ],
+                "rotation_deg": [
+                  0,
+                  90,
+                  0
+                ],
+                "scale": [
+                  0.09,
+                  0.09,
+                  0.9
+                ]
+              }
+            },
+            {
+              "id": "arm_n",
+              "name": "Arm N",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0.48,
+                  -0.2
+                ],
+                "rotation_deg": [
+                  90,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.09,
+                  0.09,
+                  0.9
+                ]
+              }
+            },
+            {
+              "id": "arm_s",
+              "name": "Arm S",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  -0.48,
+                  -0.2
+                ],
+                "rotation_deg": [
+                  90,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.09,
+                  0.09,
+                  0.9
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.46,
+            0.35,
+            0.2,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 5,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.26,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      }
+    ],
+    "revision_notes": [
+      "Library scaffold follows the reference schema and retains explicit primitive geometry as the spatial contract.",
+      "Bookshelves occupy one continuous rear-wall row; desk and chair occupy the opposite end of the room."
+    ],
+    "stage08_appearance_prompt": "Warm and cozy classic library room, intimate residential scale, warm cream plaster walls, rich walnut and dark honey-oak furniture, full bookshelves with varied clothbound and leather-bound books, soft amber chandelier illumination, warm wood floor, subtle woven textiles, tasteful traditional detailing, photorealistic premium materials, calm inviting atmosphere, no cold modern minimalism."
+  }
+}
