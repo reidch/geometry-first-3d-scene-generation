@@ -1,0 +1,2182 @@
+{
+  "schema_version": "2.0",
+  "scene": {
+    "id": "cyberpunk_gaming_room",
+    "name": "Cyberpunk Gaming Room",
+    "prompt": "Cyberpunk-style gaming room with a futuristic neon atmosphere. The room contains a gaming desk with a computer monitor, keyboard, mouse and PC tower, together with a gaming chair placed at the desk. The room also includes a display cabinet for collectible figures. The overall space should feel sleek, immersive and neon-lit, with a strong gaming aesthetic.",
+    "coordinate_system": {
+      "up_axis": "Z",
+      "forward_axis": "Y",
+      "unit_scale_m": 1.0
+    },
+    "defaults": {
+      "appearance": {
+        "base_color": [
+          0.24,
+          0.24,
+          0.26,
+          1
+        ]
+      },
+      "placement": {
+        "support_axis_world": [
+          0,
+          0,
+          1
+        ],
+        "clearance_m": 0.004
+      },
+      "registration": {
+        "rotation_candidates": "proper_axis_24",
+        "scale_mode": "uniform",
+        "surface_sample_count": 3500,
+        "truncation_ratio": 0.08,
+        "scale_lower_factor": 0.72,
+        "scale_upper_factor": 1.3
+      }
+    },
+    "objects": [
+      {
+        "id": "room_shell",
+        "name": "Cyberpunk room shell",
+        "semantic": "enclosing architecture",
+        "transform": {
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "group"
+        },
+        "physics": {
+          "mode": "static",
+          "body": "none"
+        },
+        "children": [
+          {
+            "id": "floor_main",
+            "name": "Dark gaming floor",
+            "semantic": "room-scale supporting architectural surface",
+            "transform": {
+              "position": [
+                0,
+                0,
+                -0.08
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete rectified floor texture for a cyberpunk gaming room, filling the full rectangle edge to edge with dark graphite or charcoal floor material, subtle panel or plank rhythm, controlled reflections, clean seams and a premium high-tech residential finish.",
+              "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field",
+              "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+              "appearance_prompt": "Dark graphite floor material, subtle fine texture, faint cool reflections, readable seams and no muddy blur.",
+              "surface": {
+                "projection": "top",
+                "generation_space": "rectified_surface",
+                "continuity_group": "floor_main",
+                "style_group": "cyberpunk_gaming_room",
+                "generation_order": 0,
+                "order": 0,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "composite",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      6.8,
+                      5.2,
+                      0.16
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.14,
+                0.14,
+                0.16,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "floor",
+              "description": "explicit planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.6,
+              "fusion_strength": 0.3,
+              "max_periodicity_score": 0.96
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "ceiling_main",
+            "name": "Neon gaming ceiling",
+            "semantic": "upper architectural surface",
+            "transform": {
+              "position": [
+                0,
+                0,
+                3.08
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete rectified ceiling composition for a cyberpunk gaming room, filling the entire ceiling rectangle with dark ceiling panels, subtle recessed channels, a central clean zone, and luminous cyan-magenta-violet neon cove accents or linear light tracks that feel futuristic and coherent.",
+              "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field",
+              "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+              "appearance_prompt": "Dark ceiling panels, crisp recessed joints, soft neon glow accents, controlled bloom and premium high-tech detailing.",
+              "surface": {
+                "projection": "bottom",
+                "generation_space": "rectified_surface",
+                "continuity_group": "ceiling_main",
+                "style_group": "cyberpunk_gaming_room",
+                "generation_order": 1,
+                "order": 1,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "composite",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      6.8,
+                      5.2,
+                      0.16
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.12,
+                0.12,
+                0.14,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "ceiling",
+              "description": "explicit planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.6,
+              "fusion_strength": 0.3,
+              "max_periodicity_score": 0.96
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_rear",
+            "name": "Rear gaming wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                0,
+                2.6,
+                1.5
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge cyberpunk gaming-room wall elevation designed as a full installed architectural surface: dark graphite or charcoal wall panels, sleek modular seams, restrained futuristic detailing, neon cyan and magenta accent strips, subtle technological texture and a coherent premium gaming aesthetic across the entire wall rectangle. The full wall should read as a finished immersive interior surface rather than a small isolated motif.",
+              "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field",
+              "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+              "appearance_prompt": "Dark graphite wall panels, subtle metallic or matte texture, luminous cyan-magenta-violet accents, crisp seams and clean premium high-tech finish.",
+              "surface": {
+                "projection": "front",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "cyberpunk_gaming_room",
+                "generation_order": 10,
+                "order": 10,
+                "reference_policy": "independent",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "composite",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      6.8,
+                      0.16,
+                      3.0
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.16,
+                0.16,
+                0.18,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                0,
+                -1,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.96
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 2,
+              "primary": true
+            }
+          },
+          {
+            "id": "wall_right",
+            "name": "Right gaming wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                3.4,
+                0,
+                1.5
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge cyberpunk gaming-room wall elevation designed as a full installed architectural surface: dark graphite or charcoal wall panels, sleek modular seams, restrained futuristic detailing, neon cyan and magenta accent strips, subtle technological texture and a coherent premium gaming aesthetic across the entire wall rectangle. The full wall should read as a finished immersive interior surface rather than a small isolated motif.",
+              "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field",
+              "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+              "appearance_prompt": "Dark graphite wall panels, subtle metallic or matte texture, luminous cyan-magenta-violet accents, crisp seams and clean premium high-tech finish.",
+              "surface": {
+                "projection": "opposite_side",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "cyberpunk_gaming_room",
+                "generation_order": 11,
+                "order": 11,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "composite",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left"
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      0.16,
+                      5.2,
+                      3.0
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.16,
+                0.16,
+                0.18,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                -1,
+                0,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.96
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_front",
+            "name": "Front gaming wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                0,
+                -2.6,
+                1.5
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge cyberpunk gaming-room wall elevation designed as a full installed architectural surface: dark graphite or charcoal wall panels, sleek modular seams, restrained futuristic detailing, neon cyan and magenta accent strips, subtle technological texture and a coherent premium gaming aesthetic across the entire wall rectangle. The full wall should read as a finished immersive interior surface rather than a small isolated motif.",
+              "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field",
+              "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+              "appearance_prompt": "Dark graphite wall panels, subtle metallic or matte texture, luminous cyan-magenta-violet accents, crisp seams and clean premium high-tech finish.",
+              "surface": {
+                "projection": "back",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "cyberpunk_gaming_room",
+                "generation_order": 12,
+                "order": 12,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "composite",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left"
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      6.8,
+                      0.16,
+                      3.0
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.16,
+                0.16,
+                0.18,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                0,
+                1,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.96
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          },
+          {
+            "id": "wall_left",
+            "name": "Left gaming wall",
+            "semantic": "vertical architectural surface",
+            "transform": {
+              "position": [
+                -3.4,
+                0,
+                1.5
+              ],
+              "rotation_deg": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "generation": {
+              "mode": "surface_texture",
+              "prompt": "One complete edge-to-edge cyberpunk gaming-room wall elevation designed as a full installed architectural surface: dark graphite or charcoal wall panels, sleek modular seams, restrained futuristic detailing, neon cyan and magenta accent strips, subtle technological texture and a coherent premium gaming aesthetic across the entire wall rectangle. The full wall should read as a finished immersive interior surface rather than a small isolated motif.",
+              "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette, room photograph, perspective view, cropped wall, tiny centered emblem, mostly blank field",
+              "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+              "appearance_prompt": "Dark graphite wall panels, subtle metallic or matte texture, luminous cyan-magenta-violet accents, crisp seams and clean premium high-tech finish.",
+              "surface": {
+                "projection": "side",
+                "generation_space": "rectified_surface",
+                "continuity_group": "wall_chain",
+                "style_group": "cyberpunk_gaming_room",
+                "generation_order": 13,
+                "order": 13,
+                "reference_policy": "previous_in_continuity_group",
+                "reference_strip_fraction": 0.1,
+                "layout_type": "panel_rhythm",
+                "material_family": "composite",
+                "resolution": 1536,
+                "minimum_short_edge_resolution": 768,
+                "resolution_multiple": 64,
+                "framing_margin": 1.035,
+                "previous_reference_edge": "right",
+                "reference_edge": "left",
+                "close_cycle": true,
+                "cycle_reference_object_id": "wall_rear",
+                "cycle_reference_edge": "left",
+                "cycle_target_edge": "right",
+                "cycle_reference_strip_fraction": 0.1
+              },
+              "strength": 0.92,
+              "guidance_scale": 10.5,
+              "num_inference_steps": 40
+            },
+            "scaffold": {
+              "parts": [
+                {
+                  "id": "main",
+                  "name": "Main",
+                  "primitive": "box",
+                  "transform": {
+                    "position": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "rotation_deg": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      0.16,
+                      5.2,
+                      3.0
+                    ]
+                  }
+                }
+              ]
+            },
+            "appearance": {
+              "base_color": [
+                0.16,
+                0.16,
+                0.18,
+                1
+              ]
+            },
+            "placement": {},
+            "physics": {
+              "mode": "static",
+              "body": "rigid",
+              "colliders": {
+                "mode": "from_scaffold"
+              }
+            },
+            "spatial_category": {
+              "type": "wall",
+              "wall_inward_normal_world": [
+                1,
+                0,
+                0
+              ],
+              "description": "explicit room-facing planar architectural surface"
+            },
+            "refinement": {
+              "camera_target": false,
+              "generation_strength": 0.62,
+              "fusion_strength": 0.32,
+              "max_periodicity_score": 0.96
+            },
+            "view_sampling": {
+              "enabled": true,
+              "quota": 1,
+              "primary": false
+            }
+          }
+        ],
+        "spatial_category": {
+          "type": "free",
+          "description": "architectural group"
+        }
+      },
+      {
+        "id": "gaming_desk",
+        "name": "Cyberpunk gaming desk",
+        "semantic": "gaming workstation desk",
+        "transform": {
+          "position": [
+            0,
+            -1.55,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete futuristic gaming desk with a wide desktop, sturdy support structure and a sleek silhouette designed for a computer gaming setup.",
+          "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+          "appearance_prompt": "Matte black and gunmetal finish, subtle RGB edge accents, clean panel seams, premium engineered surfaces and a sleek high-tech look."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "desktop",
+              "name": "Desktop",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.76
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.8,
+                  0.8,
+                  0.1
+                ]
+              }
+            },
+            {
+              "id": "frame",
+              "name": "Frame",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.67
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1.62,
+                  0.62,
+                  0.1
+                ]
+              }
+            },
+            {
+              "id": "leg_left",
+              "name": "Leg Left",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.72,
+                  0,
+                  0.37
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.62,
+                  0.74
+                ]
+              }
+            },
+            {
+              "id": "leg_right",
+              "name": "Leg Right",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.72,
+                  0,
+                  0.37
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.12,
+                  0.62,
+                  0.74
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.12,
+            0.12,
+            0.14,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 5,
+          "generation_strength": 0.57,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.84
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "computer_monitor",
+        "name": "Wide gaming monitor",
+        "semantic": "computer display monitor",
+        "transform": {
+          "position": [
+            0,
+            -1.37,
+            0.86
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete wide gaming monitor with a slim display panel, visible screen bezel and a stable monitor stand, sized appropriately for a gaming desk.",
+          "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+          "appearance_prompt": "Black monitor body, glossy screen surface, subtle RGB lighting accents and premium electronics detailing."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "screen",
+              "name": "Screen",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.18
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.82,
+                  0.08,
+                  0.46
+                ]
+              }
+            },
+            {
+              "id": "stem",
+              "name": "Stem",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  -0.06
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.08,
+                  0.18
+                ]
+              }
+            },
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  -0.16
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.28,
+                  0.2,
+                  0.03
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.08,
+            0.08,
+            0.1,
+            1
+          ]
+        },
+        "placement": {
+          "support_target": "gaming_desk",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.004
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.56,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "keyboard_main",
+        "name": "Mechanical gaming keyboard",
+        "semantic": "gaming keyboard",
+        "transform": {
+          "position": [
+            0,
+            -1.18,
+            0.82
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete gaming keyboard with a compact rectangular body and clear keyfield silhouette, designed as a desktop gaming peripheral.",
+          "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+          "appearance_prompt": "Matte black keyboard body, RGB key illumination, crisp key pattern and premium gaming-peripheral finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "body",
+              "name": "Body",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.48,
+                  0.18,
+                  0.035
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.1,
+            0.1,
+            0.12,
+            1
+          ]
+        },
+        "placement": {
+          "support_target": "gaming_desk",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.004
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.52,
+          "fusion_strength": 0.25,
+          "max_periodicity_score": 0.78
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "mouse_main",
+        "name": "Gaming mouse",
+        "semantic": "computer mouse",
+        "transform": {
+          "position": [
+            0.42,
+            -1.18,
+            0.82
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete gaming mouse with an ergonomic body and clear readable silhouette, suitable for a cyberpunk gaming desk setup.",
+          "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+          "appearance_prompt": "Matte black shell, subtle RGB accent lighting, soft highlights and premium gaming-peripheral finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "body",
+              "name": "Body",
+              "primitive": "sphere",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.11,
+                  0.045
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.1,
+            0.1,
+            0.12,
+            1
+          ]
+        },
+        "placement": {
+          "support_target": "gaming_desk",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.004
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.52,
+          "fusion_strength": 0.25,
+          "max_periodicity_score": 0.78
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "pc_tower",
+        "name": "RGB gaming PC tower",
+        "semantic": "desktop computer tower",
+        "transform": {
+          "position": [
+            1.0,
+            -1.45,
+            0.0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete gaming PC tower with a tall rectangular case, visible front and side panels, ventilation features and a strong high-end gaming-computer silhouette.",
+          "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+          "appearance_prompt": "Black and gunmetal chassis, tempered-glass side panel, visible internal RGB glow, subtle vent details and premium high-tech finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "case_main",
+              "name": "Case Main",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.38
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.28,
+                  0.58,
+                  0.76
+                ]
+              }
+            },
+            {
+              "id": "front_panel",
+              "name": "Front Panel",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.3,
+                  0.38
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.26,
+                  0.02,
+                  0.7
+                ]
+              }
+            },
+            {
+              "id": "top_panel",
+              "name": "Top Panel",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.77
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.26,
+                  0.56,
+                  0.02
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.08,
+            0.08,
+            0.1,
+            1
+          ]
+        },
+        "placement": {
+          "support_target": "gaming_desk",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.004
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 4,
+          "generation_strength": 0.55,
+          "fusion_strength": 0.27,
+          "max_periodicity_score": 0.8
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "gaming_chair",
+        "name": "Neon-accent gaming chair",
+        "semantic": "gaming chair",
+        "transform": {
+          "position": [
+            0,
+            -0.65,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            180
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete gaming chair with a bucket-style seat, tall backrest, armrests, central pedestal and wheeled star base, designed for a gaming desk setup.",
+          "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+          "appearance_prompt": "Black synthetic upholstery, cyan or magenta accent trim, matte and satin material contrast, subtle stitching and premium gaming-chair finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "seat",
+              "name": "Seat",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.5
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.56,
+                  0.56,
+                  0.14
+                ]
+              }
+            },
+            {
+              "id": "back",
+              "name": "Back",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0.22,
+                  1.05
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.6,
+                  0.16,
+                  1.1
+                ]
+              }
+            },
+            {
+              "id": "left_arm",
+              "name": "Left Arm",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  -0.28,
+                  0,
+                  0.7
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.32,
+                  0.12
+                ]
+              }
+            },
+            {
+              "id": "right_arm",
+              "name": "Right Arm",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0.28,
+                  0,
+                  0.7
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.32,
+                  0.12
+                ]
+              }
+            },
+            {
+              "id": "column",
+              "name": "Column",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.28
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.07,
+                  0.07,
+                  0.56
+                ]
+              }
+            },
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.07
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.34,
+                  0.34,
+                  0.08
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.1,
+            0.1,
+            0.12,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 5,
+          "generation_strength": 0.57,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "display_cabinet",
+        "name": "Collectible display cabinet",
+        "semantic": "display cabinet for collectible figures",
+        "transform": {
+          "position": [
+            -2.2,
+            1.3,
+            0
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete display cabinet for collectible figures with a tall glass-fronted body, side frame, top and base, and several interior shelves suitable for showcasing figures.",
+          "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+          "appearance_prompt": "Black or gunmetal frame, tempered glass panels, subtle interior LED shelf lighting, clean reflections and premium display-furniture finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "body",
+              "name": "Body",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  1.0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.72,
+                  0.42,
+                  2.0
+                ]
+              }
+            },
+            {
+              "id": "door_front",
+              "name": "Door Front",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  -0.22,
+                  1.0
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.68,
+                  0.02,
+                  1.9
+                ]
+              }
+            },
+            {
+              "id": "shelf_low",
+              "name": "Shelf Low",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.58
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.62,
+                  0.34,
+                  0.03
+                ]
+              }
+            },
+            {
+              "id": "shelf_mid",
+              "name": "Shelf Mid",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  1.02
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.62,
+                  0.34,
+                  0.03
+                ]
+              }
+            },
+            {
+              "id": "shelf_high",
+              "name": "Shelf High",
+              "primitive": "box",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  1.46
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.62,
+                  0.34,
+                  0.03
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.1,
+            0.1,
+            0.12,
+            1
+          ]
+        },
+        "placement": {},
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 5,
+          "generation_strength": 0.57,
+          "fusion_strength": 0.28,
+          "max_periodicity_score": 0.82
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "collectible_figure_1",
+        "name": "Collectible figure one",
+        "semantic": "displayed collectible figure",
+        "transform": {
+          "position": [
+            -2.2,
+            1.3,
+            0.61
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete stylized collectible figure for display, with a compact character-like silhouette, stable stance and premium showcase quality.",
+          "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+          "appearance_prompt": "Glossy and matte mixed painted finish, vibrant accent colors, clean sculpted silhouette and premium collectible-display finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "head",
+              "name": "Head",
+              "primitive": "sphere",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.18
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.08,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "torso",
+              "name": "Torso",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.08
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.06,
+                  0.06,
+                  0.16
+                ]
+              }
+            },
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  -0.02
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.08,
+                  0.02
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.5,
+            0.5,
+            0.55,
+            1
+          ]
+        },
+        "placement": {
+          "support_target": "display_cabinet",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.004
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.52,
+          "fusion_strength": 0.25,
+          "max_periodicity_score": 0.78
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "collectible_figure_2",
+        "name": "Collectible figure two",
+        "semantic": "displayed collectible figure",
+        "transform": {
+          "position": [
+            -2.0,
+            1.3,
+            1.05
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete stylized collectible figure for display, with a compact character-like silhouette, stable stance and premium showcase quality.",
+          "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+          "appearance_prompt": "Glossy and matte mixed painted finish, vibrant accent colors, clean sculpted silhouette and premium collectible-display finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "head",
+              "name": "Head",
+              "primitive": "sphere",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.18
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.08,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "torso",
+              "name": "Torso",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.08
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.06,
+                  0.06,
+                  0.16
+                ]
+              }
+            },
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  -0.02
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.08,
+                  0.02
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.5,
+            0.5,
+            0.55,
+            1
+          ]
+        },
+        "placement": {
+          "support_target": "display_cabinet",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.004
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.52,
+          "fusion_strength": 0.25,
+          "max_periodicity_score": 0.78
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      },
+      {
+        "id": "collectible_figure_3",
+        "name": "Collectible figure three",
+        "semantic": "displayed collectible figure",
+        "transform": {
+          "position": [
+            -2.4,
+            1.3,
+            1.49
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "generation": {
+          "mode": "asset_3d",
+          "backend": "pixal3d",
+          "prompt": "A single complete stylized collectible figure for display, with a compact character-like silhouette, stable stance and premium showcase quality.",
+          "negative_prompt": "rustic, farmhouse, classical furniture, plain untextured surface, flat placeholder color, cheap simplified furniture, crude block geometry, featureless plastic, monochrome object, empty material, oversized random ornament, isolated decal, poster, text, watermark, duplicate object, detached parts, changed silhouette",
+          "style_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor.",
+          "appearance_prompt": "Glossy and matte mixed painted finish, vibrant accent colors, clean sculpted silhouette and premium collectible-display finish."
+        },
+        "scaffold": {
+          "parts": [
+            {
+              "id": "head",
+              "name": "Head",
+              "primitive": "sphere",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.18
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.08,
+                  0.08
+                ]
+              }
+            },
+            {
+              "id": "torso",
+              "name": "Torso",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  0.08
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.06,
+                  0.06,
+                  0.16
+                ]
+              }
+            },
+            {
+              "id": "base",
+              "name": "Base",
+              "primitive": "cylinder",
+              "transform": {
+                "position": [
+                  0,
+                  0,
+                  -0.02
+                ],
+                "rotation_deg": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  0.08,
+                  0.08,
+                  0.02
+                ]
+              }
+            }
+          ]
+        },
+        "appearance": {
+          "base_color": [
+            0.5,
+            0.5,
+            0.55,
+            1
+          ]
+        },
+        "placement": {
+          "support_target": "display_cabinet",
+          "support_axis_world": [
+            0,
+            0,
+            1
+          ],
+          "clearance_m": 0.004
+        },
+        "physics": {
+          "mode": "static",
+          "body": "rigid",
+          "colliders": {
+            "mode": "from_scaffold"
+          }
+        },
+        "spatial_category": {
+          "type": "free",
+          "description": "volumetric freestanding or supported room object"
+        },
+        "refinement": {
+          "camera_target": true,
+          "target_camera_count": 3,
+          "generation_strength": 0.52,
+          "fusion_strength": 0.25,
+          "max_periodicity_score": 0.78
+        },
+        "view_sampling": {
+          "enabled": true,
+          "quota": 6,
+          "context_quota": 2,
+          "detail_quota": 4,
+          "primary": false
+        }
+      }
+    ],
+    "revision_notes": [
+      "Gaming-room scaffold follows the reference schema and retains explicit primitive geometry as the spatial contract.",
+      "The gaming setup is concentrated along one wall, with a seated interaction zone at the desk and a separate collectible display cabinet."
+    ],
+    "stage08_appearance_prompt": "Cyberpunk-style gaming room, futuristic neon atmosphere, dark graphite and charcoal architectural surfaces, electric cyan, magenta and violet accent lighting, sleek black and gunmetal furniture, RGB highlights, glowing tech details, clean premium plastics, brushed metal, tempered glass and illuminated display elements, photorealistic premium materials, immersive high-tech mood, no rustic or traditional decor."
+  }
+}
